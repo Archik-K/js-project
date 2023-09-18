@@ -181,38 +181,19 @@
 							</div>
 							<div class="filter__card">
 								<div class="filter__title">Какому питомцу необходима няня</div>
-								<!--
-		<div>
-		<input class="filter__card-input level" id="cats" value="кошки" type="radio" name="level"/>
-		<label class="filter__card-label" for="cats">Кошки</label>
-		</div>
-		<div>
-		<input class="filter__card-input level" id="dogs" value="собаки" type="radio" name="level"/>
-		<label class="filter__card-label" for="dogs">Собаки</label>
-		</div>
-		<div>
-		<input class="filter__card-input level" id="guinea_pigs" value="морские свинки" type="radio" name="level"/>
-		<label class="filter__card-label" for="guinea_pigs">Морские свинки</label>
-		</div>
-		<div>
-		<input class="filter__card-input level" id="parrots" value="попугаи" type="radio" name="level"/>
-		<label class="filter__card-label" for="parrots">Попугаи</label>
-		</div>
-		</div>
-	-->
 								<div>
 									<select name="pet" class="filter__card-input level" id="pet" onchange="showOther()">
-										<option class="options" value="choose">--Выберите животное--</option>
-										<option class="options" value="cat">Кошка</option>
-										<option class="options" value="dog">Собака</option>
-										<option class="options" value="parrot">Попугай</option>
-										<option class="options" value="hamster">Хомяк</option>
-										<option class="options" value="guinea-pig">Морская свинка</option>
-										<option class="options" value="chinchilla">Шиншила</option>
-										<option class="options" value="turtle">Черепаха</option>
-										<option class="options" value="snake">Змея</option>
-										<option class="options" value="lizard">Ящерица</option>
-										<option class="options" value="other">Другое</option>
+										<option class="options filter__card-input level" value="choose">--Выберите животное--</option>
+										<option class="options filter__card-input level" value="cat">Кошка</option>
+										<option class="options filter__card-input level" value="dog">Собака</option>
+										<option class="options filter__card-input level" value="parrot">Попугай</option>
+										<option class="options filter__card-input level" value="hamster">Хомяк</option>
+										<option class="options filter__card-input level" value="guinea-pig">Морская свинка</option>
+										<option class="options filter__card-input level" value="chinchilla">Шиншила</option>
+										<option class="options filter__card-input level" value="turtle">Черепаха</option>
+										<option class="options filter__card-input level" value="snake">Змея</option>
+										<option class="options filter__card-input level" value="lizard">Ящерица</option>
+										<option class="options filter__card-input level" value="other">Другое</option>
 									</select>
 								</div>
 								<div id="inputContainer">
@@ -221,24 +202,28 @@
 								<div class="filter__card">
 									<div class="filter__title">Опыт общения с животными</div>
 									<div>
-										<input class="filter__card-input experience" type="radio" name="experience" value="zero"
-											id="zero" />
-										<label class="filter__card-label" for="zero">Менее года</label>
+										<label class="filter__card-label" for="zero">
+											<input class="filter__card-input experience" type="radio" name="experience" value="zero"
+												id="zero" />
+											Менее года</label>
 									</div>
 									<div>
-										<input class="filter__card-input experience" type="radio" name="experience" value="small"
-											id="small" />
-										<label class="filter__card-label" for="small">От 1 до 3 лет</label>
+										<label class="filter__card-label" for="small">
+											<input class="filter__card-input experience" type="radio" name="experience" value="small"
+												id="small" />
+											От 1 до 3 лет</label>
 									</div>
 									<div>
-										<input class="filter__card-input experience" type="radio" name="experience" value="medium"
-											id="medium" />
-										<label class="filter__card-label" for="medium">От 3 до 6 лет</label>
+										<label class="filter__card-label" for="medium">
+											<input class="filter__card-input experience" type="radio" name="experience" value="medium"
+												id="medium" />
+											От 3 до 6 лет</label>
 									</div>
 									<div>
-										<input class="filter__card-input experience" type="radio" name="experience" value="large"
-											id="large" />
-										<label class="filter__card-label" for="large">Более 6 лет</label>
+										<label class="filter__card-label" for="large">
+											<input class="filter__card-input experience" type="radio" name="experience" value="large"
+												id="large" />
+											Более 6 лет</label>
 									</div>
 								</div>
 								<div class="filter__card">
@@ -251,12 +236,15 @@
 								<div class="filter__card">
 									<div class="filter__title">Формат</div>
 									<div>
-										<input class="filter__card-input format" id="distant" value="С выездом" type="radio" name="level" />
-										<label class="filter__card-label">С выездом</label>
+										<label class="filter__card-label">
+											<input class="filter__card-input format" id="distant" value="С выездом" type="radio"
+												name="level" />
+											С выездом</label>
 									</div>
 									<div>
-										<input class="filter__card-input format" id="home" value="На дому" type="radio" name="level" />
-										<label class="filter__card-label">На дому</label>
+										<label class="filter__card-label">
+											<input class="filter__card-input format" id="home" value="На дому" type="radio" name="level" />
+											На дому</label>
 									</div>
 								</div>
 								<div class="filter__btns">
@@ -395,7 +383,7 @@
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
 	<script src="./scrollToTop.js"></script>
-	<script src="./filter.js"></script>
+
 </body>
 
 </html>
