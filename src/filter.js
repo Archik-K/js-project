@@ -459,3 +459,46 @@ buttonSearch.addEventListener("click", function () {
 		input.value = input.defaultValue;
 	});
 });
+
+const inputContainerForm = document.getElementById("inputContainerForm"); // Получение элемента с ID "inputContainerForm" и сохранение его в переменную inputContainerForm
+const selectForm = document.getElementById("petForm"); // Получение элемента с ID "petForm" (select) и сохранение его в переменную
+const FormPet = document.forms.FormPet; // Получение формы с именем FormPet и сохранение ее в переменную FormPet
+const buttonSend = document.getElementById("btn-send"); // Получение кнопки с ID "btn-send" и сохранение ее в переменную buttonSend
+const commentsForm = document.getElementById("commentsForm");  // Получение элемента с ID "commentsForm" и сохранение его в переменную
+const timeSelect = document.getElementById("timeSelect"); // Получение элемента с ID "timeSelect" и сохранение его в переменную
+const flexRadioDefault2 = document.getElementById("flexRadioDefault2"); // Получение элемента с ID "flexRadioDefault2" и сохранение его в переменную
+const homeForm = document.getElementById("homeForm"); // Получение элемента с ID "homeForm" и сохранение его в переменную
+
+// Функция showOtherForm, которая изменяет стиль отображения inputContainerForm на основе выбранного значения в select в заявке на передержку
+function showOtherForm() {
+	// Если выбранное значение (value) в select равно "other"
+	if (selectForm.value === "other") {
+		// Показываем inputContainerForm, задавая значение display стиля на "block"
+		inputContainerForm.style.display = "block";
+	} else {
+		// Скрываем iinputContainerForm, задавая значение display стиля на "none"
+		inputContainerForm.style.display = "none";
+	}
+}
+
+// Добавляем обработчик события "click" на элемент buttonSend
+buttonSend.addEventListener("click", function () {
+	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
+	let inputElements = document.querySelectorAll("input");
+	// Устанавливаем значение selectForm на "choose"
+	selectForm.value = "choose";
+	// Устанавливаем значение timeSelectt на "1"
+	timeSelect.value = '1';
+	// Скрываем inputContainer, задавая значение display стиля на "none"
+	inputContainerForm.style.display = "none";
+	// Проходим по каждому найденному инпуту
+	inputElements.forEach(function (input) {
+		// Сбрасываем значение инпута до значения по умолчанию
+		input.value = input.defaultValue;
+		// Сбрасываем значения радиокнопок до значений по умолчанию
+		flexRadioDefault2.checked = true;
+		homeForm.checked = true;
+		// Очищаем текстовое поле  
+		commentsForm.value = '';
+	});
+});

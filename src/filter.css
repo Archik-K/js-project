@@ -231,3 +231,13 @@
 #inputContainer {
 	display: none;
 }
+
+#inputContainerForm {
+	display: none;
+}
+
+.choose-filterForm {
+	display: flex;
+	flex-direction: row;
+	column-gap: 10vh;
+}

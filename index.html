@@ -267,35 +267,46 @@
 		<h5 class="nannys_cards_title">Те кто будут рады вам помочь</h5>
 		<!-- ______________СЛАЙДЕР С КАРТОЧКАМИ НЯНЬ_______________ заполняем с бутстрапа 5шт-->
 	</div>
-	<form>
+	<form name="FormPet" class="FormPet">
 		<div class="registration-form" id="registration-forms_yakor">
 			<div class="registration-form-header-container">
 				<h2 class="registration-form-header">Оформить заявку на передержку</h2>
 			</div>
 			<div class="mb-3">
 				<label for="nameForm" class="form-label">Имя</label>
-				<input type="email" class="form-control" id="nameForm" placeholder="Ваше имя" />
+				<input type="text" class="form-control" id="nameForm" placeholder="Ваше имя" />
 			</div>
-			<select class="form-select mb-3" aria-label=".form-select-lg example">
-				<option selected>Выберите ваше животное</option>
-				<option value="cat">Кошка</option>
-				<option value="dog">Собака</option>
-				<option value="parrot">Попугай</option>
-				<option value="hamster">Хомяк</option>
-				<option value="guinea-pig">Морская свинка</option>
-				<option value="chinchilla">Шиншила</option>
-				<option value="turtle">Черепаха</option>
-				<option value="snake">Змея</option>
-				<option value="lizard">Ящерица</option>
-				<option value="fish">Рыбки</option>
-				<option value="raccoon">Енот</option>
-				<option value="meerkat">Сурикат</option>
-				<option value="rabbit">Кролик</option>
-				<option value="other">Другое</option>
-			</select>
+			<div class="mb-3">
+				<label for="citiForm" class="form-label">Район</label>
+				<input type="text" class="form-control" id="citiForm" placeholder="Район" />
+			</div>
+			<div class="mb-3">
+				<label for="petForm" class="form-label">Выберите ваше животное</label>
+				<select class="form-select mb-3" aria-label=".form-select-lg example" id="petForm" onchange="showOtherForm()">
+					<option selected>--Выберите животное--</option>
+					<option value="cat">Кошка</option>
+					<option value="dog">Собака</option>
+					<option value="parrot">Попугай</option>
+					<option value="hamster">Хомяк</option>
+					<option value="guinea-pig">Морская свинка</option>
+					<option value="chinchilla">Шиншила</option>
+					<option value="turtle">Черепаха</option>
+					<option value="snake">Змея</option>
+					<option value="lizard">Ящерица</option>
+					<option value="fish">Рыбки</option>
+					<option value="raccoon">Енот</option>
+					<option value="meerkat">Сурикат</option>
+					<option value="rabbit">Кролик</option>
+					<option value="other">Другое</option>
+				</select>
+			</div>
+			<div id="inputContainerForm">
+				<input class="other form-control" type="text" name="animalForm" id="animalForm"
+					placeholder="Введите животное" />
+			</div>
 			<div class="mb-3">
 				<label for="phoneForm" class="form-label">Телефон</label>
-				<input type="email" class="form-control" id="phoneForm" placeholder="+79012345678" />
+				<input type="email" class="form-control" id="phoneForm" placeholder="+7**********" />
 			</div>
 			<div class="mb-3">
 				<label class="form-label">Предпочтительный способ связи</label>
@@ -336,13 +347,27 @@
 					</div>
 				</div>
 			</div>
+			<div class="mb-3 choose-filterForm">
+				<div class="filterlabel-Form__title">Формат</div>
+				<div class="form-check">
+					<label class="label-Forml">
+						<input class="filterForm form-check-input" id="distantForm" value="С выездом" type="radio" name="level" />
+						С выездом</label>
+				</div>
+				<div class="form-check">
+					<label class="label-Form">
+						<input class="filterForm form-check-input" id="homeForm" value="На дому" type="radio" name="level"
+							checked />
+						На дому</label>
+				</div>
+			</div>
 			<div class="mb-3">
 				<label for="commentsForm" class="form-label">Дополнительно</label>
 				<textarea class="form-control" id="commentsForm" rows="3"
 					placeholder="Любая дополнительная информация, которую нам необходимо знать (например, тип и название корма)"></textarea>
 			</div>
 			<div class="registration-form-button-container">
-				<button type="button" class="btn btn--yellow">
+				<button type="button" class="btn btn--yellow" id="btn-send">
 					<span class="btn__txt">Отправить</span>
 					<i class="btn__bg" aria-hidden="true"></i>
 					<i class="btn__bg" aria-hidden="true"></i>
@@ -350,7 +375,6 @@
 					<i class="btn__bg" aria-hidden="true"></i>
 				</button>
 			</div>
-		</div>
 	</form>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
