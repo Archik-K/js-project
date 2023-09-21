@@ -27,7 +27,7 @@
 	font-family: "Merriweather", serif;
 	position: relative;
 	color: #4e0d10;
-	background: linear-gradient(to left, #4db300cf, #fdaf00a6);
+	background: linear-gradient(to left, #74a350cf, #fdaf00a6);
 	font-size: 2.5em;
 	font-weight: normal;
 	padding: 10px 40px;
@@ -70,7 +70,7 @@
 	border: none;
 	outline: none;
 	cursor: pointer;
-	z-index: 1;
+	z-index: 11;
 }
 #scrollToTopButton:hover {
 	background-color: #310000;
