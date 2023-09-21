@@ -506,3 +506,32 @@ footer img {
 	padding: 1.2%;
 	margin: 10px 0 0 0;
 }
+
+/* Геолокация */
+
+#map {
+	width: 600px;
+	height: 400px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.map_title {
+	display: flex;
+	justify-content: center;
+	font-size: 18px;
+	font-weight: 550;
+	color: #4e0d00;
+	margin-left: auto;
+	margin-right: auto;
+}
+.custom-popup {
+	color: rgb(0, 0, 0);
+	font-size: 18px;
+}
+
+.address {
+	color: rgb(6, 0, 43);
+	font-size: 13px;
+}

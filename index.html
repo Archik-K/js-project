@@ -18,6 +18,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 		<link rel="stylesheet" href="./nannys-cards.css" />
 		<link rel="stylesheet" href="./sass/app.css" />
 		<link rel="stylesheet" href="./sass/normalize.css" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		/>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 		<title>Document</title>
 	</head>
 	<body>
@@ -137,12 +142,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 		</p>
 		</div>
 		</div>
-		<div>
-		<!-- ______________ЗНАЕМ___РЕШЕНИЕ________________ -->
-		</div>
-		<div>
-		<!-- ______________АБЗАЦ РЕШЕНИЯ ПРОБЛЕМЫ ОПИСАНИЕ________________ -->
-		</div>
+		
+		<h4 class="map_title">Как нас найти</h4>
+		<div id="map"></div>
+		
 		<div>
 		<!-- ______________ФИЛЬТР ИЩУ НЯНЮ: РАЙОН, ОПЛАТА, ОПЫТ ОБЩЕНИЯ С ЖИВОТНЫМИ, НЯНЯ С ВЫЕЗДОМ ИЛИ БЕЗ, ВОЗРАСТ НЯНИ, ПОЛ, ОЛ ИН КЛЮЗИВ ИЛИ ВСЕ СВОЕ, ВЫБОР ЖИВОТНЫХ_______________ -->
 		<!-- Searching form-->
@@ -348,5 +351,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
 		<script src="./scrollToTop.js"></script>
+		<script src="./geolocation.js"></script>
+		
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		crossorigin=""></script>
+	  
 	</body>
 </html>
