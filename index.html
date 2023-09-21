@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,6 +15,11 @@
 	<link rel="stylesheet" href="./nannys-cards.css" />
 	<link rel="stylesheet" href="./sass/app.css" />
 	<link rel="stylesheet" href="./sass/normalize.css" />
+  <link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		/>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 	<title>Document</title>
 </head>
 
@@ -33,6 +37,7 @@
 	</header>
 	<button onclick="scrollToTop()" id="scrollToTopButton">Наверх</button>
 	<div class="container">
+
 		<div class="three">
 			<h1 class="block_header">Добро пожаловать в наш мир няней для животных!</h1>
 		</div>
@@ -139,6 +144,7 @@
 			</article>
 		</div>
 		<div class="a_card_with_a_description_of_the_site_2">
+
 			<p class="a_paragraph_describing_the_purpose_of_the_site_2">У нас в команде работают настоящие любители животных,
 				которые обладают не только обширными знаниями и опытом в уходе за различными видами животных, но и страстью к
 				своей работе. Мы понимаем, что каждое животное имеет свои индивидуальные потребности, и мы готовы предоставить
@@ -154,13 +160,10 @@
 			</p>
 		</div>
 	</div>
+	<h4 class="map_title">Как нас найти</h4>
+		<div id="map"></div>
 	<div>
-		<!-- ______________ЗНАЕМ___РЕШЕНИЕ________________ -->
-	</div>
-	<div>
-		<!-- ______________АБЗАЦ РЕШЕНИЯ ПРОБЛЕМЫ ОПИСАНИЕ________________ -->
-	</div>
-	<div>
+
 		<!-- ______________ФИЛЬТР ИЩУ НЯНЮ: РАЙОН, ОПЛАТА, ОПЫТ ОБЩЕНИЯ С ЖИВОТНЫМИ, НЯНЯ С ВЫЕЗДОМ ИЛИ БЕЗ, ВОЗРАСТ НЯНИ, ПОЛ, ОЛ ИН КЛЮЗИВ ИЛИ ВСЕ СВОЕ, ВЫБОР ЖИВОТНЫХ_______________ -->
 		<!-- Searching form-->
 		<h1 class="filter-block__title" id="filter_block__title_yakor">Найти Няню
@@ -421,7 +424,14 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-	<script src="./scrollToTop.js"></script>
-</body>
 
+		<script src="./scrollToTop.js"></script>
+		<script src="./geolocation.js"></script>
+		
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		crossorigin=""></script>
+	  
+	</body>
 </html>
+
