@@ -152,15 +152,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 200px;
-	height: 40px;
+	width: 176px;
+	height: 31px;
 	border: none;
 	border-radius: 10px;
-	margin: 20px 0px 0px 0px;
+	margin: 8px 0px 11px 0px;
 }
 
 .filter__throwoff {
-	margin: 10px 0px 0px 0px;
+	margin: 6px 0px 0px 0px;
 	color: white;
 	background-color: #f23942;
 }
@@ -179,7 +179,8 @@
 }
 
 .filter__hide {
-	margin: 10px 0px 0px 0px;
+	margin-left: auto;
+	margin-right: auto;
 	color: white;
 	background-color: #0722cc;
 }
@@ -203,10 +204,6 @@
 @media only screen and (max-width: 767px) {
 	.searching {
 		flex-direction: column-reverse;
-	}
-
-	.filter-mobile {
-		display: flex;
 	}
 
 	.searching__filters {
@@ -236,7 +233,6 @@
 		display: none;
 	}
 }
-
 
 /* ____________FILTER__________ */
 #inputContainer {
