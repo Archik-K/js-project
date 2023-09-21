@@ -173,7 +173,7 @@
 				<div class="filter-mobile" id="btnappfilter1">Фильтр</div>
 				<div class="row searching__filters searching__filters_shadow mt-1 filter-desktop">
 					<div class="filter">
-						<div class="filter-content">
+						<div class="filter-content" id="filterForm">
 							<div class="filter__type">
 								<div class="filter__title">Район</div>
 								<input type="text" name="city" id="city" placeholder="Введите район" list="cities" />
@@ -257,6 +257,7 @@
 								</div>
 							</div>
 						</div>
+						<div class="filter__hide" id="filterButton">Фильтр</div>
 					</div>
 				</div>
 			</div>
@@ -305,6 +306,10 @@
 					placeholder="Введите животное" />
 			</div>
 			<div class="mb-3">
+				<label for="petForm2" class="form-label">Порода питомца</label>
+				<input type="text" class="form-control" id="petForm2" placeholder="Порода питомца" />
+			</div>
+			<div class="mb-3">
 				<label for="phoneForm" class="form-label">Телефон</label>
 				<input type="email" class="form-control" id="phoneForm" placeholder="+7**********" />
 			</div>
@@ -333,6 +338,7 @@
 					<div class="row">
 						<label for="timeSelect" class="col-sm-3">Количество дней</label>
 						<select class="form-select mb-3 col-sm" name="periodForm" id="timeSelect">
+							<option value="0"></option>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>

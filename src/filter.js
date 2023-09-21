@@ -487,8 +487,8 @@ buttonSend.addEventListener("click", function () {
 	let inputElements = document.querySelectorAll("input");
 	// Устанавливаем значение selectForm на "choose"
 	selectForm.value = "choose";
-	// Устанавливаем значение timeSelectt на "1"
-	timeSelect.value = '1';
+	// Устанавливаем значение timeSelectt на "0"
+	timeSelect.value = '0';
 	// Скрываем inputContainer, задавая значение display стиля на "none"
 	inputContainerForm.style.display = "none";
 	// Проходим по каждому найденному инпуту
@@ -502,3 +502,18 @@ buttonSend.addEventListener("click", function () {
 		commentsForm.value = '';
 	});
 });
+
+let filterButton = document.getElementById("filterButton"); // Получение кнопки с ID "filterButton" и сохранение ее в переменную buttonHide
+let filterContent = document.getElementById("filterForm"); // Получение элемента с ID "filterFormt" и сохранение ее в переменную
+
+filterButton.addEventListener("click", function () {
+	if (filterContent.style.display === "none") {
+		// Если форма скрыта, открываем ее и переименовываем кнопку на "Свернуть фильтр"
+		filterContent.style.display = "block";
+		filterButton.innerHTML = "Свернуть фильтр";
+	} else {
+		// Если форма открыта, скрываем ее и переименовываем кнопку на "Фильтр"
+		filterContent.style.display = "none";
+		filterButton.innerHTML = "Фильтр";
+	}
+})

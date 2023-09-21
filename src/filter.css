@@ -147,7 +147,8 @@
 }
 
 .filter__change,
-.filter__throwoff {
+.filter__throwoff,
+.filter__hide {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -174,6 +175,16 @@
 }
 
 .filter__change:hover {
+	cursor: pointer;
+}
+
+.filter__hide {
+	margin: 10px 0px 0px 0px;
+	color: white;
+	background-color: #0722cc;
+}
+
+.filter__hide:hover {
 	cursor: pointer;
 }
 
@@ -240,4 +251,8 @@
 	display: flex;
 	flex-direction: row;
 	column-gap: 10vh;
+}
+
+#filterForm {
+	display: none;
 }
