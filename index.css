@@ -304,9 +304,11 @@ a.navigation__link_2:hover:after {
 	position: absolute;
 	width: 600px;
 	height: 600px;
-	background: linear-gradient(180deg,
-			rgb(150 215 99 / 44%) 31.77%,
-			#f0c04aa8 100%);
+	background: linear-gradient(
+		180deg,
+		rgb(150 215 99 / 44%) 31.77%,
+		#f0c04aa8 100%
+	);
 	mix-blend-mode: color-dodge;
 	-webkit-animation: move 25s infinite alternate;
 	animation: move 25s infinite alternate;
@@ -612,3 +614,82 @@ footer img {
 	display: none;
 }
 
+label {
+	cursor: pointer;
+}
+
+svg {
+	width: 3rem;
+	height: 3rem;
+	padding: 0.15rem;
+}
+
+/* hide radio buttons */
+
+input[name="star"] {
+	display: inline-block;
+	width: 0;
+	opacity: 0;
+	margin-left: -2px;
+}
+
+/* hide source svg */
+
+.star-source {
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+/* set initial color to transparent so fill is empty*/
+
+.star {
+	width: 21px;
+	color: transparent;
+	transition: color 0.2s ease-in-out;
+}
+
+/* set direction to row-reverse so 5th star is at the end and ~ can be used to fill all sibling stars that precede last starred element*/
+
+.star-container {
+	transform: scaleX(-1);
+	display: flex;
+	justify-content: space-evenly;
+}
+
+label:hover ~ label .star,
+svg.star:hover,
+input[name="star"]:focus ~ label .star,
+input[name="star"]:checked ~ label .star {
+	color: #ffee00;
+}
+
+input[name="star"]:checked + label .star {
+	animation: starred 0.5s;
+}
+
+input[name="star"]:checked + label {
+	animation: scaleup 1s;
+}
+
+@keyframes scaleup {
+	from {
+		transform: scale(1.2);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes starred {
+	from {
+		color: #5e6300;
+	}
+	to {
+		color: #ffde20;
+	}
+}
+
+.foto_star {
+	height: 20vh;
+}

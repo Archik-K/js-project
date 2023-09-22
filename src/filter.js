@@ -19,7 +19,59 @@ function searchResult(element) {
                 <div class="search__card-subtitle">Оплата</div>
                 <div class="search__card-salary">${element.salary} руб/сутки</div>
             </div>
+			<div class="foto_star">
         <image src="${element.photo}" class="search__card-photo" alt="photo" />
+
+
+<div class="star-source">
+  <svg>
+         <linearGradient x1="50%" y1="5.41294643%" x2="87.5527344%" y2="65.4921875%" id="grad">
+            <stop stop-color="#636400" offset="0%"></stop>
+            <stop stop-color="#636400" offset="60%"></stop>
+            <stop stop-color="#ff9306" offset="100%"></stop>
+        </linearGradient>
+    <symbol id="star" viewBox="153 89 106 108">   
+      <polygon id="star-shape" stroke="url(#grad)" stroke-width="5" fill="currentColor" points="206 162.5 176.610737 185.45085 189.356511 150.407797 158.447174 129.54915 195.713758 130.842203 206 95 216.286242 130.842203 253.552826 129.54915 222.643489 150.407797 235.389263 185.45085"></polygon>
+    </symbol>
+</svg>
+
+</div>
+<div class="star-container">
+  <input type="radio" name="star" id="five">
+  <label for="five">
+    <svg class="star">
+      <use xlink:href="#star"/>
+    </svg>
+  </label>
+  <input type="radio" name="star" id="four">
+  <label for="four">
+    <svg class="star">
+      <use xlink:href="#star"/>
+    </svg>
+  </label>
+  <input type="radio" name="star" id="three">
+  <label for="three">
+    <svg class="star">
+      <use xlink:href="#star"/>
+    </svg>
+  </label>
+  <input type="radio" name="star" id="two">
+  <label for="two">
+    <svg class="star">
+      <use xlink:href="#star" />
+    </svg>
+  </label>
+  <input type="radio" name="star" id="one">
+  <label for="one">
+   <svg class="star">
+    <use xlink:href="#star" />
+   </svg>
+  </label>
+
+</div>
+
+
+		</div>
         </div>`;
 
 	/* 	Заголовок с именем и видом питомца */
@@ -464,7 +516,7 @@ const inputContainerForm = document.getElementById("inputContainerForm"); // П�
 const selectForm = document.getElementById("petForm"); // Получение элемента с ID "petForm" (select) и сохранение его в переменную
 const FormPet = document.forms.FormPet; // Получение формы с именем FormPet и сохранение ее в переменную FormPet
 const buttonSend = document.getElementById("btn-send"); // Получение кнопки с ID "btn-send" и сохранение ее в переменную buttonSend
-const commentsForm = document.getElementById("commentsForm");  // Получение элемента с ID "commentsForm" и сохранение его в переменную
+const commentsForm = document.getElementById("commentsForm"); // Получение элемента с ID "commentsForm" и сохранение его в переменную
 const timeSelect = document.getElementById("timeSelect"); // Получение элемента с ID "timeSelect" и сохранение его в переменную
 const flexRadioDefault2 = document.getElementById("flexRadioDefault2"); // Получение элемента с ID "flexRadioDefault2" и сохранение его в переменную
 const homeForm = document.getElementById("homeForm"); // Получение элемента с ID "homeForm" и сохранение его в переменную
@@ -488,7 +540,7 @@ buttonSend.addEventListener("click", function () {
 	// Устанавливаем значение selectForm на "choose"
 	selectForm.value = "choose";
 	// Устанавливаем значение timeSelectt на "0"
-	timeSelect.value = '0';
+	timeSelect.value = "0";
 	// Скрываем inputContainer, задавая значение display стиля на "none"
 	inputContainerForm.style.display = "none";
 	// Проходим по каждому найденному инпуту
@@ -498,8 +550,8 @@ buttonSend.addEventListener("click", function () {
 		// Сбрасываем значения радиокнопок до значений по умолчанию
 		flexRadioDefault2.checked = true;
 		homeForm.checked = true;
-		// Очищаем текстовое поле  
-		commentsForm.value = '';
+		// Очищаем текстовое поле
+		commentsForm.value = "";
 	});
 });
 
@@ -516,4 +568,4 @@ filterButton.addEventListener("click", function () {
 		filterContent.style.display = "none";
 		filterButton.innerHTML = "Фильтр";
 	}
-})
+});
