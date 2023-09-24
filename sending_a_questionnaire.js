@@ -65,18 +65,19 @@ document
 
 //Очистка заявки для няни
 const inputContainerForm2 = document.getElementById("inputContainerForm2"); // Получение элемента с ID "inputContainerForm2" и сохранение его в переменную inputContainerForm
-const selectForm2 = document.getElementById("petForm2"); // Получение элемента с ID "petForm2" (select) и сохранение его в переменную
+const checkboxes = document.getElementsByClassName(".checkPets"); // Получение элемента с классом "checkPets" (checkbox) и сохранение его в переменную
 const Form2 = document.forms.form2; // Получение формы с именем form2 и сохранение ее в переменную
 const sending = document.getElementById("sending_a_babysitter_questionnaire"); // Получение кнопки с ID "sending_a_babysitter_questionnaire" и сохранение ее в переменную buttonSend
 const commentsForm2 = document.getElementById("commentsForm2");  // Получение элемента с ID "commentsForm2" и сохранение его в переменную
 const flexRadioDefault22 = document.getElementById("flexRadioDefault22"); // Получение элемента с ID "flexRadioDefault22" и сохранение его в переменную
 const home2 = document.getElementById("home2"); // Получение элемента с ID "home2" и сохранение его в переменную
 const workExperience = document.getElementById("workExperience"); // Получение элемента с ID "workExperience" и сохранение его в переменную
+const checkboxOther = document.getElementById("otherPets");
 
 // Функция showOtherForm, которая изменяет стиль отображения inputContainerForm на основе выбранного значения в select в заявке на передержку
 function showOtherForm2() {
 	// Если выбранное значение (value) в select равно "other"
-	if (selectForm2.value === "other") {
+	if (checkboxOther.checked) {
 		// Показываем inputContainerForm2, задавая значение display стиля на "block"
 		inputContainerForm2.style.display = "block";
 	} else {
@@ -89,8 +90,11 @@ function showOtherForm2() {
 sending.addEventListener("click", function () {
 	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
 	let inputElements = document.querySelectorAll("input");
-	// Устанавливаем значение selectForm на "choose"
-	selectForm2.value = "choose";
+	// Перебираем каждый элемент
+	for (var i = 0; i < checkboxes.length; i++) {
+		// Обнуляем значение чекбокса
+		checkboxes[i].checked = false;
+	}
 	// Устанавливаем значение workExperience на "0"
 	workExperience.value = '0';
 	// Скрываем inputContainer2, задавая значение display стиля на "none"
@@ -104,5 +108,22 @@ sending.addEventListener("click", function () {
 		home2.checked = true;
 		// Очищаем текстовое поле  
 		commentsForm2.value = '';
+		onRequest.style.display = "none";
+		btnRequest.innerHTML = "Показать все";
 	});
 });
+
+const btnRequest = document.querySelector(".all"); // Получение элемента с class "all" и сохранение его в переменную
+const onRequest = document.querySelector(".onRequest"); // Получение элемента с class "onRequest" и сохранение его в переменную
+
+function toggleCheckboxes() {
+	if (onRequest.style.display === "none") {
+		// Если checkbox скрыты, открываем их и переименовываем на "Скрыть"
+		onRequest.style.display = "block";
+		btnRequest.innerHTML = "Скрыть";
+	} else {
+		// Если checkbox открыты, закрываем их и переименовываем на "Показать все"
+		onRequest.style.display = "none";
+		btnRequest.innerHTML = "Показать все";
+	}
+}

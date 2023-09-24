@@ -523,7 +523,7 @@ buttonSearch.addEventListener("click", function () {
 	});
 });
 
-const inputContainerForm = document.getElementById("inputContainerForm"); // Получение элемента с ID "inputContainerForm" и сохранение его в переменную inputContainerForm
+const inputContainerForm = document.getElementById("inputContainer"); // Получение элемента с ID "inputContainerForm" и сохранение его в переменную inputContainerForm
 const selectForm = document.getElementById("petForm"); // Получение элемента с ID "petForm" (select) и сохранение его в переменную
 const FormPet = document.forms.FormPet; // Получение формы с именем FormPet и сохранение ее в переменную FormPet
 const buttonSend = document.getElementById("btn-send"); // Получение кнопки с ID "btn-send" и сохранение ее в переменную buttonSend

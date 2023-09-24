@@ -556,6 +556,7 @@ footer img {
 	padding: 1.2%;
 	margin: 10px 0 0 0;
 }
+
 /* Геолокация */
 
 #map {
@@ -575,6 +576,7 @@ footer img {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 .custom-popup {
 	color: rgb(0, 0, 0);
 	font-size: 18px;
@@ -613,81 +615,7 @@ footer img {
 	display: none;
 }
 
-/* label {
-	cursor: pointer;
-}
 
-svg {
-	width: 3rem;
-	height: 3rem;
-	padding: 0.15rem;
-} */
-
-/* hide radio buttons */
-/* 
-input[name="star"] {
-	display: inline-block;
-	width: 0;
-	opacity: 0;
-	margin-left: -2px;
-} */
-
-/* hide source svg */
-
-/* .star-source {
-	width: 0;
-	height: 0;
-	visibility: hidden;
-} */
-
-/* set initial color to transparent so fill is empty*/
-/* 
-.star {
-	width: 21px;
-	color: transparent;
-	transition: color 0.2s ease-in-out;
-} */
-
-/* set direction to row-reverse so 5th star is at the end and ~ can be used to fill all sibling stars that precede last starred element*/
-/* 
-.star-container {
-	transform: scaleX(-1);
-	display: flex;
-	justify-content: space-evenly;
-}
-
-label:hover ~ label .star,
-svg.star:hover,
-input[name="star"]:focus ~ label .star,
-input[name="star"]:checked ~ label .star {
-	color: #ffee00;
-}
-
-input[name="star"]:checked + label .star {
-	animation: starred 0.5s;
-}
-
-input[name="star"]:checked + label {
-	animation: scaleup 1s;
-}
-
-@keyframes scaleup {
-	from {
-		transform: scale(1.2);
-	}
-	to {
-		transform: scale(1);
-	}
-}
-
-@keyframes starred {
-	from {
-		color: #5e6300;
-	}
-	to {
-		color: #ffde20;
-	}
-}*/
 
 .foto_star {
 	height: 280px;
@@ -709,3 +637,18 @@ input[name="star"]:checked + label {
 .star.active {
 	color: gold;
 }
+
+.onRequest {
+	display: none;
+}
+
+.all {
+	color: rgb(31, 38, 135);
+	text-decoration: underline;
+	text-decoration-style: dashed;
+}
+
+.all:hover {
+	cursor: pointer;
+}
+

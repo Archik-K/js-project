@@ -233,12 +233,14 @@
 	.search__card-photo {
 		display: none;
 	}
+
+	#inputContainer {
+		display: none;
+	}
 }
 
 /* ____________FILTER__________ */
-#inputContainer {
-	display: none;
-}
+
 
 #inputContainerForm {
 	display: none;
@@ -250,6 +252,6 @@
 	column-gap: 10vh;
 }
 
-#filterForm {
+#inputContainer {
 	display: none;
 }
