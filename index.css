@@ -690,9 +690,10 @@ input[name="star"]:checked + label {
 }*/
 
 .foto_star {
-	height: 240px;
+	height: 280px;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 }
 
 .rating {

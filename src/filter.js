@@ -7,7 +7,8 @@ const list = document.querySelector("#cards"); // Выборка элемент�
 // Объявление функции searchResult с аргументом element
 function searchResult(element, index) {
 	// Добавление HTML-кода в элемент list (в теле HTML-кода используются свойства объекта element, полученного при вызове функции)
-	list.innerHTML += `
+	let search_card = document.createElement("div");
+	search_card.innerHTML = `
         <div class="search__card">
             <div>
                 <h5 class="search__card-title card-title">${element.name} (${element.pet})</h5> 
@@ -31,6 +32,8 @@ function searchResult(element, index) {
 		<p id="rating-value-${index}">Рейтинг:0</p>
 		</div>
         </div>`;
+	list.appendChild(search_card);
+
 	const stars = list.querySelectorAll(`.rating[data-index="${index}"] .star`);
 	const ratingValue = list.querySelector(`#rating-value-${index}`);
 
@@ -48,12 +51,6 @@ function searchResult(element, index) {
 	/* Заголовок раздела об оплате */
 	/* Информация об оплате */
 	/* Вставка изображения с указанием источника и альтернативного текста */
-
-	stars.forEach((star) => {
-		star.addEventListener("click", setRating);
-		star.addEventListener("mouseover", hoverRating);
-		star.addEventListener("mouseout", resetRating);
-	});
 
 	let currentRating = 0;
 
@@ -118,8 +115,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 		localStorage.removeItem("searchRequest");
 	} else {
 		// Если "searchRequest" отсутствует, выполняется цикл по массиву cards и вызов функции searchResult для каждого элемента
+		let index = 0;
 		for (card of cards) {
-			searchResult(card);
+			searchResult(card, index);
+			index++;
 		}
 	}
 	// Объявление переменной arrCity и инициализация его пустым массивом
