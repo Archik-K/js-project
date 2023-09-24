@@ -5,7 +5,7 @@ let firstCards; // Объявление переменной firstCards
 const list = document.querySelector("#cards"); // Выборка элемента с идентификатором "cards" и сохранение в переменной list
 
 // Объявление функции searchResult с аргументом element
-function searchResult(element) {
+function searchResult(element, index) {
 	// Добавление HTML-кода в элемент list (в теле HTML-кода используются свойства объекта element, полученного при вызове функции)
 	list.innerHTML += `
         <div class="search__card">
@@ -21,17 +21,24 @@ function searchResult(element) {
             </div>
 			<div class="foto_star">
         <image src="${element.photo}" class="search__card-photo" alt="photo" />
-		<div class="rating">
+		<div class="rating" data-index="${index}">
 		<span class="star" data-rating="1">★</span>
 		<span class="star" data-rating="2">★</span>
 		<span class="star" data-rating="3">★</span>
 		<span class="star" data-rating="4">★</span>
 		<span class="star" data-rating="5">★</span>
 		</div>
-		<p id="rating-value">Рейтинг: 0</p>
+		<p id="rating-value-${index}">Рейтинг:0</p>
 		</div>
         </div>`;
+	const stars = list.querySelectorAll(`.rating[data-index="${index}"] .star`);
+	const ratingValue = list.querySelector(`#rating-value-${index}`);
 
+	stars.forEach((star) => {
+		star.addEventListener("click", setRating);
+		star.addEventListener("mouseover", hoverRating);
+		star.addEventListener("mouseout", resetRating);
+	});
 	/* 	Заголовок с именем и видом питомца */
 	/* 	Информация о возрасте*/
 	/* Заголовок раздела о районе */
@@ -41,6 +48,53 @@ function searchResult(element) {
 	/* Заголовок раздела об оплате */
 	/* Информация об оплате */
 	/* Вставка изображения с указанием источника и альтернативного текста */
+
+	stars.forEach((star) => {
+		star.addEventListener("click", setRating);
+		star.addEventListener("mouseover", hoverRating);
+		star.addEventListener("mouseout", resetRating);
+	});
+
+	let currentRating = 0;
+
+	function setRating(event) {
+		const clickedStar = event.target;
+		const rating = parseInt(clickedStar.getAttribute("data-rating"));
+		currentRating = rating;
+		updateRating();
+		localStorage.setItem(`rating-${index}`, currentRating);
+	}
+
+	function hoverRating(event) {
+		const hoveredStar = event.target;
+		const rating = parseInt(hoveredStar.getAttribute("data-rating"));
+		updateRating(rating);
+	}
+
+	function resetRating() {
+		updateRating();
+	}
+
+	function updateRating(rating = currentRating) {
+		stars.forEach((star) => {
+			const starRating = parseInt(star.getAttribute("data-rating"));
+			if (starRating <= rating) {
+				star.classList.add("active");
+			} else {
+				star.classList.remove("active");
+			}
+		});
+
+		ratingValue.textContent = `Рейтинг: ${rating}`;
+	}
+	loadRating();
+	function loadRating() {
+		const savedRating = localStorage.getItem(`rating-${index}`);
+		if (savedRating !== null) {
+			currentRating = parseInt(savedRating);
+			updateRating();
+		}
+	}
 }
 
 // Добавление обработчика событий для события "DOMContentLoaded", когда весь документ загрузится

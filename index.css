@@ -406,7 +406,6 @@ a.navigation__link_2:hover:after {
 .registration-form {
 	margin: 100px auto 0 auto;
 	padding: 1%;
-	width: 70%;
 	background-color: #f7f9f2;
 }
 
@@ -601,7 +600,7 @@ footer img {
 .format {
 	display: flex;
 	flex-direction: row;
-	column-gap: 7vh;
+	column-gap: 6vh;
 }
 
 .gap2 {
