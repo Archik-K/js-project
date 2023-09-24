@@ -555,6 +555,7 @@ footer img {
 	padding: 1.2%;
 	margin: 10px 0 0 0;
 }
+
 /* Геолокация */
 
 #map {
@@ -574,6 +575,7 @@ footer img {
 	margin-left: auto;
 	margin-right: auto;
 }
+
 .custom-popup {
 	color: rgb(0, 0, 0);
 	font-size: 18px;
@@ -612,3 +614,16 @@ footer img {
 	display: none;
 }
 
+.onRequest {
+	display: none;
+}
+
+.all {
+	color: rgb(31, 38, 135);
+	text-decoration: underline;
+	text-decoration-style: dashed;
+}
+
+.all:hover {
+	cursor: pointer;
+}

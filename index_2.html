@@ -103,26 +103,70 @@
 				</div>
 				<input class="image_nanny" type="file" placeholder="Image" />
 				<div class="mb-3">
-					<label for="petForm2" class="form-label">Выберите ваше животное</label>
-					<select class="form-select mb-3" aria-label=".form-select-lg example" id="petForm2"
-						onchange="showOtherForm2()">
-						<option selected></option>
-						<option value="cat">Кошка</option>
-						<option value="dog">Собака</option>
-						<option value="parrot">Попугай</option>
-						<option value="hamster">Хомяк</option>
-						<option value="guinea-pig">Морская свинка</option>
-						<option value="chinchilla">Шиншила</option>
-						<option value="turtle">Черепаха</option>
-						<option value="snake">Змея</option>
-						<option value="lizard">Ящерица</option>
-						<option value="fish">Рыбки</option>
-						<option value="raccoon">Енот</option>
-						<option value="meerkat">Сурикат</option>
-						<option value="rabbit">Кролик</option>
-						<option value="other">Другое</option>
-					</select>
+					<label for="petForm2" class="form-label">Выберите животное</label>
+					<div>
+						<div>
+							<input type="checkbox" id="cat" name="cat" class="checkPets">
+							<label for="cat">Кошка</label>
+						</div>
+						<div>
+							<input type="checkbox" id="dog" name="dog" class="checkPets">
+							<label for="dog">Собака</label>
+						</div>
+						<div>
+							<input type="checkbox" id="parrot" name="parrot" class="checkPets">
+							<label for="parrot">Попугай</label>
+						</div>
+						<div>
+							<input type="checkbox" id="hamster" name="hamster" class="checkPets">
+							<label for="hamster">Хомяк</label>
+						</div>
+						<div class="onRequest">
+							<div>
+								<input type="checkbox" id="guinea-pig" name="guinea-pig" class="checkPets">
+								<label for="guinea-pig">Морская свинка</label>
+							</div>
+							<div>
+								<input type="checkbox" id="chinchilla" name="chinchilla" class="checkPets">
+								<label for="chinchilla">Шиншила</label>
+							</div>
+							<div>
+								<input type="checkbox" id="turtle" name="turtle" class="checkPets">
+								<label for="turtle">Черепаха</label>
+							</div>
+							<div>
+								<input type="checkbox" id="snake" name="snake" class="checkPets">
+								<label for="snake">Змея</label>
+							</div>
+							<div>
+								<input type="checkbox" id="lizard" name="lizard" class="checkPets">
+								<label for="lizard">Ящерица</label>
+							</div>
+							<div>
+								<input type="checkbox" id="fish" name="fish" class="checkPets">
+								<label for="fish">Рыбки</label>
+							</div>
+							<div>
+								<input type="checkbox" id="raccoon" name="raccoon" class="checkPets">
+								<label for="raccoon">Енот</label>
+							</div>
+							<div>
+								<input type="checkbox" id="meerkat" name="meerkat" class="checkPets">
+								<label for="meerkat">Сурикат</label>
+							</div>
+							<div>
+								<input type="checkbox" id="rabbit" name="rabbit" class="checkPets">
+								<label for="rabbit">Кролик</label>
+							</div>
+							<div>
+								<input type="checkbox" id="otherPets" name="other" class="checkPets">
+								<label for="other">Другое</label>
+							</div>
+						</div>
+						<p class="all" onclick="toggleCheckboxes()">Показать все</p>
+					</div>
 				</div>
+
 				<div id="inputContainerForm2">
 					<input class="other form-control" type="text" name="animalForm" id="animalForm"
 						placeholder="Введите животное" />
