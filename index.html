@@ -354,7 +354,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="mb-3 choose-filterForm">
+			<div class="mb-3 choose-filterForm" id="policy">
 				<div class="filterlabel-Form__title">Формат</div>
 				<div class="form-check">
 					<label class="label-Forml">
@@ -373,6 +373,11 @@
 				<textarea class="form-control" id="commentsForm" rows="3"
 					placeholder="Любая дополнительная информация, которую нам необходимо знать (например, тип и название корма)"></textarea>
 			</div>
+			<label class="form__label" for="policy_check"><input class="form__checkbox policy_check" id="policy_check"
+					type="checkbox" name="CHECK"><span class="form__custom-checkbox"></span> Нажимая кнопку, вы даете
+				согласие на обработку персональных данных и соглашаетесь с
+				<a class="form__link" href="./policy.html">Политикой конфиденциальности</a>
+			</label>
 			<div class="registration-form-button-container">
 				<button type="button" class="btn btn--yellow" id="btn-send">
 					<span class="btn__txt">Отправить</span>

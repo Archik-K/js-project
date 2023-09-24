@@ -433,6 +433,10 @@ function showOther() {
 }
 // Добавляем обработчик события "click" на элемент buttonReset
 buttonReset.addEventListener("click", function () {
+	const policy = document.querySelector(".policy_check");
+
+	policy.checked = false;
+
 	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
 	let inputElements = document.querySelectorAll("input");
 	// Устанавливаем значение select на "choose"
