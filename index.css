@@ -304,9 +304,11 @@ a.navigation__link_2:hover:after {
 	position: absolute;
 	width: 600px;
 	height: 600px;
-	background: linear-gradient(180deg,
-			rgb(150 215 99 / 44%) 31.77%,
-			#f0c04aa8 100%);
+	background: linear-gradient(
+		180deg,
+		rgb(150 215 99 / 44%) 31.77%,
+		#f0c04aa8 100%
+	);
 	mix-blend-mode: color-dodge;
 	-webkit-animation: move 25s infinite alternate;
 	animation: move 25s infinite alternate;
@@ -404,7 +406,6 @@ a.navigation__link_2:hover:after {
 .registration-form {
 	margin: 100px auto 0 auto;
 	padding: 1%;
-	width: 70%;
 	background-color: #f7f9f2;
 }
 
@@ -601,7 +602,7 @@ footer img {
 .format {
 	display: flex;
 	flex-direction: row;
-	column-gap: 7vh;
+	column-gap: 6vh;
 }
 
 .gap2 {
@@ -612,6 +613,29 @@ footer img {
 
 #inputContainerForm2 {
 	display: none;
+}
+
+
+
+.foto_star {
+	height: 280px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.rating {
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.star {
+	color: gray;
+}
+
+.star:hover,
+.star.active {
+	color: gold;
 }
 
 .onRequest {
@@ -627,3 +651,4 @@ footer img {
 .all:hover {
 	cursor: pointer;
 }
+
