@@ -614,7 +614,7 @@ footer img {
 	display: none;
 }
 
-label {
+/* label {
 	cursor: pointer;
 }
 
@@ -622,35 +622,35 @@ svg {
 	width: 3rem;
 	height: 3rem;
 	padding: 0.15rem;
-}
+} */
 
 /* hide radio buttons */
-
+/* 
 input[name="star"] {
 	display: inline-block;
 	width: 0;
 	opacity: 0;
 	margin-left: -2px;
-}
+} */
 
 /* hide source svg */
 
-.star-source {
+/* .star-source {
 	width: 0;
 	height: 0;
 	visibility: hidden;
-}
+} */
 
 /* set initial color to transparent so fill is empty*/
-
+/* 
 .star {
 	width: 21px;
 	color: transparent;
 	transition: color 0.2s ease-in-out;
-}
+} */
 
 /* set direction to row-reverse so 5th star is at the end and ~ can be used to fill all sibling stars that precede last starred element*/
-
+/* 
 .star-container {
 	transform: scaleX(-1);
 	display: flex;
@@ -688,8 +688,24 @@ input[name="star"]:checked + label {
 	to {
 		color: #ffde20;
 	}
-}
+}*/
 
 .foto_star {
-	height: 20vh;
+	height: 240px;
+	display: flex;
+	flex-direction: column;
+}
+
+.rating {
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.star {
+	color: gray;
+}
+
+.star:hover,
+.star.active {
+	color: gold;
 }

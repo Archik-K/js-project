@@ -116,7 +116,7 @@
 .search__card-photo {
 	border-radius: 100px;
 	max-width: 200px;
-	max-height: 189px;
+	height: 100%;
 	object-fit: cover;
 	padding: 0 0 0 0;
 }
