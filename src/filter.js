@@ -569,3 +569,27 @@ filterButton.addEventListener("click", function () {
 		filterButton.innerHTML = "Фильтр";
 	}
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+	const starInputs = document.querySelectorAll(
+		'.star-container input[type="radio"]'
+	);
+	const starLabels = document.querySelectorAll(".star-container label");
+
+	starInputs.forEach((input, index) => {
+		input.addEventListener("change", function () {
+			if (input.checked) {
+				for (let i = 0; i <= index; i++) {
+					starLabels[i].style.fill = "#ff9306";
+				}
+
+				for (let i = index + 1; i < starInputs.length; i++) {
+					starLabels[i].style.fill = "currentColor";
+				}
+
+				// Отправка значения рейтинга на сервер или выполнение другого действия
+				console.log("Рейтинг установлен:", 5 - index);
+			}
+		});
+	});
+});
