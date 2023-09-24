@@ -17,8 +17,8 @@ function saveReviewsToLocalStorage() {
 
 // Функция добавления отзыва в список
 function addReview() {
-    const nickname = input.value; // получаем значение из поля ввода ника и сохраняем его в переменной nickname
-    const review = textarea.value; // получаем значение из поля ввода отзыва и сохраняем его в переменной review
+    const nickname = input.value.replace(/</g, "‹").replace(/>/g, "›"); // получаем значение из поля ввода ника и сохраняем его в переменной nickname
+    const review = textarea.value.replace(/</g, "‹").replace(/>/g, "›"); // получаем значение из поля ввода отзыва и сохраняем его в переменной review
     let reviewObj = {}; // создаем пустой объект для хранения ника и текста отзыва
     reviewObj.nickname = nickname; // записываем в объект ник
     reviewObj.review = review; // записываем в объект текст отзыва
