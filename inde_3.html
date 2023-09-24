@@ -41,12 +41,12 @@
         </header>
         <main>
             <!-- //РАЗДЕЛ ОТЗЫВОВ -->
-            <div class="container_with_text">
-                <h2>Отзывы</h2>
+            <div class="container_with_cards">
+                <h1 class="title">Отзывы</h1>
                 <div class="list_of_reviews">
                     <!-- Пример карточки с отзывом -->
-                    <!-- <article class="card">
-                        <div class="card__content">
+                    <!-- <article class="review_card">
+                        <div class="review_card__content">
                             <p class="review_nickname">Лика</p>
                             <p class="review_text">
                                 Нам очень понравилась няня Дарья, которой мы
@@ -57,8 +57,8 @@
                         </div>
                     </article> -->
                     <!-- Структура новой карточки -->
-                    <!-- <article class="card">
-                    <div class="card__content">
+                    <!-- <article class="review_card">
+                    <div class="review_card__content">
                         <p class="review_nickname"></p>
                         <p class="review_text"></p>
                     </div>
@@ -68,18 +68,18 @@
                 <form class="form-review">
                     <input
                         type="name"
-                        class="nickname"
+                        class="nickname form-control"
                         id=""
                         placeholder="Ваше имя"
                     />
-                    <label
+                    <label class="form-label"
                         >Расскажите о своём опыте использования нашего
-                        сервиса</label
+                        сервиса:</label
                     >
-                    <textarea class="textarea"></textarea>
+                    <textarea class="textarea form-control" rows="3"></textarea>
                     <!-- <input type="file" placeholder="Фото" /> -->
                     <button type="button" class="btn btn--yellow btn--submit3">
-                        <span class="btn__txt">Отправить</span>
+                        <span class="btn__txt">Отправить отзыв</span>
                         <i class="btn__bg" aria-hidden="true"></i>
                         <i class="btn__bg" aria-hidden="true"></i>
                         <i class="btn__bg" aria-hidden="true"></i>

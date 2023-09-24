@@ -38,9 +38,9 @@ function updateReviewList() {
     // создаем карточки для каждого отзыва
     for (let i = 0; i < reviews.length; i++) {
         const newArticle = document.createElement("article"); // Создаем новый элемент article
-        newArticle.classList.add("card"); //Добавляем класс в новый article
+        newArticle.classList.add("review_card"); //Добавляем класс в новый article
         const newDiv = document.createElement("div");
-        newDiv.classList.add("card__content");
+        newDiv.classList.add("review_card__content");
         const newPNickname = document.createElement("p");
         newPNickname.classList.add("review_nickname");
         const newPText = document.createElement("p");
