@@ -94,102 +94,309 @@
 	padding: 1em;
 }
 
-.navigation {
-	display: flex;
-	width: 100%;
-	justify-content: space-evenly;
+@media (max-width: 1199.98px) {
+	.navigation {
+		display: none;
+	}
 }
 
-.navigation a:hover {
-	color: #700000;
-}
+@media (min-width: 1199.98px) {
+	.navigation {
+		display: flex;
+		width: 100%;
+		justify-content: space-evenly;
+	}
+	.navigation a:hover {
+		color: #700000;
+	}
 
-a.navigation__link_1:before,
-a.navigation__link_2:before,
-a.navigation__link_3:before,
-a.navigation__link_4:before {
-	content: "";
-	display: block;
-	height: 1px;
-	/* Высота линии */
-	background: #4e0d00;
-	/* Цвет линии */
-	width: 43px;
-	/* Ширина линии до наведения */
-	margin: 0 auto 10px;
-	/* Отступ с боков по центру и снизу */
-	transition: 1s;
-	/* Время, за которое линия возвращается после наведения */
-}
+	a.navigation__link_1:before,
+	a.navigation__link_2:before,
+	a.navigation__link_3:before,
+	a.navigation__link_4:before {
+		content: "";
+		display: block;
+		height: 1px;
+		/* Высота линии */
+		background: #4e0d00;
+		/* Цвет линии */
+		width: 43px;
+		/* Ширина линии до наведения */
+		margin: 0 auto 10px;
+		/* Отступ с боков по центру и снизу */
+		transition: 1s;
+		/* Время, за которое линия возвращается после наведения */
+	}
 
-a.navigation__link_1:hover:before,
-a.navigation__link_3:hover:before,
-a.navigation__link_4:hover:before {
-	width: 100px;
-	/* Ширина линии при наведении */
-	transition: ease-out 1s;
-	/* Время, за которое линия расширяется при наведении */
-}
+	a.navigation__link_1:hover:before,
+	a.navigation__link_3:hover:before,
+	a.navigation__link_4:hover:before {
+		width: 100px;
+		/* Ширина линии при наведении */
+		transition: ease-out 1s;
+		/* Время, за которое линия расширяется при наведении */
+	}
 
-a.navigation__link_2:hover:before {
-	width: 90px;
-	/* Ширина линии при наведении */
-	transition: ease-out 1s;
-	/* Время, за которое линия расширяется при наведении */
-}
+	a.navigation__link_2:hover:before {
+		width: 90px;
+		/* Ширина линии при наведении */
+		transition: ease-out 1s;
+		/* Время, за которое линия расширяется при наведении */
+	}
 
-/*  CSS код для линии под заголовком */
-a.navigation__link_1:after,
-a.navigation__link_2:after,
-a.navigation__link_3:after,
-a.navigation__link_4:after {
-	content: "";
-	display: block;
-	height: 1px;
-	/* Высота линии */
-	background: #4e0d00;
-	/* Цвет линии */
-	width: 43px;
-	/* Ширина линии до наведения */
-	margin: 10px auto 0;
-	/* Отступ с боков по центру и сверху */
-	transition: 1s;
-	/* Время, за которое линия возвращается после наведения */
-}
+	/*  CSS код для линии под заголовком */
+	a.navigation__link_1:after,
+	a.navigation__link_2:after,
+	a.navigation__link_3:after,
+	a.navigation__link_4:after {
+		content: "";
+		display: block;
+		height: 1px;
+		/* Высота линии */
+		background: #4e0d00;
+		/* Цвет линии */
+		width: 43px;
+		/* Ширина линии до наведения */
+		margin: 10px auto 0;
+		/* Отступ с боков по центру и сверху */
+		transition: 1s;
+		/* Время, за которое линия возвращается после наведения */
+	}
 
-a.navigation__link_1:hover:after,
-a.navigation__link_3:hover:after,
-a.navigation__link_4:hover:after {
-	width: 100px;
-	/* Ширина линии при наведении */
-	transition: ease-out 1s;
-	/* Время, за которое линия расширяется при наведении */
-}
+	a.navigation__link_1:hover:after,
+	a.navigation__link_3:hover:after,
+	a.navigation__link_4:hover:after {
+		width: 100px;
+		/* Ширина линии при наведении */
+		transition: ease-out 1s;
+		/* Время, за которое линия расширяется при наведении */
+	}
 
-a.navigation__link_2:hover:after {
-	width: 90px;
-	/* Ширина линии при наведении */
-	transition: ease-out 1s;
-	/* Время, за которое линия расширяется при наведении */
-}
+	a.navigation__link_2:hover:after {
+		width: 90px;
+		/* Ширина линии при наведении */
+		transition: ease-out 1s;
+		/* Время, за которое линия расширяется при наведении */
+	}
 
-.navigation__link_1,
-.navigation__link_2,
-.navigation__link_3,
-.navigation__link_4 {
-	font-size: 18px;
-	font-weight: 550;
-	color: #4e0d00;
-	padding: 0 7% 0 7%;
-	text-align: center;
-	/* Текст по центру */
+	.navigation__link_1,
+	.navigation__link_2,
+	.navigation__link_3,
+	.navigation__link_4 {
+		font-size: 18px;
+		font-weight: 550;
+		color: #4e0d00;
+		padding: 0 7% 0 7%;
+		text-align: center;
+		/* Текст по центру */
+	}
 }
-
 .div_block_text {
 	width: 90vw;
 	padding: 2% 8% 0 8%;
 }
 
+/* БУРГЕР НАВИГАЦИЯ */
+@media (min-width: 1199.98px) {
+	.hamburger-menu {
+		display: none;
+	}
+}
+
+@media (max-width: 1199.98px) {
+	#menu__toggle {
+		opacity: 0;
+	}
+
+	#menu__toggle:checked + .menu__btn > span {
+		transform: rotate(-45deg);
+	}
+
+	#menu__toggle:checked + .menu__btn > span::before {
+		top: 0;
+		transform: rotate(0deg);
+	}
+
+	#menu__toggle:checked + .menu__btn > span::after {
+		top: 0;
+		transform: rotate(-90deg);
+	}
+	#menu__toggle:checked + .menu__btn_2 > span {
+		transform: rotate(-45deg);
+	}
+
+	#menu__toggle:checked + .menu__btn_2 > span::before {
+		top: 0;
+		transform: rotate(0deg);
+	}
+
+	#menu__toggle:checked + .menu__btn_2 > span::after {
+		top: 0;
+		transform: rotate(-90deg);
+	}
+
+	#menu__toggle:checked ~ .menu__box {
+		right: 0 !important;
+	}
+	#menu__toggle:checked ~ .menu__box_2 {
+		right: 0 !important;
+	}
+
+	.menu__btn {
+		display: flex;
+		align-items: center;
+		position: absolute;
+		top: 26px;
+		right: 20px;
+		width: 32px;
+		height: 32px;
+		cursor: pointer;
+		z-index: 10;
+	}
+	.menu__btn_2 {
+		display: flex;
+		align-items: center;
+		position: absolute;
+		top: 26px;
+		right: 20px;
+		width: 32px;
+		height: 32px;
+		cursor: pointer;
+		z-index: 12;
+	}
+	.menu__btn_2 > span,
+	.menu__btn_2 > span::before,
+	.menu__btn_2 > span::after {
+		display: block;
+		position: absolute;
+		width: 33px;
+		height: 3px;
+		background-color: #000000;
+		transition-duration: 0.25s;
+	}
+
+	.menu__btn > span,
+	.menu__btn > span::before,
+	.menu__btn > span::after {
+		display: block;
+		position: absolute;
+		width: 33px;
+		height: 3px;
+		background-color: #000000;
+		transition-duration: 0.25s;
+	}
+
+	.menu__btn > span::before {
+		content: "";
+		top: -10px;
+	}
+
+	.menu__btn > span::after {
+		content: "";
+		top: 10px;
+	}
+	.menu__btn_2 > span::before {
+		content: "";
+		top: -10px;
+	}
+
+	.menu__btn_2 > span::after {
+		content: "";
+		top: 10px;
+	}
+
+	.menu__box_2 {
+		z-index: 11;
+		display: block;
+		position: fixed;
+		top: 0;
+		right: -100%; /* изменено: с "left" на "right" */
+		width: 300px;
+		height: 100%;
+		margin: 0;
+		padding: 80px 0;
+		list-style: none;
+		background: linear-gradient(to left, #74a350, #fdb100);
+		box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+		transition-duration: 0.25s;
+	}
+
+	.menu__box {
+		z-index: 7;
+		display: block;
+		position: fixed;
+		top: 0;
+		right: -100%; /* изменено: с "left" на "right" */
+		width: 300px;
+		height: 100%;
+		margin: 0;
+		padding: 80px 0;
+		list-style: none;
+		background: linear-gradient(to left, #74a350, #fdb100);
+		box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+		transition-duration: 0.25s;
+	}
+
+	.menu__item {
+		display: block;
+		padding: 35px 24px;
+		color: #4e0d00;
+		font-family: "Roboto", sans-serif;
+		font-size: 20px;
+		font-weight: 600;
+		text-decoration: none;
+		transition-duration: 0.25s;
+	}
+
+	.menu__item:hover {
+		color: #000000;
+		background-color: #ffbc2ad3;
+	}
+	li:after {
+		position: relative;
+	}
+
+	a.menu__item:before {
+		content: "";
+		display: block;
+		height: 1px;
+		/* Высота линии */
+		background: #4e0d00;
+		/* Цвет линии */
+		width: 190px;
+		/* Отступ с боков по центру и снизу */
+		transition: 1s;
+		/* Время, за которое линия возвращается после наведения */
+	}
+
+	a.menu__item:hover:before {
+		width: 250px;
+		/* Ширина линии при наведении */
+		transition: ease-out 1s;
+		/* Время, за которое линия расширяется при наведении */
+	}
+
+	/*  CSS код для линии под заголовком */
+	a.menu__item:after {
+		content: "";
+		display: block;
+		height: 1px;
+		/* Высота линии */
+		background: #4e0d00;
+		/* Цвет линии */
+		width: 190px;
+		/* Отступ с боков по центру и сверху */
+		transition: 1s;
+		/* Время, за которое линия возвращается после наведения */
+	}
+
+	a.menu__item:hover:after {
+		width: 250px;
+		/* Ширина линии при наведении */
+		transition: ease-out 1s;
+		/* Время, за которое линия расширяется при наведении */
+	}
+}
 /* _____________MAIN____________ */
 .main {
 	display: flex;
@@ -227,7 +434,7 @@ a.navigation__link_2:hover:after {
 	border: 1px solid rgba(255, 255, 255, 0.18);
 	border-radius: 1rem;
 	padding: 1.5rem;
-	z-index: 10;
+	z-index: 5;
 	color: #4e0d10;
 	margin: 0 0 37px 0;
 }
@@ -241,7 +448,7 @@ a.navigation__link_2:hover:after {
 	border: 1px solid rgba(255, 255, 255, 0.18);
 	border-radius: 1rem;
 	padding: 1.5rem;
-	z-index: 10;
+	z-index: 5;
 	color: #4e0d10;
 	margin: 38px 0 37px 0;
 }
@@ -406,6 +613,7 @@ a.navigation__link_2:hover:after {
 .registration-form {
 	margin: 100px auto 0 auto;
 	padding: 1%;
+	width: 70%;
 	background-color: #f7f9f2;
 }
 
@@ -560,6 +768,7 @@ footer img {
 /* Геолокация */
 
 #map {
+	z-index: 3;
 	width: 600px;
 	height: 400px;
 	display: block;
@@ -615,8 +824,6 @@ footer img {
 	display: none;
 }
 
-
-
 .foto_star {
 	height: 280px;
 	display: flex;
@@ -651,4 +858,3 @@ footer img {
 .all:hover {
 	cursor: pointer;
 }
-
