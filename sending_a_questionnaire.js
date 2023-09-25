@@ -65,7 +65,6 @@ document
 
 //Очистка заявки для няни
 const inputContainerForm2 = document.getElementById("inputContainerForm2"); // Получение элемента с ID "inputContainerForm2" и сохранение его в переменную inputContainerForm
-const checkboxes = document.getElementsByClassName(".checkPets"); // Получение элемента с классом "checkPets" (checkbox) и сохранение его в переменную
 const Form2 = document.forms.form2; // Получение формы с именем form2 и сохранение ее в переменную
 const sending = document.getElementById("sending_a_babysitter_questionnaire"); // Получение кнопки с ID "sending_a_babysitter_questionnaire" и сохранение ее в переменную buttonSend
 const commentsForm2 = document.getElementById("commentsForm2");  // Получение элемента с ID "commentsForm2" и сохранение его в переменную
@@ -88,6 +87,7 @@ function showOtherForm2() {
 
 // Добавляем обработчик события "click" на элемент sending
 sending.addEventListener("click", function () {
+	const checkboxes = document.querySelectorAll(".checkPets");
 	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
 	let inputElements = document.querySelectorAll("input");
 	// Перебираем каждый элемент

@@ -199,7 +199,7 @@
 					<p>Укажите свою дату рождения: <input type="date" name="calendar" /></p>
 				</div>
 				<div class="mb-3">
-					<label for="workExperience" class="form-label">Опыт работы</label>
+					<label for="workExperience" class="form-label" id="policy-nannys">Опыт работы</label>
 					<select class="form-select mb-3" aria-label=".form-select-lg example" id="workExperience">
 						<option value="0"></option>
 						<option value="1">Менее года</option>
@@ -244,6 +244,11 @@
 					<textarea class="form-control" id="commentsForm2" rows="3"
 						placeholder="Любая дополнительная информация, которую нам необходимо знать. Опишите опыт работы, если он имеется."></textarea>
 				</div>
+				<label class="form__label" for="policy_check"><input class="form__checkbox" id="policy_check" type="checkbox"
+						name="CHECK"><span class="form__custom-checkbox"></span> Нажимая кнопку, вы даете
+					согласие на обработку персональных данных и соглашаетесь с
+					<a class="form__link" href="./policy.html">Политикой конфиденциальности</a>
+				</label>
 				<div class="registration-form-button-container">
 					<button type="button" class="btn btn--yellow" id="sending_a_babysitter_questionnaire">
 						<span class="btn__txt">Отправить</span>

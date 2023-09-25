@@ -185,23 +185,65 @@
 							<div class="filter__card">
 								<div class="filter__title">Какому питомцу необходима няня</div>
 								<div>
-									<select name="pet" class="options filter__card-input level" id="pet" onchange="showOther()">
-										<option value="choose">--Выберите животное--</option>
-										<option value="cat">Кошка</option>
-										<option value="dog">Собака</option>
-										<option value="parrot">Попугай</option>
-										<option value="hamster">Хомяк</option>
-										<option value="guinea-pig">Морская свинка</option>
-										<option value="chinchilla">Шиншила</option>
-										<option value="turtle">Черепаха</option>
-										<option value="snake">Змея</option>
-										<option value="lizard">Ящерица</option>
-										<option value="fish">Рыбки</option>
-										<option value="raccoon">Енот</option>
-										<option value="meerkat">Сурикат</option>
-										<option value="rabbit">Кролик</option>
-										<option value="other">Другое</option>
-									</select>
+									<div>
+										<input type="checkbox" id="cat" name="cat" class="CheckPets">
+										<label for="cat">Кошка</label>
+									</div>
+									<div>
+										<input type="checkbox" id="dog" name="dog" class="CheckPets">
+										<label for="dog">Собака</label>
+									</div>
+									<div>
+										<input type="checkbox" id="parrot" name="parrot" class="CheckPets">
+										<label for="parrot">Попугай</label>
+									</div>
+									<div>
+										<input type="checkbox" id="hamster" name="hamster" class="CheckPets">
+										<label for="hamster">Хомяк</label>
+									</div>
+									<div class="OnRequest">
+										<div>
+											<input type="checkbox" id="guinea-pig" name="guinea-pig" class="CheckPets">
+											<label for="guinea-pig">Морская свинка</label>
+										</div>
+										<div>
+											<input type="checkbox" id="chinchilla" name="chinchilla" class="CheckPets">
+											<label for="chinchilla">Шиншила</label>
+										</div>
+										<div>
+											<input type="checkbox" id="turtle" name="turtle" class="CheckPets">
+											<label for="turtle">Черепаха</label>
+										</div>
+										<div>
+											<input type="checkbox" id="snake" name="snake" class="CheckPets">
+											<label for="snake">Змея</label>
+										</div>
+										<div>
+											<input type="checkbox" id="lizard" name="lizard" class="CheckPets">
+											<label for="lizard">Ящерица</label>
+										</div>
+										<div>
+											<input type="checkbox" id="fish" name="fish" class="CheckPets">
+											<label for="fish">Рыбки</label>
+										</div>
+										<div>
+											<input type="checkbox" id="raccoon" name="raccoon" class="CheckPets">
+											<label for="raccoon">Енот</label>
+										</div>
+										<div>
+											<input type="checkbox" id="meerkat" name="meerkat" class="CheckPets">
+											<label for="meerkat">Сурикат</label>
+										</div>
+										<div>
+											<input type="checkbox" id="rabbit" name="rabbit" class="CheckPets">
+											<label for="rabbit">Кролик</label>
+										</div>
+										<div>
+											<input type="checkbox" id="OtherPets" name="other" class="CheckPets" onclick="showOther()">
+											<label for="other">Другое</label>
+										</div>
+									</div>
+									<p class="allPets" onclick="toggleCheckboxesPets()">Показать все</p>
 								</div>
 								<div id="inputContainer">
 									<input class="other" type="text" name="animal" id="animal" placeholder="Введите животное" />
@@ -210,25 +252,25 @@
 									<div class="filter__title">Опыт общения с животными</div>
 									<div>
 										<label class="filter__card-label" for="zero">
-											<input class="filter__card-input experience" type="radio" name="experience" value="zero"
+											<input class="filter__card-input experience radio" type="radio" name="experience" value="zero"
 												id="zero" />
 											Менее года</label>
 									</div>
 									<div>
 										<label class="filter__card-label" for="small">
-											<input class="filter__card-input experience" type="radio" name="experience" value="small"
+											<input class="filter__card-input experience radio" type="radio" name="experience" value="small"
 												id="small" />
 											От 1 до 3 лет</label>
 									</div>
 									<div>
 										<label class="filter__card-label" for="medium">
-											<input class="filter__card-input experience" type="radio" name="experience" value="medium"
+											<input class="filter__card-input experience radio" type="radio" name="experience" value="medium"
 												id="medium" />
 											От 3 до 6 лет</label>
 									</div>
 									<div>
 										<label class="filter__card-label" for="large">
-											<input class="filter__card-input experience" type="radio" name="experience" value="large"
+											<input class="filter__card-input experience radio" type="radio" name="experience" value="large"
 												id="large" />
 											Более 6 лет</label>
 									</div>
@@ -244,19 +286,20 @@
 									<div class="filter__title">Формат</div>
 									<div>
 										<label class="filter__card-label">
-											<input class="filter__card-input format" id="distant" value="С выездом" type="radio"
+											<input class="filter__card-input format radio" id="distant" value="С выездом" type="radio"
 												name="level" />
 											С выездом</label>
 									</div>
 									<div>
 										<label class="filter__card-label">
-											<input class="filter__card-input format" id="home" value="На дому" type="radio" name="level" />
+											<input class="filter__card-input format radio" id="home" value="На дому" type="radio"
+												name="level" />
 											На дому</label>
 									</div>
 								</div>
 								<div class="filter__btns">
-									<div class="filter__change" id="btnFilter">Няня найдись!</div>
-									<div class="filter__throwoff" id="btnReboot">Сбросить</div>
+									<div class="filter__change" id="btnFilter" onclick="CleanFilter()">Няня найдись!</div>
+									<div class="filter__throwoff" id="btnReboot" onclick="CleanFilter()">Сбросить</div>
 								</div>
 							</div>
 						</div>
@@ -286,23 +329,67 @@
 			</div>
 			<div class="mb-3">
 				<label for="petForm" class="form-label">Выберите ваше животное</label>
-				<select class="form-select mb-3" aria-label=".form-select-lg example" id="petForm" onchange="showOtherForm()">
-					<option selected></option>
-					<option value="cat">Кошка</option>
-					<option value="dog">Собака</option>
-					<option value="parrot">Попугай</option>
-					<option value="hamster">Хомяк</option>
-					<option value="guinea-pig">Морская свинка</option>
-					<option value="chinchilla">Шиншила</option>
-					<option value="turtle">Черепаха</option>
-					<option value="snake">Змея</option>
-					<option value="lizard">Ящерица</option>
-					<option value="fish">Рыбки</option>
-					<option value="raccoon">Енот</option>
-					<option value="meerkat">Сурикат</option>
-					<option value="rabbit">Кролик</option>
-					<option value="other">Другое</option>
-				</select>
+				<div>
+					<div>
+						<input type="checkbox" id="cat" name="cat" class="checkPets">
+						<label for="cat">Кошка</label>
+					</div>
+					<div>
+						<input type="checkbox" id="dog" name="dog" class="checkPets">
+						<label for="dog">Собака</label>
+					</div>
+					<div>
+						<input type="checkbox" id="parrot" name="parrot" class="checkPets">
+						<label for="parrot">Попугай</label>
+					</div>
+					<div>
+						<input type="checkbox" id="hamster" name="hamster" class="checkPets">
+						<label for="hamster">Хомяк</label>
+					</div>
+					<div class="onRequest">
+						<div>
+							<input type="checkbox" id="guinea-pig" name="guinea-pig" class="checkPets">
+							<label for="guinea-pig">Морская свинка</label>
+						</div>
+						<div>
+							<input type="checkbox" id="chinchilla" name="chinchilla" class="checkPets">
+							<label for="chinchilla">Шиншила</label>
+						</div>
+						<div>
+							<input type="checkbox" id="turtle" name="turtle" class="checkPets">
+							<label for="turtle">Черепаха</label>
+						</div>
+						<div>
+							<input type="checkbox" id="snake" name="snake" class="checkPets">
+							<label for="snake">Змея</label>
+						</div>
+						<div>
+							<input type="checkbox" id="lizard" name="lizard" class="checkPets">
+							<label for="lizard">Ящерица</label>
+						</div>
+						<div>
+							<input type="checkbox" id="fish" name="fish" class="checkPets">
+							<label for="fish">Рыбки</label>
+						</div>
+						<div>
+							<input type="checkbox" id="raccoon" name="raccoon" class="checkPets">
+							<label for="raccoon">Енот</label>
+						</div>
+						<div>
+							<input type="checkbox" id="meerkat" name="meerkat" class="checkPets">
+							<label for="meerkat">Сурикат</label>
+						</div>
+						<div>
+							<input type="checkbox" id="rabbit" name="rabbit" class="checkPets">
+							<label for="rabbit">Кролик</label>
+						</div>
+						<div>
+							<input type="checkbox" id="otherPets" name="other" class="checkPets">
+							<label for="other">Другое</label>
+						</div>
+					</div>
+					<p class="all" onclick="toggleCheckboxes()">Показать все</p>
+				</div>
 			</div>
 			<div id="inputContainerForm">
 				<input class="other form-control" type="text" name="animalForm" id="animalForm"
@@ -356,7 +443,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="mb-3 choose-filterForm">
+			<div class="mb-3 choose-filterForm" id="policy">
 				<div class="filterlabel-Form__title">Формат</div>
 				<div class="form-check">
 					<label class="label-Forml">
@@ -375,6 +462,11 @@
 				<textarea class="form-control" id="commentsForm" rows="3"
 					placeholder="Любая дополнительная информация, которую нам необходимо знать (например, тип и название корма)"></textarea>
 			</div>
+			<label class="form__label" for="policy_check"><input class="form__checkbox policy_check" id="policy_check"
+					type="checkbox" name="CHECK"><span class="form__custom-checkbox"></span> Нажимая кнопку, вы даете
+				согласие на обработку персональных данных и соглашаетесь с
+				<a class="form__link" href="./policy.html">Политикой конфиденциальности</a>
+			</label>
 			<div class="registration-form-button-container">
 				<button type="button" class="btn btn--yellow" id="btn-send">
 					<span class="btn__txt">Отправить</span>

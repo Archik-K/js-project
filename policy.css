@@ -1,0 +1,66 @@
+.policy__wrapper {
+  margin: 6vh 9vh;
+}
+
+.policy__text {
+  line-height: 125%;
+}
+
+span {
+  font-weight: bolder
+}
+
+.policy__btn button {
+  cursor: pointer;
+  background-color: #f9f7f1;
+  transition: background-color 0.6s;
+  border: 2px solid #245799;
+  border-radius: 2vh;
+  color: #1e2124;
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 1rem;
+  width: 9vh;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1023px) {
+  .policy__btn button {
+    border-radius: 3vh;
+    width: 10vh;
+    height: 5vh;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .policy__btn button {
+    border-radius: 4vh;
+    width: 15vh;
+    height: 7vh;
+  }
+}
+
+.policy__btn button:hover {
+  background-color: #245799;
+  transition: background-color 0.8s;
+  color: #ffffff;
+}
+
+
+.policy-back__to-left {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-decoration: none;
+}
+
+.policy-back__text {
+  color: #557DB0;
+  font-weight: 700;
+}
