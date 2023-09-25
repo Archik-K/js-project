@@ -448,35 +448,6 @@ function toggleCheckboxesPets() {
 	}
 }
 
-/*
-function CleanFilter() {
-	const policy = document.querySelector(".policy_check");
-	policy.checked = false;
-
-	const checkboxes = document.querySelectorAll(".CheckPet");
-
-	// Если checkbox открыты, закрываем их и переименовываем на "Показать все"
-	OnRequest.style.display = "none";
-	btnRequestPets.innerHTML = "Показать все";
-
-	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
-	let inputElements = document.querySelectorAll("input");
-
-	for (var i = 0; i < checkboxes.length; i++) {
-		// Обнуляем значение чекбокса
-		checkboxes[i].checked = false;
-	}
-	// Скрываем inputContainer, задавая значение display стиля на "none"
-	inputContainer.style.display = "none";
-	// Проходим по каждому найденному инпуту
-
-	inputElements.forEach(function (input) {
-		// Сбрасываем значение инпута до значения по умолчанию
-		input.value = input.defaultValue;
-	});
-}
-*/
-
 // Функция очистки формы после Нажатия кнопки "Сбросить"
 buttonReset.addEventListener("click", function () {
 	const policy = document.querySelector(".policy_check");
