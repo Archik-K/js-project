@@ -254,3 +254,13 @@
 #inputContainer {
 	display: none;
 }
+
+.OnRequest {
+	display: none;
+}
+
+.allPets {
+	color: rgb(31, 38, 135);
+	text-decoration: underline;
+	text-decoration-style: dashed;
+}

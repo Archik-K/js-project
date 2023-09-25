@@ -415,15 +415,15 @@ document.getElementById("btnappfilter1").addEventListener("click", () => {
 
 /* ____________FILTER__________ */
 const inputContainer = document.getElementById("inputContainer"); // Получение элемента с ID "inputContainer" и сохранение его в переменную inputContainer
-const select = document.getElementById("pet"); // Получение элемента с ID "pet" (select) и сохранение его в переменную select
 const form = document.forms.formFilter; // Получение формы с именем formFilter и сохранение ее в переменную form
 const buttonSearch = document.getElementById("btnFilter"); // Получение кнопки с ID "btnFilter" и сохранение ее в переменную buttonSearch
 const buttonReset = document.getElementById("btnReboot"); // Получение кнопки с ID "btnReboot" и сохранение ее в переменную buttonReset
+const checkboxOtherPets = document.getElementById("OtherPets");
 
 // Функция showOther, которая изменяет стиль отображения inputContainer на основе выбранного значения в select
 function showOther() {
 	// Если выбранное значение (value) в select равно "other"
-	if (select.value === "other") {
+	if (checkboxOtherPets.checked) {
 		// Показываем inputContainer, задавая значение display стиля на "block"
 		inputContainer.style.display = "block";
 	} else {
@@ -431,33 +431,102 @@ function showOther() {
 		inputContainer.style.display = "none";
 	}
 }
-// Добавляем обработчик события "click" на элемент buttonReset
-buttonReset.addEventListener("click", function () {
-	const policy = document.querySelector(".policy_check");
 
+const btnRequestPets = document.querySelector(".allPets"); // Получение элемента с class "allPets" и сохранение его в переменную
+const OnRequest = document.querySelector(".OnRequest"); // Получение элемента с class "OnRequest" и сохранение его в переменную
+const checkboxes = document.querySelectorAll(".CheckPet");
+
+function toggleCheckboxesPets() {
+	if (OnRequest.style.display === "none") {
+		// Если checkbox скрыты, открываем их и переименовываем на "Скрыть"
+		OnRequest.style.display = "block";
+		btnRequestPets.innerHTML = "Скрыть";
+	} else {
+		// Если checkbox открыты, закрываем их и переименовываем на "Показать все"
+		OnRequest.style.display = "none";
+		btnRequestPets.innerHTML = "Показать все";
+	}
+}
+
+/*
+function CleanFilter() {
+	const policy = document.querySelector(".policy_check");
 	policy.checked = false;
+
+	const checkboxes = document.querySelectorAll(".CheckPet");
+
+	// Если checkbox открыты, закрываем их и переименовываем на "Показать все"
+	OnRequest.style.display = "none";
+	btnRequestPets.innerHTML = "Показать все";
 
 	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
 	let inputElements = document.querySelectorAll("input");
-	// Устанавливаем значение select на "choose"
-	select.value = "choose";
+
+	for (var i = 0; i < checkboxes.length; i++) {
+		// Обнуляем значение чекбокса
+		checkboxes[i].checked = false;
+	}
 	// Скрываем inputContainer, задавая значение display стиля на "none"
 	inputContainer.style.display = "none";
 	// Проходим по каждому найденному инпуту
+
+	inputElements.forEach(function (input) {
+		// Сбрасываем значение инпута до значения по умолчанию
+		input.value = input.defaultValue;
+	});
+}
+*/
+
+// Функция очистки формы после Нажатия кнопки "Сбросить"
+buttonReset.addEventListener("click", function () {
+	const policy = document.querySelector(".policy_check");
+	policy.checked = false;
+
+	const checkboxes = document.querySelectorAll(".CheckPet");
+
+	// Если checkbox открыты, закрываем их и переименовываем на "Показать все"
+	OnRequest.style.display = "none";
+	btnRequestPets.innerHTML = "Показать все";
+
+	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
+	let inputElements = document.querySelectorAll("input");
+
+	for (var i = 0; i < checkboxes.length; i++) {
+		// Обнуляем значение чекбокса
+		checkboxes[i].checked = false;
+	}
+	// Скрываем inputContainer, задавая значение display стиля на "none"
+	inputContainer.style.display = "none";
+	// Проходим по каждому найденному инпуту
+
 	inputElements.forEach(function (input) {
 		// Сбрасываем значение инпута до значения по умолчанию
 		input.value = input.defaultValue;
 	});
 });
-// Добавляем обработчик события "click" на элемент buttonSearch
+
+// Функция очистки формы после Нажатия кнопки "Няня найдись"
 buttonSearch.addEventListener("click", function () {
+	const checkboxes = document.querySelectorAll(".CheckPets");
+	const radiofilter = document.querySelectorAll('.radio');
 	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
 	let inputElements = document.querySelectorAll("input");
-	// Устанавливаем значение select на "choose"
-	select.value = "choose";
+	// Если checkbox открыты, закрываем их и переименовываем на "Показать все"
+	OnRequest.style.display = "none";
+	btnRequestPets.innerHTML = "Показать все";
+
+	for (var i = 0; i < checkboxes.length; i++) {
+		// Обнуляем значение чекбокса
+		checkboxes[i].checked = false;
+	}
+
+	for (var j = 0; j < radiofilter.length; j++) {
+		radiofilter[j].checked = false;
+	}
 	// Скрываем inputContainer, задавая значение display стиля на "none"
 	inputContainer.style.display = "none";
 	// Проходим по каждому найденному инпуту
+
 	inputElements.forEach(function (input) {
 		// Сбрасываем значение инпута до значения по умолчанию
 		input.value = input.defaultValue;
