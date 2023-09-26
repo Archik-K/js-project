@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./style/style_lk_user.css" />
+		<link
+			rel="shortcut icon"
+			href="./src/pictures/logo_nav.png"
+			type="logo/png"
+		/>
+		<title>Document</title>
+	</head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="./style/style_lk_user.css" />
-	<link rel="shortcut icon" href="./src/pictures/logo_nav.png" type="logo/png" />
-	<title>Document</title>
-</head>
-
-<body>
-	<header class="header">
-		<section class="top-nav">
-			<div><img src="./src/pet.png" /></div>
-			<div class="navigation">
-				<a href="./index.html" class="navigation__link_1">На главную</a>
-			</div>
-		</section>
-	</header>
-	<section class="lk-users">
-		<div class="lk_users__container">
-			<div class="lk-users__data-entry">
-				<h2>Личный кабинет пользователя</h2>
-				<form class="data-entry__container">
-					<label for="data-entry__fullName">ФИО (обязательное поле):</label>
-					<input type="text" id="data-entry__fullName" required />
-					<label for="image" accept="image/*">Добавить картинку (размер картинки 400 на 400):</label>
-					<input type="file" id="data-entry__image" />
-					<!--
+	<body>
+		<header class="header">
+			<section class="top-nav">
+				<div><img src="./src/pictures/pet (1).png" /></div>
+				<div class="navigation">
+					<a href="./index.html" class="navigation__link_1">На главную</a>
+				</div>
+			</section>
+		</header>
+		<section class="lk-users">
+			<div class="lk_users__container">
+				<div class="lk-users__data-entry">
+					<h2>Личный кабинет пользователя</h2>
+					<form class="data-entry__container">
+						<label for="data-entry__fullName">ФИО (обязательное поле):</label>
+						<input type="text" id="data-entry__fullName" required />
+						<label for="image" accept="image/*"
+							>Добавить картинку (размер картинки 400 на 400):</label
+						>
+						<input type="file" id="data-entry__image" />
+						<!--
 					<label for="petType">Выберите тип домашнего питомца (обязательное поле):</label>
 					<select id="data-entry__petType" required>
 						<option value="Котик">Котик</option>
@@ -39,79 +44,78 @@
 					<label for="petName">Имя питомца (обязательное поле):</label>
 					<input type="text" id="data-entry__petName" required />
 					-->
-					<label for="city">Город (обязательное поле):</label>
-					<input type="text" id="data-entry__city" required />
-					<label for="phoneNumber">Номер телефона (обязательное поле):</label>
-					<input type="text" id="data-entry__phoneNumber" required />
-					<div class="about_yourself_and_your_pet">
-						<label for="about">Расскажите о себе и своём питомце:</label>
-						<textarea id="data-entry__about"></textarea>
-					</div>
-					<div>
-						<button type="submit" class="btn btn--yellow data-entry__button">
-							<span class="btn__txt">Сохранить</span>
-							<i class="btn__bg" aria-hidden="true"></i>
-							<i class="btn__bg" aria-hidden="true"></i>
-							<i class="btn__bg" aria-hidden="true"></i>
-							<i class="btn__bg" aria-hidden="true"></i>
-						</button>
-					</div>
-				</form>
-			</div>
-			<div class="lk-users__data-saved">
-				
-				<p class="data-saved__title">Имя</p>
-				<p class="data-saved__fullName"></p>
-				<img src="" alt="foto" class="data-saved__photo" />
-				<!--
+						<label for="city">Город (обязательное поле):</label>
+						<input type="text" id="data-entry__city" required />
+						<label for="phoneNumber">Номер телефона (обязательное поле):</label>
+						<input type="text" id="data-entry__phoneNumber" required />
+						<div class="about_yourself_and_your_pet">
+							<label for="about">Расскажите о себе и своём питомце:</label>
+							<textarea id="data-entry__about"></textarea>
+						</div>
+						<div>
+							<button type="submit" class="btn btn--yellow data-entry__button">
+								<span class="btn__txt">Сохранить</span>
+								<i class="btn__bg" aria-hidden="true"></i>
+								<i class="btn__bg" aria-hidden="true"></i>
+								<i class="btn__bg" aria-hidden="true"></i>
+								<i class="btn__bg" aria-hidden="true"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+				<div class="lk-users__data-saved">
+					<p class="data-saved__title">Имя</p>
+					<p class="data-saved__fullName"></p>
+					<img src="" alt="foto" class="data-saved__photo" />
+					<!--
 				<p class="data-saved__title">Вид</p>
 				<p class="data-saved__petType"></p>
 				<p class="data-saved__title">Имя питомца</p>
 				<p class="data-saved__petName"></p>
 				-->
-				<p class="data-saved__title">Город</p>
-				<p class="data-saved__city"></p>
-				<p class="data-saved__title">Номер телефона</p>
-				<p class="data-saved__userContacts"></p>
-				<p class="data-saved__aboutTitle data-saved__title">О питомце</p>
-				<p class="data-saved__about"></p>
-				<button type="submit" class="btn btn--yellow data-saved__button">
-					<span class="btn__txt">Редактировать</span>
-					<i class="btn__bg" aria-hidden="true"></i>
-					<i class="btn__bg" aria-hidden="true"></i>
-					<i class="btn__bg" aria-hidden="true"></i>
-					<i class="btn__bg" aria-hidden="true"></i>
-				</button>
+					<p class="data-saved__title">Город</p>
+					<p class="data-saved__city"></p>
+					<p class="data-saved__title">Номер телефона</p>
+					<p class="data-saved__userContacts"></p>
+					<p class="data-saved__aboutTitle data-saved__title">О питомце</p>
+					<p class="data-saved__about"></p>
+					<button type="submit" class="btn btn--yellow data-saved__button">
+						<span class="btn__txt">Редактировать</span>
+						<i class="btn__bg" aria-hidden="true"></i>
+						<i class="btn__bg" aria-hidden="true"></i>
+						<i class="btn__bg" aria-hidden="true"></i>
+						<i class="btn__bg" aria-hidden="true"></i>
+					</button>
 
-				<!--Блок добавления питомцев-->
-				<h3>Мои питомцы</h3>
-				<button id="add-button">Добавить</button>
-				<div id="pet-form">
-					
+					<!--Блок добавления питомцев-->
+					<h3>Мои питомцы</h3>
+					<button id="add-button">Добавить</button>
+					<div id="pet-form">
 						<span id="close-btn">✖</span>
 						<h2>Добавление питомца</h2>
 						<div class="pet-form__container">
-						<input type="text" id="pet-name" placeholder="Имя"><br>
-						<input type="file" id="pet-image-input" accept="image/*"><br>
-						<select id="pet-type">
-							<option>Выберите тип питомца</option>
-							<option value="Кошка">Кошка</option>
-							<option value="Собака">Собака</option>
-							<option value="Рыбка">Рыбка</option>
-						</select><br>
-						<input type="radio" name="gender" value="Мальчик"> Мальчик
-						<input type="radio" name="gender" value="Девочка"> Девочка<br>
-						<input type="text" id="pet-age" placeholder="Возраст"><br>
-						<button id="save-button" disabled>Сохранить</button>
-						<button id="delete-button" style="display: none;">Удалить карточку питомца</button>
+							<input type="text" id="pet-name" placeholder="Имя" /><br />
+							<input type="file" id="pet-image-input" accept="image/*" /><br />
+							<select id="pet-type">
+								<option>Выберите тип питомца</option>
+								<option value="Кошка">Кошка</option>
+								<option value="Собака">Собака</option>
+								<option value="Рыбка">Рыбка</option></select
+							><br />
+							<input type="radio" name="gender" value="Мальчик" /> Мальчик
+							<input type="radio" name="gender" value="Девочка" /> Девочка<br />
+							<input type="text" id="pet-age" placeholder="Возраст" /><br />
+							<button id="save-button" disabled>Сохранить</button>
+							<button id="delete-button" style="display: none">
+								Удалить карточку питомца
+							</button>
+						</div>
 					</div>
+					<div id="pet-cards"></div>
 				</div>
-				<div id="pet-cards"></div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<script src="lkUsers.js"></script>
-</body>
-
+		<script src="lkUsers.js"></script>
+	</body>
 </html>
