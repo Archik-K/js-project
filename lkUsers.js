@@ -13,9 +13,9 @@ function showSavedData() {
 		dataSavedBlock.querySelector(".data-saved__fullName").textContent =
 			savedData.fullName;
 		//dataSavedBlock.querySelector(".data-saved__petType").textContent =
-			savedData.petType;
+		savedData.petType;
 		//dataSavedBlock.querySelector(".data-saved__petName").textContent =
-			savedData.petName;
+		savedData.petName;
 		dataSavedBlock.querySelector(".data-saved__city").textContent =
 			savedData.city;
 		dataSavedBlock.querySelector(".data-saved__userContacts").textContent =
@@ -122,6 +122,8 @@ window.addEventListener("DOMContentLoaded", function () {
 //Новый блок
 //Новый блок
 
+// Добавление питомцев
+
 const addButton = document.getElementById('add-button');
 const petForm = document.getElementById('pet-form');
 const closeBtn = document.getElementById('close-btn');
@@ -134,108 +136,119 @@ const petCards = document.getElementById('pet-cards');
 const petNameInput = document.getElementById('pet-name');
 
 addButton.addEventListener('click', () => {
-  petForm.style.display = 'block';
-  saveButton.disabled = true;
-  deleteButton.style.display = 'none';
+	petForm.style.display = 'block';
+	saveButton.disabled = true;
+	deleteButton.style.display = 'none';
 });
 
 closeBtn.addEventListener('click', () => {
-  petForm.style.display = 'none';
+	petForm.style.display = 'none';
 });
 
 petImageInput.addEventListener('change', () => {
-  saveButton.disabled = false;
+	saveButton.disabled = false;
 });
 
+// Очищаем форму
 function cleaningForm() {
-  petForm.style.display = 'none';
-  petNameInput.value = '';
-  petImageInput.value = '';
-  petType.value = '';
-  petAge.value = '';
-  saveButton.disabled = true;
+	petForm.style.display = 'none';
+	petNameInput.value = '';
+	petImageInput.value = '';
+	petType.value = '';
+	petAge.value = '';
+	saveButton.disabled = true;
 };
 
+// Добавляем обработчики событий input для полей ввода имени, типа и возраста
+petNameInput.addEventListener('input', checkFormValidity);
+petType.addEventListener('input', checkFormValidity);
+petAge.addEventListener('input', checkFormValidity);
+
+// Проверяем валидность формы и активируем кнопку сохранить
+function checkFormValidity() {
+  const isValid = petNameInput.value.trim() !== '' && petType.value.trim() !== '' && petAge.value.trim() !== '';
+  saveButton.disabled = !isValid;
+}
+
 saveButton.addEventListener('click', () => {
-  const petImage = petImageInput.files[0] || { name: 'pet.png' };
-  const petName = petNameInput.value || 'Unknown Pet';
-  const petGender = document.querySelector('input[name="gender"]:checked').value;
-  const petAgeValue = petAge.value;
+	const petImage = petImageInput.files[0] || { name: 'pet.png' };
+	const petName = petNameInput.value || 'Unknown Pet';
+	const petGender = document.querySelector('input[name="gender"]:checked').value;
+	const petAgeValue = petAge.value;
 
-  // Сохранение в local storage
-  const petData = {
-    petName,
-    petGender,
-    petAgeValue,
-    petImage: petImage.name,
-  };
-  localStorage.setItem('petData', JSON.stringify(petData));
+	// Сохранение в local storage
+	const petData = {
+		petName,
+		petGender,
+		petAgeValue,
+		petImage: petImage.name,
+	};
+	localStorage.setItem('petData', JSON.stringify(petData));
 
-  // Создание карточки питомца
-  const petCard = document.createElement('div');
-  petCard.className = 'pet-card';
+	// Создание карточки питомца
+	const petCard = document.createElement('div');
+	petCard.className = 'pet-card';
 
-  const petImageElement = document.createElement('img');
-  petImageElement.src = petImage.name === 'pet.png' ? './src/pet.png' : URL.createObjectURL(petImage);
-  petImageElement.alt = petName;
-  petImageElement.id = 'pet-image';
+	const petImageElement = document.createElement('img');
+	petImageElement.src = petImage.name === 'pet.png' ? './src/pet.png' : URL.createObjectURL(petImage);
+	petImageElement.alt = petName;
+	petImageElement.id = 'pet-image';
 
-  const petInfo = document.createElement('div');
-  petInfo.id = 'pet-info';
-  petInfo.innerHTML = `
+	const petInfo = document.createElement('div');
+	petInfo.id = 'pet-info';
+	petInfo.innerHTML = `
     <p><strong>Имя:</strong> ${petName}</p>
     <p><strong>Тип питомца:</strong> ${petType.value}</p>
     <p><strong>Возраст:</strong> ${petAgeValue}</p>
   `;
 
-  petCard.appendChild(petImageElement);
-  petCard.appendChild(petInfo);
+	petCard.appendChild(petImageElement);
+	petCard.appendChild(petInfo);
 
-  petCards.appendChild(petCard);
+	petCards.appendChild(petCard);
 
-  // Очищаем форму
-  cleaningForm()
+	// Очищаем форму
+	cleaningForm()
 });
 
 petCards.addEventListener('click', (event) => {
-  const petCard = event.target.closest('.pet-card');
-  if (petCard) {
-    openEditForm(petCard);
-  }
+	const petCard = event.target.closest('.pet-card');
+	if (petCard) {
+		openEditForm(petCard);
+	}
 });
 
 function openEditForm(petCard) {
-  const petImageElement = petCard.querySelector('#pet-image');
-  const petName = petCard.querySelector('p:nth-child(1)').textContent;
-  const petTypeValue = petCard.querySelector('p:nth-child(2)').textContent;
-  const petAgeValue = petCard.querySelector('p:nth-child(3)').textContent;
+	const petImageElement = petCard.querySelector('img');
+	const petName = petCard.querySelector('p:nth-child(1)').textContent.split(':')[1].trim();
+	const petTypeValue = petCard.querySelector('p:nth-child(2)').textContent.split(':')[1].trim();
+	const petAgeValue = petCard.querySelector('p:nth-child(3)').textContent.split(':')[1].trim();
 
-  petForm.style.display = 'block';
-  saveButton.disabled = false;
-  deleteButton.style.display = 'block';
+	petForm.style.display = 'block';
+	saveButton.disabled = false;
+	deleteButton.style.display = 'block';
 
-  document.getElementById('pet-name').value = petName;
-  document.getElementById('pet-type').value = petTypeValue;
-  document.getElementById('pet-age').value = petAgeValue;
+	document.getElementById('pet-name').value = petName;
+	document.getElementById('pet-type').value = petTypeValue;
+	document.getElementById('pet-age').value = petAgeValue;
 
-  saveButton.addEventListener('click', () => {
-    // Обновляем данные питомца
-    petImageElement.src = petImageInput.files[0] ? URL.createObjectURL(petImageInput.files[0]) : petImageElement.src;
-    petImageElement.alt = document.getElementById('pet-name').value;
-    petName.textContent = document.getElementById('pet-name').value;
-    petType.textContent = `Тип животного: ${petType.value}`;
-    petAge.textContent = `Возраст: ${petAge.value}`;
+	// Обновляем данные питомца при сохранении
+	saveButton.addEventListener('click', () => {
+		petImageElement.src = petImageInput.files[0] ? URL.createObjectURL(petImageInput.files[0]) : petImageElement.src;
+		petImageElement.alt = document.getElementById('pet-name').value;
+		petCard.querySelector('p:nth-child(1)').textContent = `Имя: ${document.getElementById('pet-name').value}`;
+		petCard.querySelector('p:nth-child(3)').textContent = `Возраст: ${document.getElementById('pet-age').value}`;
 
-    // Очищаем форму
-    cleaningForm()
-  });
+		// Очищаем форму
+		cleaningForm();
+	});
 
-  deleteButton.addEventListener('click', () => {
-    // Удаляем карточку питомца
-    petCard.remove();
+	// Удаляем карточку питомца
+	deleteButton.addEventListener('click', () => {
+		petCard.remove();
 
-    // Очищаем форму
-    cleaningForm()
-  });
+		// Очищаем форму
+		cleaningForm();
+	});
 }
 
