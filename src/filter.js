@@ -627,10 +627,6 @@ FormPet.addEventListener('submit', function (event) {
 });
 
 
-
-let filterButton = document.getElementById("filterButton"); // Получение кнопки с ID "filterButton" и сохранение ее в переменную buttonHide
-let filterContent = document.getElementById("filterForm"); // Получение элемента с ID "filterFormt" и сохранение ее в переменную
-
 filterButton.addEventListener("click", function () {
 	if (filterContent.style.display === "none") {
 		// Если форма скрыта, открываем ее и переименовываем кнопку на "Свернуть фильтр"
