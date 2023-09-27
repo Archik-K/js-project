@@ -867,3 +867,255 @@ footer img {
 	justify-content: space-around;
 	align-items: center;
 }
+
+/* Стили для всплывающих окон */
+.modal {
+	background: linear-gradient(to left, #74a350, #fdb100);
+	width: 22%;
+	height: 33%;
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 20px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+}
+
+.modal h2 {
+	font-family: "Merriweather", serif;
+	color: #300000;
+	margin-top: 0;
+}
+
+/* Стили для затемнения заднего фона при открытии модального окна */
+.overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+}
+
+/* Стили для кнопок в модальных окнах */
+.modal button {
+	display: block;
+	padding: 10px 20px;
+	cursor: pointer;
+	color: #250000;
+	font-size: 15px;
+	box-sizing: border-box;
+	background: linear-gradient(
+		90deg,
+		yellow,
+		orange,
+		red,
+		violet,
+		purple,
+		blue,
+		yellow
+	);
+	background-size: 400%;
+	border-radius: 38px;
+	border: 2px solid #d89f35b9;
+	margin: 33px 0px 6px 37px;
+}
+
+#avtoriz {
+	margin: 63px 0px 6px 80px;
+}
+
+/* Стили для input в модальных окнах */
+.modal input {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	margin-top: 20px;
+	border-radius: 30%;
+	background-color: #cf493700;
+	border: 2px solid #324700b9;
+}
+
+/* Стили для кнопок открытия всплывающих окон */
+.button-container {
+	margin-top: 20px;
+}
+
+.button-container button {
+	margin-right: 10px;
+}
+
+/* Добавленные стили для крестика */
+.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.close:hover {
+	color: #f00; /* Цвет крестика при наведении */
+}
+
+#menu_registr {
+	position: absolute;
+	top: 0;
+	right: 20px; /* Отодвигаем меню вправо */
+	z-index: 2;
+}
+
+#menu-bar {
+	width: 45px;
+	height: 40px;
+	margin: 29px 0 6px 313px;
+	cursor: pointer;
+}
+
+.bar {
+	height: 5px;
+	width: 100%;
+	background-color: #2b0500;
+	display: block;
+	border-radius: 5px;
+	transition: 0.3s ease;
+}
+
+#bar1 {
+	transform: translateY(-4px);
+}
+
+#bar3 {
+	transform: translateY(4px);
+}
+
+.nav_registr {
+	transition: 0.3s ease;
+	display: none;
+}
+
+.nav_registr ul {
+	width: 278px;
+	height: 199px;
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.nav_registr li {
+	height: 67px;
+	list-style: none;
+	padding: 12px 0;
+}
+
+.nav_registr li a {
+	color: white;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+.nav_registr li a:hover {
+	font-weight: bold;
+}
+.menu-bg,
+#menu_registr {
+	top: 0;
+	right: 20px; /* Отодвигаем фоновое окно вправо */
+	position: absolute;
+}
+
+.menu-bg {
+	z-index: 1;
+	width: 0;
+	height: 0;
+	margin: 30px 0 20px 20px;
+	background: linear-gradient(to left, #74a350, #fdb100);
+	border-radius: 50%;
+	transition: 0.3s ease;
+}
+
+.change {
+	display: block;
+}
+
+.change .bar {
+	background-color: rgba(49, 1, 1, 0.979);
+}
+
+.change #bar1 {
+	transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+	opacity: 0;
+}
+
+.change #bar3 {
+	transform: translateY(-6px) rotateZ(45deg);
+}
+
+.change-bg {
+	width: 474px;
+	height: 485px;
+	transform: translate(44%, -31%);
+}
+
+.button_registr {
+	width: 125px;
+	height: 47px;
+	text-align: center;
+	color: #250000;
+	font-size: 15px;
+	text-decoration: none;
+	font-family: sans-serif;
+	box-sizing: border-box;
+	background: linear-gradient(
+		90deg,
+		yellow,
+		orange,
+		red,
+		violet,
+		purple,
+		blue,
+		yellow
+	);
+	background-size: 400%;
+	border-radius: 38px;
+	border: 2px solid #d89f35b9;
+}
+
+.button_registr:hover {
+	animation: animate 8s linear infinite;
+}
+@keyframes animate {
+	0% {
+		background-position: 0%;
+	}
+	100% {
+		background-position: 400%;
+	}
+}
+.button_registr:before {
+	content: "";
+	position: absolute;
+	top: -5px;
+	left: -5px;
+	right: -5px;
+	bottom: -5px;
+	z-index: -1;
+	background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
+	background-size: 400%;
+	border-radius: 40px;
+	opacity: 0;
+	transition: 0.5%;
+}
+.button_registr:hover:before {
+	filter: blur(20px);
+	opacity: 1;
+	animation: animate 8s linear infinite;
+}
