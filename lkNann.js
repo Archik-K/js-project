@@ -3,8 +3,11 @@ const dataEntryForm = document.querySelector(".data-entry__container");
 const dataSavedBlock = document.querySelector(".lk-nanny__data-saved");
 const editButton = document.querySelector(".data-saved__button");
 
-// Проверка наличия сохраненных данных в Local Storage
+// Проверка наличия сохраненных данных в Local Storage - зарегистрированный пользователь
 let savedData = JSON.parse(localStorage.getItem("nannyData"));
+
+// Проверка наличия данных перенесённых из заявки
+let savedDataQ = JSON.parse(localStorage.getItem("nannyDataQ"));
 
 // Функция для отображения сохраненных данных
 function showSavedData() {
@@ -15,13 +18,19 @@ function showSavedData() {
 		dataSavedBlock.querySelector(".data-saved__birthday").textContent =
 			savedData.birthday;
 		dataSavedBlock.querySelector(".data-saved__workExperience").textContent =
-			savedData.workExperience;
+			savedData.workExperienceText;
 		dataSavedBlock.querySelector(".data-saved__petType").textContent =
 			savedData.petType;
 		dataSavedBlock.querySelector(".data-saved__city").textContent =
 			savedData.city;
 		dataSavedBlock.querySelector(".data-saved__nannyContacts").textContent =
 			savedData.phoneNumber;
+		dataSavedBlock.querySelector(".data-saved__connection").textContent =
+			savedData.connection;
+		dataSavedBlock.querySelector(".data-saved__username").textContent =
+			savedData.username;
+		dataSavedBlock.querySelector(".data-saved__email").textContent =
+			savedData.email;
 		dataSavedBlock.querySelector(".data-saved__CardSalary").textContent =
 			`от ${savedData.minSalary} до ${savedData.maxSalary} руб.`;
 		dataSavedBlock.querySelector(".data-saved__workFormat").textContent =
@@ -51,17 +60,22 @@ function saveDataToLocalStorage() {
 
 	const fullName = document.getElementById("data-entry__fullName").value;
 	const birthday = document.getElementById("data-entry__birthday").value;
-	const workOptions = document.getElementById("data-entry__workExperience");
-	const workExperience = workOptions.value;
-	//const workExperienceText = workOptions.textContent;  // доработать сохранение текста option:selected вместо value
+	const workExperience = document.getElementById("data-entry__workExperience").value;
+	const workExperienceText = checkOption();
 	const petType = getCheckedPets();
 	const city = document.getElementById("data-entry__city").value;
 	const phoneNumber = document.getElementById("data-entry__phoneNumber").value;
+	const connection = document.querySelector('input[name="flexRadioDefault"]:checked').value;
+	const username = document.getElementById("data-entry__username").value;
+	const email = document.getElementById("data-entry__emailForm").value;
 	const minSalary = document.getElementById("data-entry__minSalary").value;
 	const maxSalary = document.getElementById("data-entry__maxSalary").value;
 	const format = document.querySelector('input[name="level"]:checked').value;
 	const extra = document.getElementById("data-entry__extra").value;
 	const dateRegistration = document.getElementById("data-entry__dateRegistration").value;
+
+
+
 	//const idNanny;
 	//if (savedData && savedData.idNanny =="") {
 	//	idNanny = `N_${dateRegistration}_${fullName.slice(0, fullName.indexOf(' '))}_${birthday}`;
@@ -73,10 +87,13 @@ function saveDataToLocalStorage() {
 		fullName,
 		birthday,
 		workExperience,
-		//workExperienceText,
+		workExperienceText,
 		petType,
 		city,
 		phoneNumber,
+		connection,
+		username,
+		email,
 		minSalary,
 		maxSalary,
 		format,
@@ -131,30 +148,21 @@ function handleEdit() {
 	document.getElementById("data-entry__workExperience").value = savedData.workExperience;
 	document.getElementById("data-entry__city").value = savedData.city;
 	document.getElementById("data-entry__phoneNumber").value = savedData.phoneNumber;
+	document.getElementById("data-entry__username").value = savedData.username;
+	document.getElementById("data-entry__emailForm").value = savedData.email;
 	document.getElementById("data-entry__minSalary").value = savedData.minSalary;
 	document.getElementById("data-entry__maxSalary").value = savedData.maxSalary;
 	document.getElementById("data-entry__extra").value = savedData.extra;
 	document.getElementById("data-entry__dateRegistration").value = savedData.dateRegistration;
 
+	// заполняем выбранный способ связи
+	checkConnection();
+
 	// заполняем выбранный формат
-	const inputsFormat = document.getElementsByClassName("form-check-input");
-	for (oneinput of inputsFormat) {
-		if (oneinput.value == savedData.format) {
-			oneinput.checked = true;
-			break;
-		}
-	}
+	checkWorkFormat();
 
 	// заполняем выбранные типы животных
-	const checkboxesPets = document.getElementsByClassName("checkPets");
-	const savedPets = savedData.petType;
-	for (oneCheck of checkboxesPets) {
-		for (onePet of savedPets) {
-			if (oneCheck.value == onePet) {
-				oneCheck.checked = true;
-			}
-		}
-	}
+	unpackCheckedPets();
 
 	//document.getElementById("data-entry__image").value = "";
 }
@@ -181,5 +189,60 @@ function getCheckedPets() {
 		}
 	}
 	return checkedPets;
+}
+
+// Функция для отображения в чекбоксах выбранных типов животных
+function unpackCheckedPets() {
+	const checkboxesPets = document.getElementsByClassName("checkPets");
+	const savedPets = savedData.petType;
+	for (oneCheck of checkboxesPets) {
+		for (onePet of savedPets) {
+			if (oneCheck.value == onePet) {
+				oneCheck.checked = true;
+			}
+		}
+	}
+}
+
+// Функция для отображения выбранного формата работы
+function checkWorkFormat() {
+	const inputsFormat = document.getElementsByClassName("form-check-input");
+	for (oneinput of inputsFormat) {
+		if (oneinput.value == savedData.format) {
+			oneinput.checked = true;
+			break;
+		}
+	}
+}
+
+// Функция для отображения выбранного способа связи
+function checkConnection() {
+	const checkedConnection = document.getElementsByClassName("flexRadioDefault");
+	for (oneCheck of checkedConnection) {
+		if (oneCheck.value == savedData.connection) {
+			oneCheck.checked = true;
+			break;
+		}
+	}
+}
+
+// Функция для получения текста формата работы
+function checkOption() {
+	const formatOptions = document.getElementById("data-entry__workExperience");
+	if (formatOptions[1].selected == true) {
+		return "Менее года";
+	}
+	else if (formatOptions[2].selected == true) {
+		return "От 1 до 3 лет";
+	}
+	else if (formatOptions[3].selected == true) {
+		return "От 3 до 6 лет";
+	}
+	else if (formatOptions[4].selected == true) {
+		return "Более 6 лет";
+	}
+	else {
+		return "Не указан";
+	}
 }
 
