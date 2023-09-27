@@ -504,19 +504,50 @@ buttonSearch.addEventListener("click", function () {
 	});
 });
 
+let filterButton = document.getElementById("filterButton"); // Получение кнопки с ID "filterButton" и сохранение ее в переменную buttonHide
+let filterContent = document.getElementById("filterForm"); // Получение элемента с ID "filterFormt" и сохранение ее в переменную
+
+filterButton.addEventListener("click", function () {
+	if (filterContent.style.display === "none") {
+		// Если форма скрыта, открываем ее и переименовываем кнопку на "Свернуть фильтр"
+		filterContent.style.display = "block";
+		filterButton.innerHTML = "Свернуть фильтр";
+	} else {
+		// Если форма открыта, скрываем ее и переименовываем кнопку на "Фильтр"
+		filterContent.style.display = "none";
+		filterButton.innerHTML = "Фильтр";
+	}
+})
+
+/* ____________Заявка на передержку__________ */
 const inputContainerForm = document.getElementById("inputContainerForm"); // Получение элемента с ID "inputContainerForm" и сохранение его в переменную inputContainerForm
-const selectForm = document.getElementById("petForm"); // Получение элемента с ID "petForm" (select) и сохранение его в переменную
+const petsBlock = document.querySelector('.onRequestPets');
 const FormPet = document.forms.FormPet; // Получение формы с именем FormPet и сохранение ее в переменную FormPet
 const buttonSend = document.getElementById("btn-send"); // Получение кнопки с ID "btn-send" и сохранение ее в переменную buttonSend
 const commentsForm = document.getElementById("commentsForm");  // Получение элемента с ID "commentsForm" и сохранение его в переменную
 const timeSelect = document.getElementById("timeSelect"); // Получение элемента с ID "timeSelect" и сохранение его в переменную
 const flexRadioDefault2 = document.getElementById("flexRadioDefault2"); // Получение элемента с ID "flexRadioDefault2" и сохранение его в переменную
 const homeForm = document.getElementById("homeForm"); // Получение элемента с ID "homeForm" и сохранение его в переменную
+const btnshow = document.querySelector(".all");
+const otherPetsBlock = document.getElementById('otherPetsBlock');
 
-// Функция showOtherForm, которая изменяет стиль отображения inputContainerForm на основе выбранного значения в select в заявке на передержку
-function showOtherForm() {
+// Функция, которая показывает/скрывает полный список животных
+function showleCheckboxesPets() {
+	if (petsBlock.style.display === "none") {
+		// Если checkbox скрыты, открываем их и переименовываем на "Скрыть"
+		petsBlock.style.display = "block";
+		btnshow.innerHTML = "Скрыть";
+	} else {
+		// Если checkbox открыты, закрываем их и переименовываем на "Показать все"
+		petsBlock.style.display = "none";
+		btnshow.innerHTML = "Показать все";
+	}
+}
+
+// Функция, которая идобавляет графу для написания названия животного
+function showOtherFormBlock() {
 	// Если выбранное значение (value) в select равно "other"
-	if (selectForm.value === "other") {
+	if (otherPetsBlock.checked) {
 		// Показываем inputContainerForm, задавая значение display стиля на "block"
 		inputContainerForm.style.display = "block";
 	} else {
@@ -525,12 +556,22 @@ function showOtherForm() {
 	}
 }
 
-// Добавляем обработчик события "click" на элемент buttonSend
+// Функция очищения заявки при нажатии на кнопку отправить
 buttonSend.addEventListener("click", function () {
-	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
+	const policy = document.querySelector(".policy_check2");
+	const checkboxes = document.querySelectorAll(".checkPets");
 	let inputElements = document.querySelectorAll("input");
-	// Устанавливаем значение selectForm на "choose"
-	selectForm.value = "choose";
+
+	// Обнуляем политику
+	policy.checked = false;
+	// Скрываем лишние чекбоксы
+	petsBlock.style.display = "none";
+	btnshow.innerHTML = "Показать все";
+	// Проходим по каждому checkboxes и обнуляем их
+	for (var i = 0; i < checkboxes.length; i++) {
+		// Обнуляем значение чекбокса
+		checkboxes[i].checked = false;
+	}
 	// Устанавливаем значение timeSelectt на "0"
 	timeSelect.value = '0';
 	// Скрываем inputContainer, задавая значение display стиля на "none"
@@ -547,17 +588,4 @@ buttonSend.addEventListener("click", function () {
 	});
 });
 
-let filterButton = document.getElementById("filterButton"); // Получение кнопки с ID "filterButton" и сохранение ее в переменную buttonHide
-let filterContent = document.getElementById("filterForm"); // Получение элемента с ID "filterFormt" и сохранение ее в переменную
 
-filterButton.addEventListener("click", function () {
-	if (filterContent.style.display === "none") {
-		// Если форма скрыта, открываем ее и переименовываем кнопку на "Свернуть фильтр"
-		filterContent.style.display = "block";
-		filterButton.innerHTML = "Свернуть фильтр";
-	} else {
-		// Если форма открыта, скрываем ее и переименовываем кнопку на "Фильтр"
-		filterContent.style.display = "none";
-		filterButton.innerHTML = "Фильтр";
-	}
-})

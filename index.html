@@ -344,7 +344,7 @@
 						<input type="checkbox" id="hamster" name="hamster" class="checkPets">
 						<label for="hamster">Хомяк</label>
 					</div>
-					<div class="onRequest">
+					<div class="onRequestPets">
 						<div>
 							<input type="checkbox" id="guinea-pig" name="guinea-pig" class="checkPets">
 							<label for="guinea-pig">Морская свинка</label>
@@ -382,11 +382,11 @@
 							<label for="rabbit">Кролик</label>
 						</div>
 						<div>
-							<input type="checkbox" id="otherPets" name="other" class="checkPets">
+							<input type="checkbox" id="otherPetsBlock" name="other" class="checkPets" onclick="showOtherFormBlock()">
 							<label for="other">Другое</label>
 						</div>
 					</div>
-					<p class="all" onclick="toggleCheckboxes()">Показать все</p>
+					<p class="all" onclick="showleCheckboxesPets()">Показать все</p>
 				</div>
 			</div>
 			<div id="inputContainerForm">
@@ -460,8 +460,9 @@
 				<textarea class="form-control" id="commentsForm" rows="3"
 					placeholder="Любая дополнительная информация, которую нам необходимо знать (например, тип и название корма)"></textarea>
 			</div>
-			<label class="form__label" for="policy_check"><input class="form__checkbox policy_check" id="policy_check"
-					type="checkbox" name="CHECK"><span class="form__custom-checkbox"></span> Нажимая кнопку, вы даете
+			<label class="form__label" for="policy_check"><input class="form__checkbox policy_check policy_check2"
+					id="policy_check" type="checkbox" name="CHECK"><span class="form__custom-checkbox"></span> Нажимая кнопку, вы
+				даете
 				согласие на обработку персональных данных и соглашаетесь с
 				<a class="form__link" href="./policy.html">Политикой конфиденциальности</a>
 			</label>
