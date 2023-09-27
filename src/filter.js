@@ -531,6 +531,7 @@ const homeForm = document.getElementById("homeForm"); // Получение эл
 const btnshow = document.querySelector(".all");
 const otherPetsBlock = document.getElementById('otherPetsBlock');
 
+
 // Функция, которая показывает/скрывает полный список животных
 function showleCheckboxesPets() {
 	if (petsBlock.style.display === "none") {
@@ -557,35 +558,8 @@ function showOtherFormBlock() {
 }
 
 // Функция очищения заявки при нажатии на кнопку отправить
-buttonSend.addEventListener("click", function () {
-	const policy = document.querySelector(".policy_check2");
-	const checkboxes = document.querySelectorAll(".checkPets");
-	let inputElements = document.querySelectorAll("input");
-
-	// Обнуляем политику
-	policy.checked = false;
-	// Скрываем лишние чекбоксы
-	petsBlock.style.display = "none";
-	btnshow.innerHTML = "Показать все";
-	// Проходим по каждому checkboxes и обнуляем их
-	for (var i = 0; i < checkboxes.length; i++) {
-		// Обнуляем значение чекбокса
-		checkboxes[i].checked = false;
-	}
-	// Устанавливаем значение timeSelectt на "0"
-	timeSelect.value = '0';
-	// Скрываем inputContainer, задавая значение display стиля на "none"
-	inputContainerForm.style.display = "none";
-	// Проходим по каждому найденному инпуту
-	inputElements.forEach(function (input) {
-		// Сбрасываем значение инпута до значения по умолчанию
-		input.value = input.defaultValue;
-		// Сбрасываем значения радиокнопок до значений по умолчанию
-		flexRadioDefault2.checked = true;
-		homeForm.checked = true;
-		// Очищаем текстовое поле  
-		commentsForm.value = '';
-	});
+FormPet.addEventListener('submit', function (event) {
+	event.preventDefault(); //Отмена отправки
+	FormPet.reset();
 });
-
 
