@@ -30,7 +30,21 @@
 				<a href="#filter_block__title_yakor" class="navigation__link_2">Найти няню</a>
 				<a href="#nannys_cards" class="navigation__link_3">Те кто будут рады вам помочь</a>
 				<a href="#registration-forms_yakor" class="navigation__link_4">Оставить заявку</a>
+			<a href="/lkusers.html" class="lk"> <img src="/src/pictures/img_519969.png"></a>
 			</div>
+			<div class="hamburger-menu">
+				<input id="menu__toggle" type="checkbox" />
+				<label class="menu__btn" for="menu__toggle">
+				  <span></span>
+				</label>
+			
+				<ul class="menu__box">
+				  <li><a class="menu__item" href="#client_pain_yakor">Почему вы здесь</a></li>
+				  <li><a class="menu__item" href="#filter_block__title_yakor">Найти няню</a></li>
+				  <li><a class="menu__item" href="#nannys_cards">Те кто будут рады вам помочь</a></li>
+				  <li><a class="menu__item" href="#registration-forms_yakor">Оставить заявку</a></li>
+				</ul>
+			  </div>
 		</section>
 	</header>
 	<button onclick="scrollToTop()" id="scrollToTopButton">Наверх</button>
@@ -169,7 +183,9 @@
 		<form name="formFilter" class="formFilter">
 			<div class="container searching">
 				<div class="w-100 searching__result">
-					<div id="cards"></div>
+					<div id="cards">
+						
+					</div>
 				</div>
 				<div class="filter-mobile" id="btnappfilter1">Фильтр</div>
 				<div class="row searching__filters searching__filters_shadow mt-1 filter-desktop">
@@ -477,6 +493,7 @@
 				</button>
 			</div>
 		</div>
+
 	</form>
 	<footer>
 		<div class="footer_info">
@@ -487,6 +504,7 @@
 			</div>
 		</div>
 	</footer>
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
@@ -523,6 +541,10 @@
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
 		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 		crossorigin=""></script>
+
+		<script src="./rating.js"></script>
+	  
+
 
 </body>
 

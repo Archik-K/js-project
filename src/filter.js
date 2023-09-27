@@ -5,9 +5,10 @@ let firstCards; // Объявление переменной firstCards
 const list = document.querySelector("#cards"); // Выборка элемента с идентификатором "cards" и сохранение в переменной list
 
 // Объявление функции searchResult с аргументом element
-function searchResult(element) {
+function searchResult(element, index) {
 	// Добавление HTML-кода в элемент list (в теле HTML-кода используются свойства объекта element, полученного при вызове функции)
-	list.innerHTML += `
+	let search_card = document.createElement("div");
+	search_card.innerHTML = `
         <div class="search__card">
             <div>
                 <h5 class="search__card-title card-title">${element.name} (${element.pet})</h5> 
@@ -19,9 +20,28 @@ function searchResult(element) {
                 <div class="search__card-subtitle">Оплата</div>
                 <div class="search__card-salary">${element.salary} руб/сутки</div>
             </div>
+			<div class="foto_star">
         <image src="${element.photo}" class="search__card-photo" alt="photo" />
+		<div class="rating" data-index="${index}">
+		<span class="star" data-rating="1">★</span>
+		<span class="star" data-rating="2">★</span>
+		<span class="star" data-rating="3">★</span>
+		<span class="star" data-rating="4">★</span>
+		<span class="star" data-rating="5">★</span>
+		</div>
+		<p id="rating-value-${index}">Рейтинг:0</p>
+		</div>
         </div>`;
+	list.appendChild(search_card);
 
+	const stars = list.querySelectorAll(`.rating[data-index="${index}"] .star`);
+	const ratingValue = list.querySelector(`#rating-value-${index}`);
+
+	stars.forEach((star) => {
+		star.addEventListener("click", setRating);
+		star.addEventListener("mouseover", hoverRating);
+		star.addEventListener("mouseout", resetRating);
+	});
 	/* 	Заголовок с именем и видом питомца */
 	/* 	Информация о возрасте*/
 	/* Заголовок раздела о районе */
@@ -31,6 +51,47 @@ function searchResult(element) {
 	/* Заголовок раздела об оплате */
 	/* Информация об оплате */
 	/* Вставка изображения с указанием источника и альтернативного текста */
+
+	let currentRating = 0;
+
+	function setRating(event) {
+		const clickedStar = event.target;
+		const rating = parseInt(clickedStar.getAttribute("data-rating"));
+		currentRating = rating;
+		updateRating();
+		localStorage.setItem(`rating-${index}`, currentRating);
+	}
+
+	function hoverRating(event) {
+		const hoveredStar = event.target;
+		const rating = parseInt(hoveredStar.getAttribute("data-rating"));
+		updateRating(rating);
+	}
+
+	function resetRating() {
+		updateRating();
+	}
+
+	function updateRating(rating = currentRating) {
+		stars.forEach((star) => {
+			const starRating = parseInt(star.getAttribute("data-rating"));
+			if (starRating <= rating) {
+				star.classList.add("active");
+			} else {
+				star.classList.remove("active");
+			}
+		});
+
+		ratingValue.textContent = `Рейтинг: ${rating}`;
+	}
+	loadRating();
+	function loadRating() {
+		const savedRating = localStorage.getItem(`rating-${index}`);
+		if (savedRating !== null) {
+			currentRating = parseInt(savedRating);
+			updateRating();
+		}
+	}
 }
 
 // Добавление обработчика событий для события "DOMContentLoaded", когда весь документ загрузится
@@ -54,8 +115,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 		localStorage.removeItem("searchRequest");
 	} else {
 		// Если "searchRequest" отсутствует, выполняется цикл по массиву cards и вызов функции searchResult для каждого элемента
+		let index = 0;
 		for (card of cards) {
-			searchResult(card);
+			searchResult(card, index);
+			index++;
 		}
 	}
 	// Объявление переменной arrCity и инициализация его пустым массивом
@@ -524,7 +587,7 @@ const inputContainerForm = document.getElementById("inputContainerForm"); // П�
 const petsBlock = document.querySelector('.onRequestPets');
 const FormPet = document.forms.FormPet; // Получение формы с именем FormPet и сохранение ее в переменную FormPet
 const buttonSend = document.getElementById("btn-send"); // Получение кнопки с ID "btn-send" и сохранение ее в переменную buttonSend
-const commentsForm = document.getElementById("commentsForm");  // Получение элемента с ID "commentsForm" и сохранение его в переменную
+const commentsForm = document.getElementById("commentsForm"); // Получение элемента с ID "commentsForm" и сохранение его в переменную
 const timeSelect = document.getElementById("timeSelect"); // Получение элемента с ID "timeSelect" и сохранение его в переменную
 const flexRadioDefault2 = document.getElementById("flexRadioDefault2"); // Получение элемента с ID "flexRadioDefault2" и сохранение его в переменную
 const homeForm = document.getElementById("homeForm"); // Получение элемента с ID "homeForm" и сохранение его в переменную
@@ -561,5 +624,46 @@ function showOtherFormBlock() {
 FormPet.addEventListener('submit', function (event) {
 	event.preventDefault(); //Отмена отправки
 	FormPet.reset();
+});
+
+
+
+let filterButton = document.getElementById("filterButton"); // Получение кнопки с ID "filterButton" и сохранение ее в переменную buttonHide
+let filterContent = document.getElementById("filterForm"); // Получение элемента с ID "filterFormt" и сохранение ее в переменную
+
+filterButton.addEventListener("click", function () {
+	if (filterContent.style.display === "none") {
+		// Если форма скрыта, открываем ее и переименовываем кнопку на "Свернуть фильтр"
+		filterContent.style.display = "block";
+		filterButton.innerHTML = "Свернуть фильтр";
+	} else {
+		// Если форма открыта, скрываем ее и переименовываем кнопку на "Фильтр"
+		filterContent.style.display = "none";
+		filterButton.innerHTML = "Фильтр";
+	}
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+	const starInputs = document.querySelectorAll(
+		'.star-container input[type="radio"]'
+	);
+	const starLabels = document.querySelectorAll(".star-container label");
+
+	starInputs.forEach((input, index) => {
+		input.addEventListener("change", function () {
+			if (input.checked) {
+				for (let i = 0; i <= index; i++) {
+					starLabels[i].style.fill = "#ff9306";
+				}
+
+				for (let i = index + 1; i < starInputs.length; i++) {
+					starLabels[i].style.fill = "currentColor";
+				}
+
+				// Отправка значения рейтинга на сервер или выполнение другого действия
+				console.log("Рейтинг установлен:", 5 - index);
+			}
+		});
+	});
 });
 
