@@ -131,6 +131,7 @@ const petImageInput = document.getElementById('pet-image-input');
 const petType = document.getElementById('pet-type');
 const petAge = document.getElementById('pet-age');
 const petCards = document.getElementById('pet-cards');
+const petNameInput = document.getElementById('pet-name');
 
 addButton.addEventListener('click', () => {
   petForm.style.display = 'block';
@@ -146,9 +147,18 @@ petImageInput.addEventListener('change', () => {
   saveButton.disabled = false;
 });
 
+function cleaningForm() {
+  petForm.style.display = 'none';
+  petNameInput.value = '';
+  petImageInput.value = '';
+  petType.value = '';
+  petAge.value = '';
+  saveButton.disabled = true;
+};
+
 saveButton.addEventListener('click', () => {
   const petImage = petImageInput.files[0] || { name: 'pet.png' };
-  const petName = document.getElementById('pet-name').value || 'Unknown Pet';
+  const petName = petNameInput.value || 'Unknown Pet';
   const petGender = document.querySelector('input[name="gender"]:checked').value;
   const petAgeValue = petAge.value;
 
@@ -184,11 +194,7 @@ saveButton.addEventListener('click', () => {
   petCards.appendChild(petCard);
 
   // Очищаем форму
-  petForm.style.display = 'none';
-  petImageInput.value = '';
-  petType.value = '';
-  petAge.value = '';
-  saveButton.disabled = true;
+  cleaningForm()
 });
 
 petCards.addEventListener('click', (event) => {
@@ -221,11 +227,7 @@ function openEditForm(petCard) {
     petAge.textContent = `Возраст: ${petAge.value}`;
 
     // Очищаем форму
-    petForm.style.display = 'none';
-    petImageInput.value = '';
-    petType.value = '';
-    petAge.value = '';
-    saveButton.disabled = true;
+    cleaningForm()
   });
 
   deleteButton.addEventListener('click', () => {
@@ -233,11 +235,7 @@ function openEditForm(petCard) {
     petCard.remove();
 
     // Очищаем форму
-    petForm.style.display = 'none';
-    petImageInput.value = '';
-    petType.value = 'Кошка';
-    petAge.value = '';
-    saveButton.disabled = true;
+    cleaningForm()
   });
 }
 
