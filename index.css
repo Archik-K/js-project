@@ -94,102 +94,309 @@
     padding: 1em;
 }
 
-.navigation {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
+@media (max-width: 1199.98px) {
+    .navigation {
+        display: none;
+    }
 }
 
-.navigation a:hover {
-    color: #700000;
-}
+@media (min-width: 1199.98px) {
+    .navigation {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .navigation a:hover {
+        color: #700000;
+    }
 
-a.navigation__link_1:before,
-a.navigation__link_2:before,
-a.navigation__link_3:before,
-a.navigation__link_4:before {
-    content: "";
-    display: block;
-    height: 1px;
-    /* Высота линии */
-    background: #4e0d00;
-    /* Цвет линии */
-    width: 43px;
-    /* Ширина линии до наведения */
-    margin: 0 auto 10px;
-    /* Отступ с боков по центру и снизу */
-    transition: 1s;
-    /* Время, за которое линия возвращается после наведения */
-}
+    a.navigation__link_1:before,
+    a.navigation__link_2:before,
+    a.navigation__link_3:before,
+    a.navigation__link_4:before {
+        content: "";
+        display: block;
+        height: 1px;
+        /* Высота линии */
+        background: #4e0d00;
+        /* Цвет линии */
+        width: 43px;
+        /* Ширина линии до наведения */
+        margin: 0 auto 10px;
+        /* Отступ с боков по центру и снизу */
+        transition: 1s;
+        /* Время, за которое линия возвращается после наведения */
+    }
 
-a.navigation__link_1:hover:before,
-a.navigation__link_3:hover:before,
-a.navigation__link_4:hover:before {
-    width: 100px;
-    /* Ширина линии при наведении */
-    transition: ease-out 1s;
-    /* Время, за которое линия расширяется при наведении */
-}
+    a.navigation__link_1:hover:before,
+    a.navigation__link_3:hover:before,
+    a.navigation__link_4:hover:before {
+        width: 100px;
+        /* Ширина линии при наведении */
+        transition: ease-out 1s;
+        /* Время, за которое линия расширяется при наведении */
+    }
 
-a.navigation__link_2:hover:before {
-    width: 90px;
-    /* Ширина линии при наведении */
-    transition: ease-out 1s;
-    /* Время, за которое линия расширяется при наведении */
-}
+    a.navigation__link_2:hover:before {
+        width: 90px;
+        /* Ширина линии при наведении */
+        transition: ease-out 1s;
+        /* Время, за которое линия расширяется при наведении */
+    }
 
-/*  CSS код для линии под заголовком */
-a.navigation__link_1:after,
-a.navigation__link_2:after,
-a.navigation__link_3:after,
-a.navigation__link_4:after {
-    content: "";
-    display: block;
-    height: 1px;
-    /* Высота линии */
-    background: #4e0d00;
-    /* Цвет линии */
-    width: 43px;
-    /* Ширина линии до наведения */
-    margin: 10px auto 0;
-    /* Отступ с боков по центру и сверху */
-    transition: 1s;
-    /* Время, за которое линия возвращается после наведения */
-}
+    /*  CSS код для линии под заголовком */
+    a.navigation__link_1:after,
+    a.navigation__link_2:after,
+    a.navigation__link_3:after,
+    a.navigation__link_4:after {
+        content: "";
+        display: block;
+        height: 1px;
+        /* Высота линии */
+        background: #4e0d00;
+        /* Цвет линии */
+        width: 43px;
+        /* Ширина линии до наведения */
+        margin: 10px auto 0;
+        /* Отступ с боков по центру и сверху */
+        transition: 1s;
+        /* Время, за которое линия возвращается после наведения */
+    }
 
-a.navigation__link_1:hover:after,
-a.navigation__link_3:hover:after,
-a.navigation__link_4:hover:after {
-    width: 100px;
-    /* Ширина линии при наведении */
-    transition: ease-out 1s;
-    /* Время, за которое линия расширяется при наведении */
-}
+    a.navigation__link_1:hover:after,
+    a.navigation__link_3:hover:after,
+    a.navigation__link_4:hover:after {
+        width: 100px;
+        /* Ширина линии при наведении */
+        transition: ease-out 1s;
+        /* Время, за которое линия расширяется при наведении */
+    }
 
-a.navigation__link_2:hover:after {
-    width: 90px;
-    /* Ширина линии при наведении */
-    transition: ease-out 1s;
-    /* Время, за которое линия расширяется при наведении */
-}
+    a.navigation__link_2:hover:after {
+        width: 90px;
+        /* Ширина линии при наведении */
+        transition: ease-out 1s;
+        /* Время, за которое линия расширяется при наведении */
+    }
 
-.navigation__link_1,
-.navigation__link_2,
-.navigation__link_3,
-.navigation__link_4 {
-    font-size: 18px;
-    font-weight: 550;
-    color: #4e0d00;
-    padding: 0 7% 0 7%;
-    text-align: center;
-    /* Текст по центру */
+    .navigation__link_1,
+    .navigation__link_2,
+    .navigation__link_3,
+    .navigation__link_4 {
+        font-size: 18px;
+        font-weight: 550;
+        color: #4e0d00;
+        padding: 0 7% 0 7%;
+        text-align: center;
+        /* Текст по центру */
+    }
 }
-
 .div_block_text {
     width: 90vw;
     padding: 2% 8% 0 8%;
 }
 
+/* БУРГЕР НАВИГАЦИЯ */
+@media (min-width: 1199.98px) {
+    .hamburger-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    #menu__toggle {
+        opacity: 0;
+    }
+
+    #menu__toggle:checked + .menu__btn > span {
+        transform: rotate(-45deg);
+    }
+
+    #menu__toggle:checked + .menu__btn > span::before {
+        top: 0;
+        transform: rotate(0deg);
+    }
+
+    #menu__toggle:checked + .menu__btn > span::after {
+        top: 0;
+        transform: rotate(-90deg);
+    }
+    #menu__toggle:checked + .menu__btn_2 > span {
+        transform: rotate(-45deg);
+    }
+
+    #menu__toggle:checked + .menu__btn_2 > span::before {
+        top: 0;
+        transform: rotate(0deg);
+    }
+
+    #menu__toggle:checked + .menu__btn_2 > span::after {
+        top: 0;
+        transform: rotate(-90deg);
+    }
+
+    #menu__toggle:checked ~ .menu__box {
+        right: 0 !important;
+    }
+    #menu__toggle:checked ~ .menu__box_2 {
+        right: 0 !important;
+    }
+
+    .menu__btn {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 26px;
+        right: 20px;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        z-index: 10;
+    }
+    .menu__btn_2 {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 26px;
+        right: 20px;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        z-index: 12;
+    }
+    .menu__btn_2 > span,
+    .menu__btn_2 > span::before,
+    .menu__btn_2 > span::after {
+        display: block;
+        position: absolute;
+        width: 33px;
+        height: 3px;
+        background-color: #000000;
+        transition-duration: 0.25s;
+    }
+
+    .menu__btn > span,
+    .menu__btn > span::before,
+    .menu__btn > span::after {
+        display: block;
+        position: absolute;
+        width: 33px;
+        height: 3px;
+        background-color: #000000;
+        transition-duration: 0.25s;
+    }
+
+    .menu__btn > span::before {
+        content: "";
+        top: -10px;
+    }
+
+    .menu__btn > span::after {
+        content: "";
+        top: 10px;
+    }
+    .menu__btn_2 > span::before {
+        content: "";
+        top: -10px;
+    }
+
+    .menu__btn_2 > span::after {
+        content: "";
+        top: 10px;
+    }
+
+    .menu__box_2 {
+        z-index: 11;
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%; /* изменено: с "left" на "right" */
+        width: 300px;
+        height: 100%;
+        margin: 0;
+        padding: 80px 0;
+        list-style: none;
+        background: linear-gradient(to left, #74a350, #fdb100);
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+        transition-duration: 0.25s;
+    }
+
+    .menu__box {
+        z-index: 7;
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%; /* изменено: с "left" на "right" */
+        width: 300px;
+        height: 100%;
+        margin: 0;
+        padding: 80px 0;
+        list-style: none;
+        background: linear-gradient(to left, #74a350, #fdb100);
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+        transition-duration: 0.25s;
+    }
+
+    .menu__item {
+        display: block;
+        padding: 35px 24px;
+        color: #4e0d00;
+        font-family: "Roboto", sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        text-decoration: none;
+        transition-duration: 0.25s;
+    }
+
+    .menu__item:hover {
+        color: #000000;
+        background-color: #ffbc2ad3;
+    }
+    li:after {
+        position: relative;
+    }
+
+    a.menu__item:before {
+        content: "";
+        display: block;
+        height: 1px;
+        /* Высота линии */
+        background: #4e0d00;
+        /* Цвет линии */
+        width: 190px;
+        /* Отступ с боков по центру и снизу */
+        transition: 1s;
+        /* Время, за которое линия возвращается после наведения */
+    }
+
+    a.menu__item:hover:before {
+        width: 250px;
+        /* Ширина линии при наведении */
+        transition: ease-out 1s;
+        /* Время, за которое линия расширяется при наведении */
+    }
+
+    /*  CSS код для линии под заголовком */
+    a.menu__item:after {
+        content: "";
+        display: block;
+        height: 1px;
+        /* Высота линии */
+        background: #4e0d00;
+        /* Цвет линии */
+        width: 190px;
+        /* Отступ с боков по центру и сверху */
+        transition: 1s;
+        /* Время, за которое линия возвращается после наведения */
+    }
+
+    a.menu__item:hover:after {
+        width: 250px;
+        /* Ширина линии при наведении */
+        transition: ease-out 1s;
+        /* Время, за которое линия расширяется при наведении */
+    }
+}
 /* _____________MAIN____________ */
 .main {
     display: flex;
@@ -227,7 +434,7 @@ a.navigation__link_2:hover:after {
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 1rem;
     padding: 1.5rem;
-    z-index: 10;
+    z-index: 5;
     color: #4e0d10;
     margin: 0 0 37px 0;
 }
@@ -241,7 +448,7 @@ a.navigation__link_2:hover:after {
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 1rem;
     padding: 1.5rem;
-    z-index: 10;
+    z-index: 5;
     color: #4e0d10;
     margin: 38px 0 37px 0;
 }
@@ -561,6 +768,7 @@ footer img {
 /* Геолокация */
 
 #map {
+    z-index: 3;
     width: 600px;
     height: 400px;
     display: block;
@@ -603,7 +811,7 @@ footer img {
 .format {
     display: flex;
     flex-direction: row;
-    column-gap: 7vh;
+    column-gap: 6vh;
 }
 
 .gap2 {
@@ -614,6 +822,27 @@ footer img {
 
 #inputContainerForm2 {
     display: none;
+}
+
+.foto_star {
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rating {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.star {
+    color: gray;
+}
+
+.star:hover,
+.star.active {
+    color: gold;
 }
 
 .onRequest {
@@ -628,6 +857,267 @@ footer img {
 
 .all:hover {
     cursor: pointer;
+}
+
+.lk {
+    display: flex;
+    width: 87px;
+    height: 72px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Стили для всплывающих окон */
+.modal {
+    background: linear-gradient(to left, #74a350, #fdb100);
+    width: 22%;
+    height: 33%;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal h2 {
+    font-family: "Merriweather", serif;
+    color: #300000;
+    margin-top: 0;
+}
+
+/* Стили для затемнения заднего фона при открытии модального окна */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Стили для кнопок в модальных окнах */
+.modal button {
+    display: block;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #250000;
+    font-size: 15px;
+    box-sizing: border-box;
+    background: linear-gradient(
+        90deg,
+        yellow,
+        orange,
+        red,
+        violet,
+        purple,
+        blue,
+        yellow
+    );
+    background-size: 400%;
+    border-radius: 38px;
+    border: 2px solid #d89f35b9;
+    margin: 33px 0px 6px 37px;
+}
+
+#avtoriz {
+    margin: 63px 0px 6px 80px;
+}
+
+/* Стили для input в модальных окнах */
+.modal input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 30%;
+    background-color: #cf493700;
+    border: 2px solid #324700b9;
+}
+
+/* Стили для кнопок открытия всплывающих окон */
+.button-container {
+    margin-top: 20px;
+}
+
+.button-container button {
+    margin-right: 10px;
+}
+
+/* Добавленные стили для крестика */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #f00; /* Цвет крестика при наведении */
+}
+
+#menu_registr {
+    position: absolute;
+    top: 0;
+    right: 20px; /* Отодвигаем меню вправо */
+    z-index: 2;
+}
+
+#menu-bar {
+    width: 45px;
+    height: 40px;
+    margin: 29px 0 6px 313px;
+    cursor: pointer;
+}
+
+.bar {
+    height: 5px;
+    width: 100%;
+    background-color: #2b0500;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+#bar1 {
+    transform: translateY(-4px);
+}
+
+#bar3 {
+    transform: translateY(4px);
+}
+
+.nav_registr {
+    transition: 0.3s ease;
+    display: none;
+}
+
+.nav_registr ul {
+    width: 278px;
+    height: 199px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.nav_registr li {
+    height: 67px;
+    list-style: none;
+    padding: 12px 0;
+}
+
+.nav_registr li a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.nav_registr li a:hover {
+    font-weight: bold;
+}
+.menu-bg,
+#menu_registr {
+    top: 0;
+    right: 20px; /* Отодвигаем фоновое окно вправо */
+    position: absolute;
+}
+
+.menu-bg {
+    z-index: 1;
+    width: 0;
+    height: 0;
+    margin: 30px 0 20px 20px;
+    background: linear-gradient(to left, #74a350, #fdb100);
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+.change {
+    display: block;
+}
+
+.change .bar {
+    background-color: rgba(49, 1, 1, 0.979);
+}
+
+.change #bar1 {
+    transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+    opacity: 0;
+}
+
+.change #bar3 {
+    transform: translateY(-6px) rotateZ(45deg);
+}
+
+.change-bg {
+    width: 474px;
+    height: 485px;
+    transform: translate(44%, -31%);
+}
+
+.button_registr {
+    width: 125px;
+    height: 47px;
+    text-align: center;
+    color: #250000;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background: linear-gradient(
+        90deg,
+        yellow,
+        orange,
+        red,
+        violet,
+        purple,
+        blue,
+        yellow
+    );
+    background-size: 400%;
+    border-radius: 38px;
+    border: 2px solid #d89f35b9;
+}
+
+.button_registr:hover {
+    animation: animate 8s linear infinite;
+}
+@keyframes animate {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }
+}
+.button_registr:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(45deg, #f15523, #ef3224, #7c3697);
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0;
+    transition: 0.5%;
+}
+.button_registr:hover:before {
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
 }
 
 /* ОТЗЫВЫ */

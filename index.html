@@ -30,6 +30,56 @@
 				<a href="#filter_block__title_yakor" class="navigation__link_2">Найти няню</a>
 				<a href="#nannys_cards" class="navigation__link_3">Те кто будут рады вам помочь</a>
 				<a href="#registration-forms_yakor" class="navigation__link_4">Оставить заявку</a>
+			<div id="menu_registr">
+				<div id="menu-bar" onclick="menuOnClick()">
+				<div id="bar1" class="bar"></div>
+				<div id="bar2" class="bar"></div>
+				<div id="bar3" class="bar"></div>
+				</div>
+				<nav class="nav_registr" id="nav_registr">
+				<ul>
+					<li><a href="#"><button  class='button_registr' id="userRegisterBtn">Регистрация пользователя</button></a></li>
+					<li><a href="#"> <button  class='button_registr' id="nannyRegisterBtn">Регистрация няни</button></a></li>
+					<li><a href="#"><button  class='button_registr' id="loginBtn">Авторизация</button></a></li>
+				</ul>
+				</nav>
+			</div>
+			<div class="menu-bg" id="menu-bg"></div>
+<div id="userRegisterModal" style="display: none;" class="modal">
+	<span class="close" onclick="closeModal('userRegisterModal')">&times;</span>
+  <h2>Регистрация пользователя</h2>
+  <input type="text" id="userUsername" placeholder="Имя пользователя">
+  <input type="password" id="userPassword" placeholder="Пароль">
+  <button onclick="registerUser()">Зарегистрироваться</button>
+</div>
+<div id="nannyRegisterModal" style="display: none;"  class="modal">
+	<span class="close" onclick="closeModal('nannyRegisterModal')">&times;</span>
+<h2>Регистрация няни</h2>
+<input type="text" id="nannyUsername" placeholder="Имя пользователя">
+<input type="password" id="nannyPassword" placeholder="Пароль">
+<button onclick="registerNanny()">Зарегистрироваться</button>
+</div>
+<div id="loginModal" style="display: none;" class="modal">
+	<span class="close" onclick="closeModal('loginModal')">&times;</span>
+<h2>Авторизация</h2>
+<input type="text" id="loginUsername" placeholder="Имя пользователя">
+<input type="password" id="loginPassword" placeholder="Пароль">
+<button onclick="login()" id="avtoriz">Войти</button>
+
+</div><div class="overlay" id="overlay"></div>
+		</div>
+			<div class="hamburger-menu">
+				<input id="menu__toggle" type="checkbox" />
+				<label class="menu__btn" for="menu__toggle">
+				<span></span>
+				</label>
+			
+				<ul class="menu__box">
+				<li><a class="menu__item" href="#client_pain_yakor">Почему вы здесь</a></li>
+				<li><a class="menu__item" href="#filter_block__title_yakor">Найти няню</a></li>
+				<li><a class="menu__item" href="#nannys_cards">Те кто будут рады вам помочь</a></li>
+				<li><a class="menu__item" href="#registration-forms_yakor">Оставить заявку</a></li>
+				</ul>
 			</div>
 		</section>
 	</header>
@@ -161,7 +211,6 @@
 	<h4 class="map_title">Как нас найти</h4>
 	<div id="map"></div>
 	<div>
-
 		<!-- ______________ФИЛЬТР ИЩУ НЯНЮ: РАЙОН, ОПЛАТА, ОПЫТ ОБЩЕНИЯ С ЖИВОТНЫМИ, НЯНЯ С ВЫЕЗДОМ ИЛИ БЕЗ, ВОЗРАСТ НЯНИ, ПОЛ, ОЛ ИН КЛЮЗИВ ИЛИ ВСЕ СВОЕ, ВЫБОР ЖИВОТНЫХ_______________ -->
 		<!-- Searching form-->
 		<h1 class="filter-block__title" id="filter_block__title_yakor">Найти Няню
@@ -169,7 +218,9 @@
 		<form name="formFilter" class="formFilter">
 			<div class="container searching">
 				<div class="w-100 searching__result">
-					<div id="cards"></div>
+					<div id="cards">
+						
+					</div>
 				</div>
 				<div class="filter-mobile" id="btnappfilter1">Фильтр</div>
 				<div class="row searching__filters searching__filters_shadow mt-1 filter-desktop">
@@ -183,23 +234,65 @@
 							<div class="filter__card">
 								<div class="filter__title">Какому питомцу необходима няня</div>
 								<div>
-									<select name="pet" class="options filter__card-input level" id="pet" onchange="showOther()">
-										<option value="choose">--Выберите животное--</option>
-										<option value="cat">Кошка</option>
-										<option value="dog">Собака</option>
-										<option value="parrot">Попугай</option>
-										<option value="hamster">Хомяк</option>
-										<option value="guinea-pig">Морская свинка</option>
-										<option value="chinchilla">Шиншила</option>
-										<option value="turtle">Черепаха</option>
-										<option value="snake">Змея</option>
-										<option value="lizard">Ящерица</option>
-										<option value="fish">Рыбки</option>
-										<option value="raccoon">Енот</option>
-										<option value="meerkat">Сурикат</option>
-										<option value="rabbit">Кролик</option>
-										<option value="other">Другое</option>
-									</select>
+									<div>
+										<input type="checkbox" id="cat" name="cat" class="CheckPets">
+										<label for="cat">Кошка</label>
+									</div>
+									<div>
+										<input type="checkbox" id="dog" name="dog" class="CheckPets">
+										<label for="dog">Собака</label>
+									</div>
+									<div>
+										<input type="checkbox" id="parrot" name="parrot" class="CheckPets">
+										<label for="parrot">Попугай</label>
+									</div>
+									<div>
+										<input type="checkbox" id="hamster" name="hamster" class="CheckPets">
+										<label for="hamster">Хомяк</label>
+									</div>
+									<div class="OnRequest">
+										<div>
+											<input type="checkbox" id="guinea-pig" name="guinea-pig" class="CheckPets">
+											<label for="guinea-pig">Морская свинка</label>
+										</div>
+										<div>
+											<input type="checkbox" id="chinchilla" name="chinchilla" class="CheckPets">
+											<label for="chinchilla">Шиншила</label>
+										</div>
+										<div>
+											<input type="checkbox" id="turtle" name="turtle" class="CheckPets">
+											<label for="turtle">Черепаха</label>
+										</div>
+										<div>
+											<input type="checkbox" id="snake" name="snake" class="CheckPets">
+											<label for="snake">Змея</label>
+										</div>
+										<div>
+											<input type="checkbox" id="lizard" name="lizard" class="CheckPets">
+											<label for="lizard">Ящерица</label>
+										</div>
+										<div>
+											<input type="checkbox" id="fish" name="fish" class="CheckPets">
+											<label for="fish">Рыбки</label>
+										</div>
+										<div>
+											<input type="checkbox" id="raccoon" name="raccoon" class="CheckPets">
+											<label for="raccoon">Енот</label>
+										</div>
+										<div>
+											<input type="checkbox" id="meerkat" name="meerkat" class="CheckPets">
+											<label for="meerkat">Сурикат</label>
+										</div>
+										<div>
+											<input type="checkbox" id="rabbit" name="rabbit" class="CheckPets">
+											<label for="rabbit">Кролик</label>
+										</div>
+										<div>
+											<input type="checkbox" id="OtherPets" name="other" class="CheckPets" onclick="showOther()">
+											<label for="other">Другое</label>
+										</div>
+									</div>
+									<p class="allPets" onclick="toggleCheckboxesPets()">Показать все</p>
 								</div>
 								<div id="inputContainer">
 									<input class="other" type="text" name="animal" id="animal" placeholder="Введите животное" />
@@ -208,25 +301,25 @@
 									<div class="filter__title">Опыт общения с животными</div>
 									<div>
 										<label class="filter__card-label" for="zero">
-											<input class="filter__card-input experience" type="radio" name="experience" value="zero"
+											<input class="filter__card-input experience radio" type="radio" name="experience" value="zero"
 												id="zero" />
 											Менее года</label>
 									</div>
 									<div>
 										<label class="filter__card-label" for="small">
-											<input class="filter__card-input experience" type="radio" name="experience" value="small"
+											<input class="filter__card-input experience radio" type="radio" name="experience" value="small"
 												id="small" />
 											От 1 до 3 лет</label>
 									</div>
 									<div>
 										<label class="filter__card-label" for="medium">
-											<input class="filter__card-input experience" type="radio" name="experience" value="medium"
+											<input class="filter__card-input experience radio" type="radio" name="experience" value="medium"
 												id="medium" />
 											От 3 до 6 лет</label>
 									</div>
 									<div>
 										<label class="filter__card-label" for="large">
-											<input class="filter__card-input experience" type="radio" name="experience" value="large"
+											<input class="filter__card-input experience radio" type="radio" name="experience" value="large"
 												id="large" />
 											Более 6 лет</label>
 									</div>
@@ -242,19 +335,20 @@
 									<div class="filter__title">Формат</div>
 									<div>
 										<label class="filter__card-label">
-											<input class="filter__card-input format" id="distant" value="С выездом" type="radio"
+											<input class="filter__card-input format radio" id="distant" value="С выездом" type="radio"
 												name="level" />
 											С выездом</label>
 									</div>
 									<div>
 										<label class="filter__card-label">
-											<input class="filter__card-input format" id="home" value="На дому" type="radio" name="level" />
+											<input class="filter__card-input format radio" id="home" value="На дому" type="radio"
+												name="level" />
 											На дому</label>
 									</div>
 								</div>
 								<div class="filter__btns">
-									<div class="filter__change" id="btnFilter">Няня найдись!</div>
-									<div class="filter__throwoff" id="btnReboot">Сбросить</div>
+									<div class="filter__change" id="btnFilter" onclick="CleanFilter()">Няня найдись!</div>
+									<div class="filter__throwoff" id="btnReboot" onclick="CleanFilter()">Сбросить</div>
 								</div>
 							</div>
 						</div>
@@ -276,7 +370,7 @@
 			</div>
 			<div class="mb-3">
 				<label for="nameForm" class="form-label">Имя</label>
-				<input type="text" class="form-control" id="nameForm" placeholder="Ваше имя" />
+				<input type="text" class="form-control" id="nameForm" placeholder="Ваше имя" required />
 			</div>
 			<div class="mb-3">
 				<label for="citiForm" class="form-label">Район</label>
@@ -284,23 +378,67 @@
 			</div>
 			<div class="mb-3">
 				<label for="petForm" class="form-label">Выберите ваше животное</label>
-				<select class="form-select mb-3" aria-label=".form-select-lg example" id="petForm" onchange="showOtherForm()">
-					<option selected></option>
-					<option value="cat">Кошка</option>
-					<option value="dog">Собака</option>
-					<option value="parrot">Попугай</option>
-					<option value="hamster">Хомяк</option>
-					<option value="guinea-pig">Морская свинка</option>
-					<option value="chinchilla">Шиншила</option>
-					<option value="turtle">Черепаха</option>
-					<option value="snake">Змея</option>
-					<option value="lizard">Ящерица</option>
-					<option value="fish">Рыбки</option>
-					<option value="raccoon">Енот</option>
-					<option value="meerkat">Сурикат</option>
-					<option value="rabbit">Кролик</option>
-					<option value="other">Другое</option>
-				</select>
+				<div>
+					<div>
+						<input type="checkbox" id="cat" name="cat" class="checkPets">
+						<label for="cat">Кошка</label>
+					</div>
+					<div>
+						<input type="checkbox" id="dog" name="dog" class="checkPets">
+						<label for="dog">Собака</label>
+					</div>
+					<div>
+						<input type="checkbox" id="parrot" name="parrot" class="checkPets">
+						<label for="parrot">Попугай</label>
+					</div>
+					<div>
+						<input type="checkbox" id="hamster" name="hamster" class="checkPets">
+						<label for="hamster">Хомяк</label>
+					</div>
+					<div class="onRequestPets">
+						<div>
+							<input type="checkbox" id="guinea-pig" name="guinea-pig" class="checkPets">
+							<label for="guinea-pig">Морская свинка</label>
+						</div>
+						<div>
+							<input type="checkbox" id="chinchilla" name="chinchilla" class="checkPets">
+							<label for="chinchilla">Шиншила</label>
+						</div>
+						<div>
+							<input type="checkbox" id="turtle" name="turtle" class="checkPets">
+							<label for="turtle">Черепаха</label>
+						</div>
+						<div>
+							<input type="checkbox" id="snake" name="snake" class="checkPets">
+							<label for="snake">Змея</label>
+						</div>
+						<div>
+							<input type="checkbox" id="lizard" name="lizard" class="checkPets">
+							<label for="lizard">Ящерица</label>
+						</div>
+						<div>
+							<input type="checkbox" id="fish" name="fish" class="checkPets">
+							<label for="fish">Рыбки</label>
+						</div>
+						<div>
+							<input type="checkbox" id="raccoon" name="raccoon" class="checkPets">
+							<label for="raccoon">Енот</label>
+						</div>
+						<div>
+							<input type="checkbox" id="meerkat" name="meerkat" class="checkPets">
+							<label for="meerkat">Сурикат</label>
+						</div>
+						<div>
+							<input type="checkbox" id="rabbit" name="rabbit" class="checkPets">
+							<label for="rabbit">Кролик</label>
+						</div>
+						<div>
+							<input type="checkbox" id="otherPetsBlock" name="other" class="checkPets" onclick="showOtherFormBlock()">
+							<label for="other">Другое</label>
+						</div>
+					</div>
+					<p class="all" onclick="showleCheckboxesPets()">Показать все</p>
+				</div>
 			</div>
 			<div id="inputContainerForm">
 				<input class="other form-control" type="text" name="animalForm" id="animalForm"
@@ -308,11 +446,11 @@
 			</div>
 			<div class="mb-3">
 				<label for="petForm2" class="form-label">Порода питомца</label>
-				<input type="text" class="form-control" id="petForm2" placeholder="Порода питомца" />
+				<input type="text" class="form-control" id="petForm2" placeholder="Порода питомца" required />
 			</div>
 			<div class="mb-3">
 				<label for="phoneForm" class="form-label">Телефон</label>
-				<input type="tel" class="form-control" id="phoneForm" placeholder="+7**********" />
+				<input type="tel" class="form-control" id="phoneForm" placeholder="+7**********" required />
 			</div>
 			<div class="mb-3">
 				<label class="form-label">Предпочтительный способ связи</label>
@@ -332,7 +470,7 @@
 			</div>
 			<div class="mb-3">
 				<label for="emailForm" class="form-label">Email</label>
-				<input type="email" class="form-control" id="emailForm" placeholder="name@example.com" />
+				<input type="email" class="form-control" id="emailForm" placeholder="name@example.com" required />
 			</div>
 			<div class="mb-3">
 				<div class="row">
@@ -354,7 +492,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="mb-3 choose-filterForm">
+			<div class="mb-3 choose-filterForm" id="policy">
 				<div class="filterlabel-Form__title">Формат</div>
 				<div class="form-check">
 					<label class="label-Forml">
@@ -373,8 +511,15 @@
 				<textarea class="form-control" id="commentsForm" rows="3"
 					placeholder="Любая дополнительная информация, которую нам необходимо знать (например, тип и название корма)"></textarea>
 			</div>
+			<label class="form__label" for="policy_check"><input class="form__checkbox policy_check policy_check2"
+					id="policy_check" type="checkbox" name="CHECK" required><span class="form__custom-checkbox"></span> Нажимая
+				кнопку, вы
+				даете
+				согласие на обработку персональных данных и соглашаетесь с
+				<a class="form__link" href="./policy.html">Политикой конфиденциальности</a>
+			</label>
 			<div class="registration-form-button-container">
-				<button type="button" class="btn btn--yellow" id="btn-send">
+				<button type="submit" class="btn btn--yellow" id="btn-send">
 					<span class="btn__txt">Отправить</span>
 					<i class="btn__bg" aria-hidden="true"></i>
 					<i class="btn__bg" aria-hidden="true"></i>
@@ -422,14 +567,13 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
-
 	<script src="./scrollToTop.js"></script>
 	<script src="./geolocation.js"></script>
-
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
 		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 		crossorigin=""></script>
-
+		<script src="./rating.js"></script>
+		<script src="/registration.js"></script>
 </body>
 
 </html>

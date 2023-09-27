@@ -26,6 +26,16 @@
 			<div class="navigation">
 				<a href="./index.html" class="navigation__link_1">На главную</a>
 			</div>
+			<div class="hamburger-menu">
+				<input id="menu__toggle" type="checkbox" />
+				<label class="menu__btn_2" for="menu__toggle">
+				  <span></span>
+				</label>
+			
+				<ul class="menu__box_2">
+				  <li><a class="menu__item" href="./index.html">На главную</a></li>
+				</ul>
+			  </div>
 		</section>
 	</header>
 	<button onclick="scrollToTop()" id="scrollToTopButton">Наверх</button>
@@ -95,7 +105,7 @@
 				</div>
 				<div class="mb-3">
 					<label for="nameForm" class="form-label">Имя</label>
-					<input type="name" class="form-control" id="nameForm" placeholder="Ваше имя" />
+					<input type="name" class="form-control" id="nameForm" placeholder="Ваше имя" required />
 				</div>
 				<div class="mb-3">
 					<label for="citiForm" class="form-label">Район</label>
@@ -173,7 +183,7 @@
 				</div>
 				<div class="mb-3">
 					<label for="phoneForm" class="form-label">Телефон</label>
-					<input type="tel" class="form-control" id="phoneForm" placeholder="+7**********" />
+					<input type="tel" class="form-control" id="phoneForm" placeholder="+7**********" required />
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Предпочтительный способ связи</label>
@@ -193,14 +203,14 @@
 				</div>
 				<div class="mb-3">
 					<label for="emailForm" class="form-label">Email</label>
-					<input type="email" class="form-control" id="emailForm" placeholder="name@example.com" />
+					<input type="email" class="form-control" id="emailForm" placeholder="name@example.com" required />
 				</div>
 				<div class="mb-3">
 					<p>Укажите свою дату рождения: <input type="date" name="calendar" /></p>
 				</div>
 				<div class="mb-3">
-					<label for="workExperience" class="form-label">Опыт работы</label>
-					<select class="form-select mb-3" aria-label=".form-select-lg example" id="workExperience">
+					<label for="workExperience" class="form-label" id="policy-nannys">Опыт работы</label>
+					<select class="form-select mb-3" aria-label=".form-select-lg example" id="workExperience" required>
 						<option value="0"></option>
 						<option value="1">Менее года</option>
 						<option value="2">От 1 до 3 лет</option>
@@ -231,6 +241,11 @@
 										name="level" checked />
 									На дому</label>
 							</div>
+							<div class="form-check">
+								<label class="filter__card-label" for="distant">
+									<input class="filter__card-input format form-check-input" id="home_and_away" value="На дому и с выездом" type="radio"
+										name="level" />Оба варианта</label>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -239,8 +254,13 @@
 					<textarea class="form-control" id="commentsForm2" rows="3"
 						placeholder="Любая дополнительная информация, которую нам необходимо знать. Опишите опыт работы, если он имеется."></textarea>
 				</div>
+				<label class="form__label" for="policy_check"><input class="form__checkbox" id="policy_check" type="checkbox"
+						name="CHECK"><span class="form__custom-checkbox" required></span> Нажимая кнопку, вы даете
+					согласие на обработку персональных данных и соглашаетесь с
+					<a class="form__link" href="./policy-nannys.html">Политикой конфиденциальности</a>
+				</label>
 				<div class="registration-form-button-container">
-					<button type="button" class="btn btn--yellow" id="sending_a_babysitter_questionnaire">
+					<button type="submit" class="btn btn--yellow" id="sending_a_babysitter_questionnaire">
 						<span class="btn__txt">Отправить</span>
 						<i class="btn__bg" aria-hidden="true"></i>
 						<i class="btn__bg" aria-hidden="true"></i>
@@ -262,6 +282,7 @@
 	</footer>
 	<script src="./sending_a_questionnaire.js"></script>
 	<script src="./scrollToTop.js"></script>
+	<script src="./transferring_the_nanny_questionnaire_to_the_filter.js"></script>
 </body>
 
 </html>

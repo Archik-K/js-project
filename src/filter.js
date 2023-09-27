@@ -5,9 +5,10 @@ let firstCards; // Объявление переменной firstCards
 const list = document.querySelector("#cards"); // Выборка элемента с идентификатором "cards" и сохранение в переменной list
 
 // Объявление функции searchResult с аргументом element
-function searchResult(element) {
+function searchResult(element, index) {
 	// Добавление HTML-кода в элемент list (в теле HTML-кода используются свойства объекта element, полученного при вызове функции)
-	list.innerHTML += `
+	let search_card = document.createElement("div");
+	search_card.innerHTML = `
         <div class="search__card">
             <div>
                 <h5 class="search__card-title card-title">${element.name} (${element.pet})</h5> 
@@ -19,9 +20,28 @@ function searchResult(element) {
                 <div class="search__card-subtitle">Оплата</div>
                 <div class="search__card-salary">${element.salary} руб/сутки</div>
             </div>
+			<div class="foto_star">
         <image src="${element.photo}" class="search__card-photo" alt="photo" />
+		<div class="rating" data-index="${index}">
+		<span class="star" data-rating="1">★</span>
+		<span class="star" data-rating="2">★</span>
+		<span class="star" data-rating="3">★</span>
+		<span class="star" data-rating="4">★</span>
+		<span class="star" data-rating="5">★</span>
+		</div>
+		<p id="rating-value-${index}">Рейтинг:0</p>
+		</div>
         </div>`;
+	list.appendChild(search_card);
 
+	const stars = list.querySelectorAll(`.rating[data-index="${index}"] .star`);
+	const ratingValue = list.querySelector(`#rating-value-${index}`);
+
+	stars.forEach((star) => {
+		star.addEventListener("click", setRating);
+		star.addEventListener("mouseover", hoverRating);
+		star.addEventListener("mouseout", resetRating);
+	});
 	/* 	Заголовок с именем и видом питомца */
 	/* 	Информация о возрасте*/
 	/* Заголовок раздела о районе */
@@ -31,6 +51,47 @@ function searchResult(element) {
 	/* Заголовок раздела об оплате */
 	/* Информация об оплате */
 	/* Вставка изображения с указанием источника и альтернативного текста */
+
+	let currentRating = 0;
+
+	function setRating(event) {
+		const clickedStar = event.target;
+		const rating = parseInt(clickedStar.getAttribute("data-rating"));
+		currentRating = rating;
+		updateRating();
+		localStorage.setItem(`rating-${index}`, currentRating);
+	}
+
+	function hoverRating(event) {
+		const hoveredStar = event.target;
+		const rating = parseInt(hoveredStar.getAttribute("data-rating"));
+		updateRating(rating);
+	}
+
+	function resetRating() {
+		updateRating();
+	}
+
+	function updateRating(rating = currentRating) {
+		stars.forEach((star) => {
+			const starRating = parseInt(star.getAttribute("data-rating"));
+			if (starRating <= rating) {
+				star.classList.add("active");
+			} else {
+				star.classList.remove("active");
+			}
+		});
+
+		ratingValue.textContent = `Рейтинг: ${rating}`;
+	}
+	loadRating();
+	function loadRating() {
+		const savedRating = localStorage.getItem(`rating-${index}`);
+		if (savedRating !== null) {
+			currentRating = parseInt(savedRating);
+			updateRating();
+		}
+	}
 }
 
 // Добавление обработчика событий для события "DOMContentLoaded", когда весь документ загрузится
@@ -54,8 +115,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 		localStorage.removeItem("searchRequest");
 	} else {
 		// Если "searchRequest" отсутствует, выполняется цикл по массиву cards и вызов функции searchResult для каждого элемента
+		let index = 0;
 		for (card of cards) {
-			searchResult(card);
+			searchResult(card, index);
+			index++;
 		}
 	}
 	// Объявление переменной arrCity и инициализация его пустым массивом
@@ -415,15 +478,15 @@ document.getElementById("btnappfilter1").addEventListener("click", () => {
 
 /* ____________FILTER__________ */
 const inputContainer = document.getElementById("inputContainer"); // Получение элемента с ID "inputContainer" и сохранение его в переменную inputContainer
-const select = document.getElementById("pet"); // Получение элемента с ID "pet" (select) и сохранение его в переменную select
 const form = document.forms.formFilter; // Получение формы с именем formFilter и сохранение ее в переменную form
 const buttonSearch = document.getElementById("btnFilter"); // Получение кнопки с ID "btnFilter" и сохранение ее в переменную buttonSearch
 const buttonReset = document.getElementById("btnReboot"); // Получение кнопки с ID "btnReboot" и сохранение ее в переменную buttonReset
+const checkboxOtherPets = document.getElementById("OtherPets");
 
 // Функция showOther, которая изменяет стиль отображения inputContainer на основе выбранного значения в select
 function showOther() {
 	// Если выбранное значение (value) в select равно "other"
-	if (select.value === "other") {
+	if (checkboxOtherPets.checked) {
 		// Показываем inputContainer, задавая значение display стиля на "block"
 		inputContainer.style.display = "block";
 	} else {
@@ -431,75 +494,76 @@ function showOther() {
 		inputContainer.style.display = "none";
 	}
 }
-// Добавляем обработчик события "click" на элемент buttonReset
-buttonReset.addEventListener("click", function () {
-	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
-	let inputElements = document.querySelectorAll("input");
-	// Устанавливаем значение select на "choose"
-	select.value = "choose";
-	// Скрываем inputContainer, задавая значение display стиля на "none"
-	inputContainer.style.display = "none";
-	// Проходим по каждому найденному инпуту
-	inputElements.forEach(function (input) {
-		// Сбрасываем значение инпута до значения по умолчанию
-		input.value = input.defaultValue;
-	});
-});
-// Добавляем обработчик события "click" на элемент buttonSearch
-buttonSearch.addEventListener("click", function () {
-	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
-	let inputElements = document.querySelectorAll("input");
-	// Устанавливаем значение select на "choose"
-	select.value = "choose";
-	// Скрываем inputContainer, задавая значение display стиля на "none"
-	inputContainer.style.display = "none";
-	// Проходим по каждому найденному инпуту
-	inputElements.forEach(function (input) {
-		// Сбрасываем значение инпута до значения по умолчанию
-		input.value = input.defaultValue;
-	});
-});
 
-const inputContainerForm = document.getElementById("inputContainer"); // Получение элемента с ID "inputContainerForm" и сохранение его в переменную inputContainerForm
-const selectForm = document.getElementById("petForm"); // Получение элемента с ID "petForm" (select) и сохранение его в переменную
-const FormPet = document.forms.FormPet; // Получение формы с именем FormPet и сохранение ее в переменную FormPet
-const buttonSend = document.getElementById("btn-send"); // Получение кнопки с ID "btn-send" и сохранение ее в переменную buttonSend
-const commentsForm = document.getElementById("commentsForm");  // Получение элемента с ID "commentsForm" и сохранение его в переменную
-const timeSelect = document.getElementById("timeSelect"); // Получение элемента с ID "timeSelect" и сохранение его в переменную
-const flexRadioDefault2 = document.getElementById("flexRadioDefault2"); // Получение элемента с ID "flexRadioDefault2" и сохранение его в переменную
-const homeForm = document.getElementById("homeForm"); // Получение элемента с ID "homeForm" и сохранение его в переменную
+const btnRequestPets = document.querySelector(".allPets"); // Получение элемента с class "allPets" и сохранение его в переменную
+const OnRequest = document.querySelector(".OnRequest"); // Получение элемента с class "OnRequest" и сохранение его в переменную
+const checkboxes = document.querySelectorAll(".CheckPet");
 
-// Функция showOtherForm, которая изменяет стиль отображения inputContainerForm на основе выбранного значения в select в заявке на передержку
-function showOtherForm() {
-	// Если выбранное значение (value) в select равно "other"
-	if (selectForm.value === "other") {
-		// Показываем inputContainerForm, задавая значение display стиля на "block"
-		inputContainerForm.style.display = "block";
+function toggleCheckboxesPets() {
+	if (OnRequest.style.display === "none") {
+		// Если checkbox скрыты, открываем их и переименовываем на "Скрыть"
+		OnRequest.style.display = "block";
+		btnRequestPets.innerHTML = "Скрыть";
 	} else {
-		// Скрываем iinputContainerForm, задавая значение display стиля на "none"
-		inputContainerForm.style.display = "none";
+		// Если checkbox открыты, закрываем их и переименовываем на "Показать все"
+		OnRequest.style.display = "none";
+		btnRequestPets.innerHTML = "Показать все";
 	}
 }
 
-// Добавляем обработчик события "click" на элемент buttonSend
-buttonSend.addEventListener("click", function () {
+// Функция очистки формы после Нажатия кнопки "Сбросить"
+buttonReset.addEventListener("click", function () {
+	const policy = document.querySelector(".policy_check");
+	policy.checked = false;
+
+	const checkboxes = document.querySelectorAll(".CheckPet");
+
+	// Если checkbox открыты, закрываем их и переименовываем на "Показать все"
+	OnRequest.style.display = "none";
+	btnRequestPets.innerHTML = "Показать все";
+
 	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
 	let inputElements = document.querySelectorAll("input");
-	// Устанавливаем значение selectForm на "choose"
-	selectForm.value = "choose";
-	// Устанавливаем значение timeSelectt на "0"
-	timeSelect.value = '0';
+
+	for (var i = 0; i < checkboxes.length; i++) {
+		// Обнуляем значение чекбокса
+		checkboxes[i].checked = false;
+	}
 	// Скрываем inputContainer, задавая значение display стиля на "none"
-	inputContainerForm.style.display = "none";
+	inputContainer.style.display = "none";
 	// Проходим по каждому найденному инпуту
+
 	inputElements.forEach(function (input) {
 		// Сбрасываем значение инпута до значения по умолчанию
 		input.value = input.defaultValue;
-		// Сбрасываем значения радиокнопок до значений по умолчанию
-		flexRadioDefault2.checked = true;
-		homeForm.checked = true;
-		// Очищаем текстовое поле  
-		commentsForm.value = '';
+	});
+});
+
+// Функция очистки формы после Нажатия кнопки "Няня найдись"
+buttonSearch.addEventListener("click", function () {
+	const checkboxes = document.querySelectorAll(".CheckPets");
+	const radiofilter = document.querySelectorAll('.radio');
+	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
+	let inputElements = document.querySelectorAll("input");
+	// Если checkbox открыты, закрываем их и переименовываем на "Показать все"
+	OnRequest.style.display = "none";
+	btnRequestPets.innerHTML = "Показать все";
+
+	for (var i = 0; i < checkboxes.length; i++) {
+		// Обнуляем значение чекбокса
+		checkboxes[i].checked = false;
+	}
+
+	for (var j = 0; j < radiofilter.length; j++) {
+		radiofilter[j].checked = false;
+	}
+	// Скрываем inputContainer, задавая значение display стиля на "none"
+	inputContainer.style.display = "none";
+	// Проходим по каждому найденному инпуту
+
+	inputElements.forEach(function (input) {
+		// Сбрасываем значение инпута до значения по умолчанию
+		input.value = input.defaultValue;
 	});
 });
 
@@ -517,3 +581,85 @@ filterButton.addEventListener("click", function () {
 		filterButton.innerHTML = "Фильтр";
 	}
 })
+
+/* ____________Заявка на передержку__________ */
+const inputContainerForm = document.getElementById("inputContainerForm"); // Получение элемента с ID "inputContainerForm" и сохранение его в переменную inputContainerForm
+const petsBlock = document.querySelector('.onRequestPets');
+const FormPet = document.forms.FormPet; // Получение формы с именем FormPet и сохранение ее в переменную FormPet
+const buttonSend = document.getElementById("btn-send"); // Получение кнопки с ID "btn-send" и сохранение ее в переменную buttonSend
+const commentsForm = document.getElementById("commentsForm"); // Получение элемента с ID "commentsForm" и сохранение его в переменную
+const timeSelect = document.getElementById("timeSelect"); // Получение элемента с ID "timeSelect" и сохранение его в переменную
+const flexRadioDefault2 = document.getElementById("flexRadioDefault2"); // Получение элемента с ID "flexRadioDefault2" и сохранение его в переменную
+const homeForm = document.getElementById("homeForm"); // Получение элемента с ID "homeForm" и сохранение его в переменную
+const btnshow = document.querySelector(".all");
+const otherPetsBlock = document.getElementById('otherPetsBlock');
+
+
+// Функция, которая показывает/скрывает полный список животных
+function showleCheckboxesPets() {
+	if (petsBlock.style.display === "none") {
+		// Если checkbox скрыты, открываем их и переименовываем на "Скрыть"
+		petsBlock.style.display = "block";
+		btnshow.innerHTML = "Скрыть";
+	} else {
+		// Если checkbox открыты, закрываем их и переименовываем на "Показать все"
+		petsBlock.style.display = "none";
+		btnshow.innerHTML = "Показать все";
+	}
+}
+
+// Функция, которая идобавляет графу для написания названия животного
+function showOtherFormBlock() {
+	// Если выбранное значение (value) в select равно "other"
+	if (otherPetsBlock.checked) {
+		// Показываем inputContainerForm, задавая значение display стиля на "block"
+		inputContainerForm.style.display = "block";
+	} else {
+		// Скрываем iinputContainerForm, задавая значение display стиля на "none"
+		inputContainerForm.style.display = "none";
+	}
+}
+
+// Функция очищения заявки при нажатии на кнопку отправить
+FormPet.addEventListener('submit', function (event) {
+	event.preventDefault(); //Отмена отправки
+	FormPet.reset();
+});
+
+
+filterButton.addEventListener("click", function () {
+	if (filterContent.style.display === "none") {
+		// Если форма скрыта, открываем ее и переименовываем кнопку на "Свернуть фильтр"
+		filterContent.style.display = "block";
+		filterButton.innerHTML = "Свернуть фильтр";
+	} else {
+		// Если форма открыта, скрываем ее и переименовываем кнопку на "Фильтр"
+		filterContent.style.display = "none";
+		filterButton.innerHTML = "Фильтр";
+	}
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+	const starInputs = document.querySelectorAll(
+		'.star-container input[type="radio"]'
+	);
+	const starLabels = document.querySelectorAll(".star-container label");
+
+	starInputs.forEach((input, index) => {
+		input.addEventListener("change", function () {
+			if (input.checked) {
+				for (let i = 0; i <= index; i++) {
+					starLabels[i].style.fill = "#ff9306";
+				}
+
+				for (let i = index + 1; i < starInputs.length; i++) {
+					starLabels[i].style.fill = "currentColor";
+				}
+
+				// Отправка значения рейтинга на сервер или выполнение другого действия
+				console.log("Рейтинг установлен:", 5 - index);
+			}
+		});
+	});
+});
+

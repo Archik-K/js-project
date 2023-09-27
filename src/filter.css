@@ -116,8 +116,9 @@
 .search__card-photo {
 	border-radius: 100px;
 	max-width: 200px;
-	max-height: 189px;
+	height: 100%;
 	object-fit: cover;
+	padding: 0 0 0 0;
 }
 
 .filter__all1 {
@@ -253,4 +254,18 @@
 
 #inputContainer {
 	display: none;
+}
+
+.OnRequest {
+	display: none;
+}
+
+.onRequestPets {
+	display: none;
+}
+
+.allPets {
+	color: rgb(31, 38, 135);
+	text-decoration: underline;
+	text-decoration-style: dashed;
 }
