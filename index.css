@@ -1139,10 +1139,26 @@ footer img {
     flex-direction: column;
     gap: 2rem;
 
-    overflow: scroll;
+    overflow-y: scroll;
 
     flex-basis: content;
     max-height: 45vh;
+
+    padding-right: 10px;
+    /* Стилизация скролла для Mozilla Firefox */
+    scrollbar-color: #808285 #a4af97; /* цвет ползунка | цвет полосы скроллбара */
+    scrollbar-width: thin; /* толщина */
+}
+
+/* полоса прокрутки (скроллбар) */
+.list_of_reviews::-webkit-scrollbar {
+    width: 5px; /* ширина для вертикального скролла */
+    background-color: #a4af97;
+}
+
+/* ползунок скроллбара */
+.list_of_reviews::-webkit-scrollbar-thumb {
+    background-color: #808285;
 }
 
 .review_card {
@@ -1171,11 +1187,17 @@ footer img {
 
 .review_nickname {
     font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.review_text {
+    overflow-wrap: anywhere;
 }
 
 .form-review {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
 
     padding: 1%;
