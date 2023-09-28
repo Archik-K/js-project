@@ -1,249 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="shortcut icon"
+			href="./src/pictures/logo_nav.png"
+			type="logo/png"
+		/>
+		<!-- Цветовая с шариками 1803, желтый из коктейлей -->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="./style/style_lk_nann.css" />
-	<link rel="shortcut icon" href="./js_project/src/logo_nav.png" type="logo/png" />
-	<link rel="stylesheet" href="./sass/app.css" />
-	<link rel="stylesheet" href="./sass/normalize.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-	<link rel="shortcut icon" href="./src/pictures/logo_nav.png" type="logo/png" />
-	<title>Document</title>
-</head>
+		<link rel="stylesheet" href="./style/style_lk_nann.css" />
+		<link
+			rel="shortcut icon"
+			href="./js_project/src/logo_nav.png"
+			type="logo/png"
+		/>
+		<link rel="stylesheet" href="./sass/app.css" />
+		<link rel="stylesheet" href="./sass/normalize.css" />
 
-<body>
-	<header class="header">
-		<section class="top-nav">
-			<div><img src="/js_project/src/pet.png" /></div>
-			<div class="navigation">
-				<a href="./index.html" class="navigation__link_1">На главную</a>
+		<link
+			rel="shortcut icon"
+			href="./src/pictures/logo_nav.png"
+			type="logo/png"
+		/>
+
+		<title>Document</title>
+	</head>
+
+	<body>
+		<header class="header">
+			<section class="top-nav">
+				<div><img src="./src/pictures/pet (1).png" /></div>
+				<div class="navigation">
+					<a href="./index.html" class="navigation__link_1">На главную</a>
+				</div>
+			</section>
+		</header>
+		<section class="lk-nanny">
+			<div class="lk_nanny__container">
+				<div class="lk-nanny__data-entry">
+					<h2>Личный кабинет няни</h2>
+					<form class="data-entry__container">
+						<label for="data-entry__fullName">ФИО (обязательное поле):</label>
+						<input type="text" id="data-entry__fullName" required />
+						<label for="image" accept="image/*"
+							>Добавить фото (размер 400 на 400):</label
+						>
+						<input type="file" id="data-entry__image" />
+						<div class="mb-3">
+							<p>
+								Укажите свою дату рождения:
+								<input type="date" name="calendar" id="data-entry__birthday" />
+							</p>
+						</div>
+						<div class="mb-3">
+							<label for="workExperience" class="form-label">Опыт работы</label>
+							<select
+								class="form-select mb-3"
+								aria-label=".form-select-lg example"
+								id="data-entry__workExperience"
+							>
+								<option value="0"></option>
+								<option value="1">Менее года</option>
+								<option value="2">От 1 до 3 лет</option>
+								<option value="3">От 3 до 6 лет</option>
+								<option value="4">Более 6 лет</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="petForm2" class="form-label">Выберите животное</label>
+							<div>
+								<div>
+									<input
+										type="checkbox"
+										id="cat"
+										name="cat"
+										class="checkPets"
+										value="Кошка"
+									/>
+									<label for="cat">Кошка</label>
+								</div>
+								<div>
+									<input
+										type="checkbox"
+										id="dog"
+										name="dog"
+										class="checkPets"
+										value="Собака"
+									/>
+									<label for="dog">Собака</label>
+								</div>
+								<div>
+									<input
+										type="checkbox"
+										id="parrot"
+										name="parrot"
+										class="checkPets"
+										value="Попугай"
+									/>
+									<label for="parrot">Попугай</label>
+								</div>
+								<div>
+									<input
+										type="checkbox"
+										id="hamster"
+										name="hamster"
+										class="checkPets"
+										value="Хомяк"
+									/>
+									<label for="hamster">Хомяк</label>
+								</div>
+								<div class="onRequest">
+									<div>
+										<input
+											type="checkbox"
+											id="guinea-pig"
+											name="guinea-pig"
+											class="checkPets"
+											value="Морская свинка"
+										/>
+										<label for="guinea-pig">Морская свинка</label>
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											id="chinchilla"
+											name="chinchilla"
+											class="checkPets"
+											value="Шиншила"
+										/>
+										<label for="chinchilla">Шиншила</label>
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											id="turtle"
+											name="turtle"
+											class="checkPets"
+											value="Черепаха"
+										/>
+										<label for="turtle">Черепаха</label>
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											id="snake"
+											name="snake"
+											class="checkPets"
+											value="Змея"
+										/>
+										<label for="snake">Змея</label>
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											id="lizard"
+											name="lizard"
+											class="checkPets"
+											value="Ящерица"
+										/>
+										<label for="lizard">Ящерица</label>
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											id="fish"
+											name="fish"
+											class="checkPets"
+											value="Рыбки"
+										/>
+										<label for="fish">Рыбки</label>
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											id="raccoon"
+											name="raccoon"
+											class="checkPets"
+											value="Енот"
+										/>
+										<label for="raccoon">Енот</label>
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											id="meerkat"
+											name="meerkat"
+											class="checkPets"
+											value="Сурикат"
+										/>
+										<label for="meerkat">Сурикат</label>
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											id="rabbit"
+											name="rabbit"
+											class="checkPets"
+											value="Кролик"
+										/>
+										<label for="rabbit">Кролик</label>
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											id="otherPets"
+											name="other"
+											class="checkPets"
+											value="Другое"
+										/>
+										<label for="other">Другое</label>
+									</div>
+								</div>
+								<p class="all" onclick="toggleCheckboxes()">Показать все</p>
+							</div>
+						</div>
+						<div id="inputContainerForm2">
+							<input
+								class="other form-control"
+								type="text"
+								name="animalForm"
+								id="animalForm"
+								placeholder="Введите животное"
+							/>
+						</div>
+						<label for="city">Город (обязательное поле):</label>
+						<input type="text" id="data-entry__city" required />
+						<label for="phoneNumber">Номер телефона (обязательное поле):</label>
+						<input
+							type="text"
+							id="data-entry__phoneNumber"
+							placeholder="+7**********"
+							required
+						/>
+						<div class="mb-3">
+							<label class="form-label">Предпочтительный способ связи</label>
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="radio"
+									name="flexRadioDefault"
+									id="data-entry__flexRadioDefault1"
+									value="Мобильная связь"
+								/>
+								<label class="form-check-label" for="flexRadioDefault1"
+									>Мобильная связь</label
+								>
+							</div>
+							<div class="form-check">
+								<input
+									class="form-check-input"
+									type="radio"
+									name="flexRadioDefault"
+									id="data-entry__flexRadioDefault2"
+									value="Мессенджер"
+								/>
+								<label class="form-check-label" for="flexRadioDefault2"
+									>Мессенджер</label
+								>
+							</div>
+						</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="basic-addon1">@</span>
+							<input
+								type="text"
+								class="form-control"
+								placeholder="Username"
+								aria-label="Username"
+								aria-describedby="basic-addon1"
+								id="data-entry__username"
+							/>
+						</div>
+						<div class="mb-3">
+							<label for="emailForm" class="form-label">Email</label>
+							<input
+								type="email"
+								class="form-control"
+								id="data-entry__emailForm"
+								placeholder="name@example.com"
+							/>
+						</div>
+						<div class="mb-3 columnform">
+							<div class="filter__card gap2">
+								<div class="filter__title">Оплата</div>
+								<div class="filter__card-salary">
+									<input
+										class="filter__input-salary"
+										type="number"
+										placeholder="От"
+										id="data-entry__minSalary"
+									/>
+									<input
+										class="filter__input-salary"
+										type="number"
+										placeholder="До"
+										id="data-entry__maxSalary"
+									/>
+									руб
+								</div>
+							</div>
+							<div class="filter__card gap2">
+								<div class="filter__title">Формат</div>
+								<div class="format">
+									<div class="form-check">
+										<label class="filter__card-label" for="distant">
+											<input
+												class="filter__card-input format form-check-input"
+												id="distant"
+												value="С выездом"
+												type="radio"
+												name="level"
+											/>С выездом</label
+										>
+									</div>
+									<div class="form-check">
+										<label class="filter__card-label" for="home2">
+											<input
+												class="filter__card-input format form-check-input"
+												id="home2"
+												value="На дому"
+												type="radio"
+												name="level"
+											/>
+											На дому</label
+										>
+									</div>
+									<div class="form-check">
+										<label class="filter__card-label" for="both">
+											<input
+												class="filter__card-input format form-check-input"
+												id="both"
+												value="Оба Варианта"
+												type="radio"
+												name="level"
+												checked
+											/>
+											Оба варианта</label
+										>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="extra">
+							<label for="extra">Дополнительно:</label>
+							<textarea
+								id="data-entry__extra"
+								rows="3"
+								placeholder="Любая дополнительная информация, которую нам необходимо знать. Опишите опыт работы, если он имеется."
+							></textarea>
+						</div>
+						<div class="mb-3">
+							<p>
+								Дата регистрации ЛК:
+								<input
+									type="date"
+									name="calendar"
+									id="data-entry__dateRegistration"
+								/>
+							</p>
+						</div>
+						<div>
+							<button type="submit" class="btn btn--yellow data-entry__button">
+								<span class="btn__txt">Сохранить</span>
+								<i class="btn__bg" aria-hidden="true"></i>
+								<i class="btn__bg" aria-hidden="true"></i>
+								<i class="btn__bg" aria-hidden="true"></i>
+								<i class="btn__bg" aria-hidden="true"></i>
+							</button>
+						</div>
+					</form>
+				</div>
+				<div class="lk-nanny__data-saved">
+					<p class="data-saved__title">ID</p>
+					<!--<p class="data-saved__idNanny"></p>-->
+					<p class="data-saved__title">Имя</p>
+					<p class="data-saved__fullName"></p>
+					<img src="" alt="foto" class="data-saved__photo" />
+					<p class="data-saved__title">Дата рождения</p>
+					<p class="data-saved__birthday"></p>
+					<p class="data-saved__title">Опыт работы</p>
+					<p class="data-saved__workExperience"></p>
+					<p class="data-saved__title">Вид питомца</p>
+					<p class="data-saved__petType"></p>
+					<p class="data-saved__title">Город</p>
+					<p class="data-saved__city"></p>
+					<p class="data-saved__title">Номер телефона</p>
+					<p class="data-saved__nannyContacts"></p>
+					<p class="data-saved__title">Предпочтительный способ связи</p>
+					<p class="data-saved__connection"></p>
+					<p class="data-saved__title">Username</p>
+					<p class="data-saved__username"></p>
+					<p class="data-saved__title">Email</p>
+					<p class="data-saved__email"></p>
+					<p class="data-saved__title">Оплата</p>
+					<p class="data-saved__CardSalary"></p>
+					<p class="data-saved__title">Формат работы</p>
+					<p class="data-saved__workFormat"></p>
+					<p class="data-saved__title">Дополнительно</p>
+					<p class="data-saved__extra"></p>
+					<p class="data-saved__title">Дата регистрации ЛК</p>
+					<p class="data-saved__dateRegistration"></p>
+					<button type="submit" class="btn btn--yellow data-saved__button">
+						<span class="btn__txt">Редактировать</span>
+						<i class="btn__bg" aria-hidden="true"></i>
+						<i class="btn__bg" aria-hidden="true"></i>
+						<i class="btn__bg" aria-hidden="true"></i>
+						<i class="btn__bg" aria-hidden="true"></i>
+					</button>
+				</div>
 			</div>
 		</section>
-	</header>
-	<section class="lk-nanny">
-		<div class="lk_nanny__container">
-			<div class="lk-nanny__data-entry">
-				<h2>Личный кабинет няни</h2>
-				<form class="data-entry__container">
-					<label for="data-entry__fullName">ФИО (обязательное поле):</label>
-					<input type="text" id="data-entry__fullName" required />
-					<label for="image" accept="image/*">Добавить фото (размер 400 на 400):</label>
-					<input type="file" id="data-entry__image" />
-					<div class="mb-3">
-						<p>Укажите свою дату рождения: <input type="date" name="calendar" id="data-entry__birthday" />
-						</p>
-					</div>
-					<div class="mb-3">
-						<label for="workExperience" class="form-label">Опыт работы</label>
-						<select class="form-select mb-3" aria-label=".form-select-lg example"
-							id="data-entry__workExperience">
-							<option value="0"></option>
-							<option value="1">Менее года</option>
-							<option value="2">От 1 до 3 лет</option>
-							<option value="3">От 3 до 6 лет</option>
-							<option value="4">Более 6 лет</option>
-						</select>
-					</div>
-					<div class="mb-3">
-						<label for="petForm2" class="form-label">Выберите животное</label>
-						<div>
-							<div>
-								<input type="checkbox" id="cat" name="cat" class="checkPets" value="Кошка">
-								<label for="cat">Кошка</label>
-							</div>
-							<div>
-								<input type="checkbox" id="dog" name="dog" class="checkPets" value="Собака">
-								<label for="dog">Собака</label>
-							</div>
-							<div>
-								<input type="checkbox" id="parrot" name="parrot" class="checkPets" value="Попугай">
-								<label for="parrot">Попугай</label>
-							</div>
-							<div>
-								<input type="checkbox" id="hamster" name="hamster" class="checkPets" value="Хомяк">
-								<label for="hamster">Хомяк</label>
-							</div>
-							<div class="onRequest">
-								<div>
-									<input type="checkbox" id="guinea-pig" name="guinea-pig" class="checkPets"
-										value="Морская свинка">
-									<label for="guinea-pig">Морская свинка</label>
-								</div>
-								<div>
-									<input type="checkbox" id="chinchilla" name="chinchilla" class="checkPets"
-										value="Шиншила">
-									<label for="chinchilla">Шиншила</label>
-								</div>
-								<div>
-									<input type="checkbox" id="turtle" name="turtle" class="checkPets" value="Черепаха">
-									<label for="turtle">Черепаха</label>
-								</div>
-								<div>
-									<input type="checkbox" id="snake" name="snake" class="checkPets" value="Змея">
-									<label for="snake">Змея</label>
-								</div>
-								<div>
-									<input type="checkbox" id="lizard" name="lizard" class="checkPets" value="Ящерица">
-									<label for="lizard">Ящерица</label>
-								</div>
-								<div>
-									<input type="checkbox" id="fish" name="fish" class="checkPets" value="Рыбки">
-									<label for="fish">Рыбки</label>
-								</div>
-								<div>
-									<input type="checkbox" id="raccoon" name="raccoon" class="checkPets" value="Енот">
-									<label for="raccoon">Енот</label>
-								</div>
-								<div>
-									<input type="checkbox" id="meerkat" name="meerkat" class="checkPets"
-										value="Сурикат">
-									<label for="meerkat">Сурикат</label>
-								</div>
-								<div>
-									<input type="checkbox" id="rabbit" name="rabbit" class="checkPets" value="Кролик">
-									<label for="rabbit">Кролик</label>
-								</div>
-								<div>
-									<input type="checkbox" id="otherPets" name="other" class="checkPets" value="Другое">
-									<label for="other">Другое</label>
-								</div>
-							</div>
-							<p class="all" onclick="toggleCheckboxes()">Показать все</p>
-						</div>
-					</div>
-					<div id="inputContainerForm2">
-						<input class="other form-control" type="text" name="animalForm" id="animalForm"
-							placeholder="Введите животное" />
-					</div>
-					<label for="city">Город (обязательное поле):</label>
-					<input type="text" id="data-entry__city" required />
-					<label for="phoneNumber">Номер телефона (обязательное поле):</label>
-					<input type="text" id="data-entry__phoneNumber" placeholder="+7**********" required />
-					<div class="mb-3">
-						<label class="form-label">Предпочтительный способ связи</label>
-						<div class="form-check">
-							<input class="form-check-input" type="radio" name="flexRadioDefault"
-								id="data-entry__flexRadioDefault1" value="Мобильная связь" />
-							<label class="form-check-label" for="flexRadioDefault1">Мобильная связь</label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="radio" name="flexRadioDefault"
-								id="data-entry__flexRadioDefault2" value="Мессенджер" />
-							<label class="form-check-label" for="flexRadioDefault2">Мессенджер</label>
-						</div>
-					</div>
-					<div class="input-group mb-3">
-						<span class="input-group-text" id="basic-addon1">@</span>
-						<input type="text" class="form-control" placeholder="Username" aria-label="Username"
-							aria-describedby="basic-addon1" id="data-entry__username" />
-					</div>
-					<div class="mb-3">
-						<label for="emailForm" class="form-label">Email</label>
-						<input type="email" class="form-control" id="data-entry__emailForm"
-							placeholder="name@example.com" />
-					</div>
-					<div class="mb-3 columnform">
-						<div class="filter__card gap2">
-							<div class="filter__title">Оплата</div>
-							<div class="filter__card-salary">
-								<input class="filter__input-salary" type="number" placeholder="От"
-									id="data-entry__minSalary" />
-								<input class="filter__input-salary" type="number" placeholder="До"
-									id="data-entry__maxSalary" /> руб
-							</div>
-						</div>
-						<div class="filter__card gap2">
-							<div class="filter__title">Формат</div>
-							<div class="format">
-								<div class="form-check">
-									<label class="filter__card-label" for="distant">
-										<input class="filter__card-input format form-check-input" id="distant"
-											value="С выездом" type="radio" name="level" />С
-										выездом</label>
-								</div>
-								<div class="form-check">
-									<label class="filter__card-label" for="home2">
-										<input class="filter__card-input format form-check-input" id="home2"
-											value="На дому" type="radio" name="level" />
-										На дому</label>
-								</div>
-								<div class="form-check">
-									<label class="filter__card-label" for="both">
-										<input class="filter__card-input format form-check-input" id="both"
-											value="Оба Варианта" type="radio" name="level" checked />
-										Оба варианта</label>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="extra">
-						<label for="extra">Дополнительно:</label>
-						<textarea id="data-entry__extra" rows="3"
-							placeholder="Любая дополнительная информация, которую нам необходимо знать. Опишите опыт работы, если он имеется."></textarea>
-					</div>
-					<div class="mb-3">
-						<p>Дата регистрации ЛК: <input type="date" name="calendar" id="data-entry__dateRegistration" />
-						</p>
-					</div>
-					<div>
-						<button type="submit" class="btn btn--yellow data-entry__button">
-							<span class="btn__txt">Сохранить</span>
-							<i class="btn__bg" aria-hidden="true"></i>
-							<i class="btn__bg" aria-hidden="true"></i>
-							<i class="btn__bg" aria-hidden="true"></i>
-							<i class="btn__bg" aria-hidden="true"></i>
-						</button>
-					</div>
-				</form>
-			</div>
-			<div class="lk-nanny__data-saved">
-				<p class="data-saved__title">ID</p>
-				<!--<p class="data-saved__idNanny"></p>-->
-				<p class="data-saved__title">Имя</p>
-				<p class="data-saved__fullName"></p>
-				<img src="" alt="foto" class="data-saved__photo" />
-				<p class="data-saved__title">Дата рождения</p>
-				<p class="data-saved__birthday"></p>
-				<p class="data-saved__title">Опыт работы</p>
-				<p class="data-saved__workExperience"></p>
-				<p class="data-saved__title">Вид питомца</p>
-				<p class="data-saved__petType"></p>
-				<p class="data-saved__title">Город</p>
-				<p class="data-saved__city"></p>
-				<p class="data-saved__title">Номер телефона</p>
-				<p class="data-saved__nannyContacts"></p>
-				<p class="data-saved__title">Предпочтительный способ связи</p>
-				<p class="data-saved__connection"></p>
-				<p class="data-saved__title">Username</p>
-				<p class="data-saved__username"></p>
-				<p class="data-saved__title">Email</p>
-				<p class="data-saved__email"></p>
-				<p class="data-saved__title">Оплата</p>
-				<p class="data-saved__CardSalary"></p>
-				<p class="data-saved__title">Формат работы</p>
-				<p class="data-saved__workFormat"></p>
-				<p class="data-saved__title">Дополнительно</p>
-				<p class="data-saved__extra"></p>
-				<p class="data-saved__title">Дата регистрации ЛК</p>
-				<p class="data-saved__dateRegistration"></p>
-				<button type="submit" class="btn btn--yellow data-saved__button">
-					<span class="btn__txt">Редактировать</span>
-					<i class="btn__bg" aria-hidden="true"></i>
-					<i class="btn__bg" aria-hidden="true"></i>
-					<i class="btn__bg" aria-hidden="true"></i>
-					<i class="btn__bg" aria-hidden="true"></i>
-				</button>
-			</div>
-		</div>
-	</section>
 
-	<script src="lkNann.js"></script>
-	<script src="sending_a_questionnaire.js"></script>
-</body>
-
+		<script src="lkNann.js"></script>
+		<script src="sending_a_questionnaire.js"></script>
+	</body>
 </html>
