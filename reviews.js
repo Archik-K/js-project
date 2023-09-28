@@ -33,6 +33,10 @@ function addReview() {
 		isValid = false;
 	}
 	if (isValid) {
+		input.nextElementSibling.textContent = "";
+		textarea.nextElementSibling.textContent = "";
+		input.classList.remove("error");
+		textarea.classList.remove("error");
 		reviewObj.nickname = nickname; // записываем в объект ник
 		reviewObj.review = review; // записываем в объект текст отзыва
 		reviews.push(reviewObj); // добавляем объект в массив
