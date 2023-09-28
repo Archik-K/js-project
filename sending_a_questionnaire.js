@@ -85,34 +85,6 @@ function showOtherForm2() {
 	}
 }
 
-// Добавляем обработчик события "click" на элемент sending
-sending.addEventListener("click", function () {
-	const checkboxes = document.querySelectorAll(".checkPets");
-	// Получение всех элементов, которые являются инпутами, и сохранение их в переменную inputElements
-	let inputElements = document.querySelectorAll("input");
-	// Перебираем каждый элемент
-	for (var i = 0; i < checkboxes.length; i++) {
-		// Обнуляем значение чекбокса
-		checkboxes[i].checked = false;
-	}
-	// Устанавливаем значение workExperience на "0"
-	workExperience.value = '0';
-	// Скрываем inputContainer2, задавая значение display стиля на "none"
-	inputContainerForm2.style.display = "none";
-	// Проходим по каждому найденному инпуту
-	inputElements.forEach(function (input) {
-		// Сбрасываем значение инпута до значения по умолчанию
-		input.value = input.defaultValue;
-		// Сбрасываем значения радиокнопок до значений по умолчанию
-		flexRadioDefault22.checked = true;
-		home2.checked = true;
-		// Очищаем текстовое поле  
-		commentsForm2.value = '';
-		onRequest.style.display = "none";
-		btnRequest.innerHTML = "Показать все";
-	});
-});
-
 const btnRequest = document.querySelector(".all"); // Получение элемента с class "all" и сохранение его в переменную
 const onRequest = document.querySelector(".onRequest"); // Получение элемента с class "onRequest" и сохранение его в переменную
 
@@ -127,3 +99,9 @@ function toggleCheckboxes() {
 		btnRequest.innerHTML = "Показать все";
 	}
 }
+
+//Очищаем форму
+Form2.addEventListener('submit', function (event) {
+	event.preventDefault(); //Отмена отправки
+	Form2.reset();
+});

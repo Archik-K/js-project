@@ -260,6 +260,10 @@
 	display: none;
 }
 
+.onRequestPets {
+	display: none;
+}
+
 .allPets {
 	color: rgb(31, 38, 135);
 	text-decoration: underline;
