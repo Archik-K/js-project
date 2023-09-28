@@ -66,6 +66,36 @@
 					<input type="text" id="loginUsername" placeholder="Имя пользователя">
 					<input type="password" id="loginPassword" placeholder="Пароль">
 					<button onclick="login()" id="avtoriz">Войти</button>
+				<details class="dropdown">
+					<summary role="button">
+					<a class="button_registr_click"><img id="img_registr" src="./src/pictures/img_519969.png"></a>
+					</summary>
+					<ul>
+						<li><a href="#"><button  class='button_registr' id="userRegisterBtn">Регистрация пользователя</button></a></li>
+						<li><a href="#"><button  class='button_registr' id="nannyRegisterBtn">Регистрация няни</button></a></li>
+						<li><a href="#"><button  class='button_registr' id="loginBtn">Авторизация</button></a></li>
+				</ul>
+				</details>
+<div id="userRegisterModal" style="display: none;" class="modal">
+	<span class="close" onclick="closeModal('userRegisterModal')">&times;</span>
+  <h2>Регистрация пользователя</h2>
+  <input type="text" id="userUsername" placeholder="Имя пользователя">
+  <input type="password" id="userPassword" placeholder="Пароль">
+  <button onclick="registerUser()">Зарегистрироваться</button>
+</div>
+<div id="nannyRegisterModal" style="display: none;"  class="modal">
+	<span class="close" onclick="closeModal('nannyRegisterModal')">&times;</span>
+<h2>Регистрация няни</h2>
+<input type="text" id="nannyUsername" placeholder="Имя пользователя">
+<input type="password" id="nannyPassword" placeholder="Пароль">
+<button onclick="registerNanny()">Зарегистрироваться</button>
+</div>
+<div id="loginModal" style="display: none;" class="modal">
+	<span class="close" onclick="closeModal('loginModal')">&times;</span>
+<h2>Авторизация</h2>
+<input type="text" id="loginUsername" placeholder="Имя пользователя">
+<input type="password" id="loginPassword" placeholder="Пароль">
+<button onclick="login()" id="avtoriz">Войти</button>
 
 				</div>
 				<div class="overlay" id="overlay"></div>

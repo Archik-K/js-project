@@ -57,7 +57,7 @@ function login() {
 		password === nannyStoredPassword
 	) {
 		alert("Няня успешно авторизована.");
-		// Здесь можно добавить переход на другую страницу после авторизации няни
+		window.location.href = "index_lkNann.html";
 	} else {
 		alert("Неверное имя пользователя или пароль.");
 	}
