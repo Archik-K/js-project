@@ -19,6 +19,14 @@ function searchResult(element, index) {
                 <div class="search__card-experience">${element.food}</div>
                 <div class="search__card-subtitle">Оплата</div>
                 <div class="search__card-salary">${element.salary} руб/сутки</div>
+								<div class="card__btn">
+			            <button onclick="window.location.href ='https://t.me/ffemme';" class="button-round tel">
+				            <img2 class="socialicon2">
+			            </button>
+			            <button onclick="window.location.href ='https://wa.me/351912780199?text=Здравствуйте,%20хочу%20записаться%20на%20консультацию';"class="button-round button-round_green">
+				            <img1 class="socialicon1">
+			            </button>
+			          </div>
             </div>
 			<div class="foto_star">
         <image src="${element.photo}" class="search__card-photo" alt="photo" />
