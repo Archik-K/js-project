@@ -101,6 +101,7 @@
 }
 
 @media (min-width: 1199.98px) {
+
     .navigation {
         display: flex;
         width: 100%;
@@ -190,6 +191,7 @@
         text-align: center;
         /* Текст по центру */
     }
+
 }
 .div_block_text {
     width: 90vw;
@@ -962,109 +964,6 @@ footer img {
     color: #f00; /* Цвет крестика при наведении */
 }
 
-#menu_registr {
-    position: absolute;
-    top: 0;
-    right: 20px; /* Отодвигаем меню вправо */
-    z-index: 2;
-}
-
-#menu-bar {
-    width: 45px;
-    height: 40px;
-    margin: 29px 0 6px 313px;
-    cursor: pointer;
-}
-
-.bar {
-    height: 5px;
-    width: 100%;
-    background-color: #2b0500;
-    display: block;
-    border-radius: 5px;
-    transition: 0.3s ease;
-}
-
-#bar1 {
-    transform: translateY(-4px);
-}
-
-#bar3 {
-    transform: translateY(4px);
-}
-
-.nav_registr {
-    transition: 0.3s ease;
-    display: none;
-}
-
-.nav_registr ul {
-    width: 278px;
-    height: 199px;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.nav_registr li {
-    height: 67px;
-    list-style: none;
-    padding: 12px 0;
-}
-
-.nav_registr li a {
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-.nav_registr li a:hover {
-    font-weight: bold;
-}
-.menu-bg,
-#menu_registr {
-    top: 0;
-    right: 20px; /* Отодвигаем фоновое окно вправо */
-    position: absolute;
-}
-
-.menu-bg {
-    z-index: 1;
-    width: 0;
-    height: 0;
-    margin: 30px 0 20px 20px;
-    background: linear-gradient(to left, #74a350, #fdb100);
-    border-radius: 50%;
-    transition: 0.3s ease;
-}
-
-.change {
-    display: block;
-}
-
-.change .bar {
-    background-color: rgba(49, 1, 1, 0.979);
-}
-
-.change #bar1 {
-    transform: translateY(4px) rotateZ(-45deg);
-}
-
-.change #bar2 {
-    opacity: 0;
-}
-
-.change #bar3 {
-    transform: translateY(-6px) rotateZ(45deg);
-}
-
-.change-bg {
-    width: 474px;
-    height: 485px;
-    transform: translate(44%, -31%);
-}
-
 .button_registr {
     width: 125px;
     height: 47px;
@@ -1119,6 +1018,7 @@ footer img {
     opacity: 1;
     animation: animate 8s linear infinite;
 }
+
 
 /* ОТЗЫВЫ */
 .container_with_cards {
@@ -1207,4 +1107,93 @@ footer img {
     border-radius: 0.25rem;
 }
 
-/* ОТЗЫВЫ -- end*/
+
+a.button_registr_click {
+	background: linear-gradient(to left, #74a350, #fdb100);
+	width: 66px;
+	height: 61px;
+	display: inline-block;
+	padding: 6px 5px;
+	border-radius: 50px;
+	box-sizing: border-box;
+	border: none;
+
+	color: var(--button-color);
+	font-size: 24px;
+	cursor: pointer;
+}
+
+a.button_registr_click:active {
+	filter: brightness(75%);
+}
+
+/* Dropdown styles */
+.dropdown {
+	position: relative;
+	padding: 0;
+	margin-right: 3em;
+	border: none;
+}
+
+.dropdown summary {
+	list-style: none;
+	list-style-type: none;
+}
+
+.dropdown > summary::-webkit-details-marker {
+	display: none;
+}
+
+.dropdown summary:focus {
+	outline: none;
+}
+
+.dropdown summary:focus {
+	outline: none;
+}
+
+.dropdown ul {
+	width: 170px;
+	position: absolute;
+	margin: 20px 0 0 -68%;
+	padding: 22px 0;
+	box-sizing: border-box;
+	z-index: 2;
+	background: linear-gradient(to left, #74a350, #fdb100);
+	border-radius: 6px;
+	list-style: none;
+}
+
+.dropdown ul li {
+	padding: 0;
+	margin: 0;
+}
+
+.dropdown ul li a:link,
+.dropdown ul li a:visited {
+	display: inline-block;
+	padding: 11px 1.4rem;
+	width: 100%;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+.dropdown > summary::before {
+	display: none;
+}
+
+.dropdown[open] > summary::before {
+	content: " ";
+	display: block;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 1;
+}
+
+#img_registr {
+	margin-left: 2px;
+}
+

@@ -30,21 +30,16 @@
 				<a href="#filter_block__title_yakor" class="navigation__link_2">Найти няню</a>
 				<a href="#nannys_cards" class="navigation__link_3">Те кто будут рады вам помочь</a>
 				<a href="#registration-forms_yakor" class="navigation__link_4">Оставить заявку</a>
-			<div id="menu_registr">
-				<div id="menu-bar" onclick="menuOnClick()">
-				<div id="bar1" class="bar"></div>
-				<div id="bar2" class="bar"></div>
-				<div id="bar3" class="bar"></div>
-				</div>
-				<nav class="nav_registr" id="nav_registr">
-				<ul>
-					<li><a href="#"><button  class='button_registr' id="userRegisterBtn">Регистрация пользователя</button></a></li>
-					<li><a href="#"> <button  class='button_registr' id="nannyRegisterBtn">Регистрация няни</button></a></li>
-					<li><a href="#"><button  class='button_registr' id="loginBtn">Авторизация</button></a></li>
+				<details class="dropdown">
+					<summary role="button">
+					<a class="button_registr_click"><img id="img_registr" src="./src/pictures/img_519969.png"></a>
+					</summary>
+					<ul>
+						<li><a href="#"><button  class='button_registr' id="userRegisterBtn">Регистрация пользователя</button></a></li>
+						<li><a href="#"><button  class='button_registr' id="nannyRegisterBtn">Регистрация няни</button></a></li>
+						<li><a href="#"><button  class='button_registr' id="loginBtn">Авторизация</button></a></li>
 				</ul>
-				</nav>
-			</div>
-			<div class="menu-bg" id="menu-bg"></div>
+				</details>
 <div id="userRegisterModal" style="display: none;" class="modal">
 	<span class="close" onclick="closeModal('userRegisterModal')">&times;</span>
   <h2>Регистрация пользователя</h2>
